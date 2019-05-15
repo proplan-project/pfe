@@ -28,8 +28,8 @@ class Facture_model extends CI_Model
             $this->db->like('date_facture', $_POST["searchPhrase"]);
             $this->db->or_like('date_echeance', $_POST["searchPhrase"]);
             $this->db->or_like('montant', $_POST["searchPhrase"]);
-            // $this->db->or_like('paiement_recu', $_POST["paiement_recu"]);
-            // $this->db->or_like('status', $_POST["searchPhrase"]);
+            //$this->db->or_like('paiement_recu', $_POST["paiement_recu"]);
+            //$this->db->or_like('status', $_POST["searchPhrase"]);
         }
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {

@@ -29,12 +29,13 @@ class Tache_model extends CI_Model
         $this->db->from("tache");
         if(!empty($_POST["searchPhrase"]))
         {
-            $this->db->like('titre', $_POST["titre"]);
-            $this->db->or_like('description', $_POST["description"]);
-            $this->db->or_like('date_debut', $_POST["date_debut"]);
-            $this->db->or_like('date_limite', $_POST["date_limite"]);
-            $this->db->or_like('status', $_POST["status"]);
-        }
+            $this->db->like('titre', $_POST["searchPhrase"]);
+            $this->db->or_like('description', $_POST["searchPhrase"]);
+            $this->db->or_like('date_debut', $_POST["searchPhrase"]);
+            $this->db->or_like('date_limite', $_POST["searchPhrase"]);
+            $this->db->or_like('status', $_POST["searchPhrase"]);
+
+    }
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {
             foreach($_POST["sort"] as $key => $value)
