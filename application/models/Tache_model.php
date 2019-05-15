@@ -6,83 +6,51 @@
  
 class Tache_model extends CI_Model
 {
-    var $records_per_page = 10;
-    var $start_from = 0;
-    var $current_page_number = 1;
-
-    function make_query()
+    function __construct()
     {
-        if(isset($_POST["rowCount"]))
-        {
-            $this->records_per_page = $_POST["rowCount"];
-        }
-        else
-        {
-            $this->records_per_page = 10;
-        }
-        if(isset($_POST["current"]))
-        {
-            $this->current_page_number = $_POST["current"];
-        }
-        $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
-        $this->db->select("*");
-        $this->db->from("tache");
-        if(!empty($_POST["searchPhrase"]))
-        {
-            $this->db->like('titre', $_POST["titre"]);
-            $this->db->or_like('description', $_POST["description"]);
-            $this->db->or_like('date_debut', $_POST["date_debut"]);
-            $this->db->or_like('date_limite', $_POST["date_limite"]);
-            $this->db->or_like('status', $_POST["status"]);
-        }
-        if(isset($_POST["sort"]) && is_array($_POST["sort"]))
-        {
-            foreach($_POST["sort"] as $key => $value)
-            {
-                $this->db->order_by($key, $value);
-            }
-        }
-        else
-        {
-            $this->db->order_by('id_tache', 'DESC');
-        }
-        if($this->records_per_page != -1)
-        {
-            $this->db->limit($this->records_per_page, $this->start_from);
-        }
-        $query = $this->db->get();
-        return $query->result_array();
+        parent::__construct();
     }
-
-    function count_all_data()
+    
+    /*
+     * Get tache by id_tache
+     */
+    function get_tache($id_tache)
     {
-        $this->db->select("*");
-        $this->db->from("tache");
-        $query = $this->db->get();
-        return $query->num_rows();
+        return $this->db->get_where('tache',array('id_tache'=>$id_tache))->row_array();
     }
-
-    function insert($data)
+        
+    /*
+     * Get all tache
+     */
+    function get_all_tache()
     {
-        $this->db->insert('tache', $data);
+        $this->db->order_by('id_tache', 'desc');
+        return $this->db->get('tache')->result_array();
     }
-
-    function fetch_single_data($id_tache)
+        
+    /*
+     * function to add new tache
+     */
+    function add_tache($params)
     {
-        $this->db->where('id_tache', $id_tache);
-        $query = $this->db->get('tache');
-        return $query->result_array();
+        $this->db->insert('tache',$params);
+        return $this->db->insert_id();
     }
-
-    function update($data, $id_tache)
+    
+    /*
+     * function to update tache
+     */
+    function update_tache($id_tache,$params)
     {
-        $this->db->where('id_tache', $id_tache);
-        $this->db->update('tache', $data);
+        $this->db->where('id_tache',$id_tache);
+        return $this->db->update('tache',$params);
     }
-
-    function delete($id_tache)
+    
+    /*
+     * function to delete tache
+     */
+    function delete_tache($id_tache)
     {
-        $this->db->where('id_tache', $id_tache);
-        $this->db->delete('tache');
+        return $this->db->delete('tache',array('id_tache'=>$id_tache));
     }
 }

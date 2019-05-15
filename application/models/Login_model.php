@@ -9,12 +9,12 @@ class Login_model extends CI_Model
         {
             foreach($query->result() as $row)
             {
-                if($row->is_email_verified == 'non')
+                if($row->is_email_verified == 'oui')
                 {
-                    $store_password = $this->encryption->decrypt($row->password);
-                    if($password == $store_password)
+                    /*$store_password = $this->encrypt->decode($row->password);*/
+                    if($password == $row->password)
                     {
-                        $this->session->set_userdata('id', $row->id);
+                        return $this->session->set_userdata('id', $row->id_chef);
                     }
                     else
                     {

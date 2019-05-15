@@ -32,14 +32,14 @@ class Register extends CI_Controller {
         if($this->form_validation->run())
         {
             $verification_key = md5(rand());
-            $encrypted_password = $this->encryption->encrypt($this->input->post('user_password'));
+           /* $encrypted_password = $this->encryption->encrypt($this->input->post('user_password'));*/
             $data = array(
                 'nom'  => $this->input->post('user_name'),
                 'prenom'  => $this->input->post('user_name'),
                 'adresse'  => $this->input->post('user_name'),
                 'tel'  => $this->input->post('user_name'),
                 'email'  => $this->input->post('user_email'),
-                'password' => $encrypted_password,
+                'password' => $this->input->post('user_password'),
                 'verification_key' => $verification_key
             );
             $id = $this->register_model->insert($data);

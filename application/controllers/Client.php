@@ -6,11 +6,14 @@ class Client extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Client_model');
+        if($this->session->userdata('id'))
+        {
+        }
     }
 
     function index()
     {
-        $this->load->view('client_view');
+        $this->load->view('client');
     }
 
     function fetch_data()
@@ -43,7 +46,8 @@ class Client extends CI_Controller
                 'code_postal' => $this->input->post("code_postal"),
                 'pays' => $this->input->post("pays"),
                 'telephone' => $this->input->post("telephone"),
-                'site' => $this->input->post("site")
+                'site' => $this->input->post("site"),
+                'id_utilisateur'=>$this->session->userdata('id')
             );
             if($this->input->post('operation') == 'Add')
             {
@@ -74,6 +78,7 @@ class Client extends CI_Controller
                 $output['pays'] = $row['pays'];
                 $output['telephone'] = $row['telephone'];
                 $output['site'] = $row['site'];
+                $output['id_utilisateur'] = $row['site'];
             }
             echo json_encode($output);
         }
