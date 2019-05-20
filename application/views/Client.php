@@ -31,14 +31,14 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="dashboard.html">
+                <li >
+                    <a href="<?php echo base_url(); ?>private_area">
                         <i class="pe-7s-graph"></i>
                         <p>Accueil</p>
                     </a>
                 </li>
-                <li>
-                    <a href="table.html">
+                <li class="active">
+                    <a href="#">
                         <i class="pe-7s-note2"></i>
                         <p>Clients</p>
                     </a>
@@ -159,20 +159,18 @@
                                     <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Ajouter Un Filter
                                 </button>
                             </div>
-                            <div class="col-md-2">
-                                <button type="button" id="add_button" data-toggle="modal" data-target="#clientModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Export
-                                </button>
+                            <div class="col-md-2" >
+                                <form method="post" action="<?php echo base_url(); ?>export_csv/export" >
+                                        <button type="submit" name="export" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000"/>
+                                        <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Export CSV
+                                </form>
                             </div>
-                            <div class="col-md-2">
-                                <button type="button" id="add_button" data-toggle="modal" data-target="#clientModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Import
-                                </button>
-                            </div>
-                            <div class="col-md-2">
-                                <button type="button" id="add_button" data-toggle="modal" data-target="#clientModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Print
-                                </button>
+                            <div class="col-md-2" style="margin-left: -27px;">
+                                <form method="post" action="<?php echo base_url(); ?>export_csv/export">
+                                    <button type="button" id="add_button" data-toggle="modal" data-target="#clientModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                        <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Import
+                                    </button>
+                                </form>
                             </div>
                         </div>
 
