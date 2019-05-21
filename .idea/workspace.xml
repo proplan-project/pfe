@@ -2,8 +2,276 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc2ef064-f857-4563-a9e9-af7dcde5ae39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/controllers/Csv_import.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/Export_csv.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/export_csv_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Excel_export.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Welcome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/Exel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/export_csv.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Autoloader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/APC.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/CacheBase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/DiscISAM.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/ICache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/Igbinary.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/Memcache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/Memory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/MemoryGZip.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/MemorySerialized.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/PHPTemp.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/SQLite.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/SQLite3.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorage/Wincache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CachedObjectStorageFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CalcEngine/CyclicReferenceStack.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/CalcEngine/Logger.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/DateTime.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Engineering.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Exception.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/ExceptionHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Financial.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/FormulaParser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/FormulaToken.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Function.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Logical.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/LookupRef.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/MathTrig.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Statistical.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/TextData.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/Token/Stack.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Calculation/functionlist.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Cell.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Cell/AdvancedValueBinder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Cell/DataType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Cell/DataValidation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Cell/DefaultValueBinder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Cell/Hyperlink.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Cell/IValueBinder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/Axis.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/DataSeries.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/DataSeriesValues.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/Exception.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/GridLines.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/Layout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/Legend.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/PlotArea.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/Properties.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/Renderer/PHP Charting Libraries.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/Renderer/jpgraph.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Chart/Title.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Comment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/DocumentProperties.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/DocumentSecurity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Exception.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/HashTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Helper/HTML.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/IComparable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/IOFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/NamedRange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Abstract.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/CSV.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/DefaultReadFilter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel2003XML.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel2007.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel2007/Chart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel2007/Theme.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/Color.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/Color/BIFF5.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/Color/BIFF8.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/Color/BuiltIn.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/ErrorCode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/Escher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/MD5.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/RC4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/Style/Border.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Excel5/Style/FillPattern.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Exception.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/Gnumeric.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/HTML.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/IReadFilter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/IReader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/OOCalc.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Reader/SYLK.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/ReferenceHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/RichText.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/RichText/ITextElement.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/RichText/Run.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/RichText/TextElement.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Settings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/CodePage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Date.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Drawing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Escher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Escher/DgContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Escher/DgContainer/SpgrContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Escher/DgContainer/SpgrContainer/SpContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Escher/DggContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Escher/DggContainer/BstoreContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Escher/DggContainer/BstoreContainer/BSE.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Escher/DggContainer/BstoreContainer/BSE/Blip.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Excel5.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/File.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/Font.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/CHANGELOG.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/CholeskyDecomposition.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/EigenvalueDecomposition.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/LUDecomposition.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/Matrix.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/QRDecomposition.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/SingularValueDecomposition.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/utils/Error.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/JAMA/utils/Maths.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/OLE.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/OLE/ChainedBlockStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/OLE/PPS.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/OLE/PPS/File.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/OLE/PPS/Root.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/OLERead.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/PCLZip/gnu-lgpl.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/PCLZip/pclzip.lib.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/PCLZip/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/PasswordHasher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/String.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/TimeZone.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/XMLWriter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/ZipArchive.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/ZipStreamWrapper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/trend/bestFitClass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/trend/exponentialBestFitClass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/trend/linearBestFitClass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/trend/logarithmicBestFitClass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/trend/polynomialBestFitClass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/trend/powerBestFitClass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Shared/trend/trendClass.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Alignment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Border.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Borders.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Color.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Conditional.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Fill.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Font.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/NumberFormat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Protection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Style/Supervisor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/AutoFilter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/AutoFilter/Column.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/AutoFilter/Column/Rule.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/BaseDrawing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/CellIterator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/Column.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/ColumnCellIterator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/ColumnDimension.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/ColumnIterator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/Dimension.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/Drawing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/Drawing/Shadow.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/HeaderFooter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/HeaderFooterDrawing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/MemoryDrawing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/PageMargins.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/PageSetup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/Protection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/Row.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/RowCellIterator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/RowDimension.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/RowIterator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Worksheet/SheetView.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/WorksheetIterator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Abstract.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/CSV.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/Chart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/Comments.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/ContentTypes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/DocProps.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/Drawing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/Rels.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/RelsRibbon.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/RelsVBA.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/StringTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/Style.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/Theme.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/Workbook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/Worksheet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel2007/WriterPart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel5.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel5/BIFFwriter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel5/Escher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel5/Font.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel5/Parser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel5/Workbook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel5/Worksheet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Excel5/Xf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/Exception.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/HTML.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/IWriter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/Cell/Comment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/Content.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/Meta.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/MetaInf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/Mimetype.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/Settings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/Styles.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/Thumbnails.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/OpenDocument/WriterPart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/PDF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/PDF/Core.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/PDF/DomPDF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/PDF/mPDF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/Writer/PDF/tcPDF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/bg/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/cs/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/cs/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/da/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/da/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/de/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/de/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/en/uk/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/es/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/es/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/fi/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/fi/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/fr/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/fr/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/hu/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/hu/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/it/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/it/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/nl/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/nl/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/no/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/no/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/pl/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/pl/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/pt/br/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/pt/br/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/pt/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/pt/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/ru/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/ru/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/sv/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/sv/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/tr/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/PHPExcel/locale/tr/functions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Excel_export_model.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/excel_export_view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/home.php" afterDir="false" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,21 +302,41 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
               <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+=======
+        <entry file="file://$PROJECT_DIR$/application/views/Client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+              <folding>
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="e#171#177#1" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#button#1;n#!!top" expanded="true" />
+              </folding>
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/application/views/welcome_message.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="19">
               <caret line="246" column="35" selection-start-line="246" selection-start-column="35" selection-end-line="246" selection-end-column="35" />
             </state>
           </provider>
+=======
+        <entry file="file://$PROJECT_DIR$/application/controllers/Csv_import.php">
+          <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
         </entry>
       </file>
     </leaf>
@@ -59,10 +347,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/application/config/config.php" />
         <option value="$PROJECT_DIR$/application/controllers/Welcome.php" />
+=======
+        <option value="$PROJECT_DIR$/application/config/database.php" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
         <option value="$PROJECT_DIR$/application/views/email_verification.php" />
         <option value="$PROJECT_DIR$/application/views/login.php" />
         <option value="$PROJECT_DIR$/application/views/register.php" />
@@ -76,18 +367,36 @@
         <option value="$PROJECT_DIR$/application/views/client/index.php" />
         <option value="$PROJECT_DIR$/application/views/utilisateur_a_equipe/Client.php" />
         <option value="$PROJECT_DIR$/application/views/client_view.php" />
-        <option value="$PROJECT_DIR$/application/views/home.php" />
-        <option value="$PROJECT_DIR$/application/views/Client.php" />
         <option value="$PROJECT_DIR$/application/controllers/Client.php" />
         <option value="$PROJECT_DIR$/application/models/Facture_model.php" />
         <option value="$PROJECT_DIR$/application/models/Projet_model.php" />
         <option value="$PROJECT_DIR$/application/models/Tache_model.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/application/config/database.php" />
+=======
+        <option value="$PROJECT_DIR$/application/views/test.php" />
+        <option value="$PROJECT_DIR$/application/libraries/Exel.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Excel_export.php" />
+        <option value="$PROJECT_DIR$/application/libraries/IOFactory.php" />
+        <option value="$PROJECT_DIR$/application/models/Excel_export_model.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/application/views/excel_export_view.php" />
+        <option value="$PROJECT_DIR$/application/config/config.php" />
+        <option value="$PROJECT_DIR$/application/views/export_csv.php" />
+        <option value="$PROJECT_DIR$/application/models/export_csv_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Welcome.php" />
+        <option value="$PROJECT_DIR$/application/views/home.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Export_csv.php" />
+        <option value="$PROJECT_DIR$/application/views/Client.php" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
       </list>
     </option>
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -97,24 +406,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="pfe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfe" type="462c0819:PsiDirectoryNode" />
+              <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pfe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfe" type="462c0819:PsiDirectoryNode" />
+              <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pfe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pfe" type="462c0819:PsiDirectoryNode" />
+              <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -122,6 +435,9 @@
               <item name="pfe" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
             </path>
             <path>
               <item name="pfe" type="b2602c69:ProjectViewProjectNode" />
@@ -133,16 +449,25 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../proplan" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin/php/php7.2.14/zend_ext/php_xdebug-2.6.1-7.2-vc15-x86_64.dll" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -165,6 +490,16 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Export_csv.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/application/controllers/Export_csv.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.Export_csv.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -184,22 +519,65 @@
       <workItem from="1557852575715" duration="20994000" />
       <workItem from="1557926376464" duration="1677000" />
       <workItem from="1557929622882" duration="3223000" />
+<<<<<<< HEAD
       <workItem from="1557935727206" duration="1171000" />
       <workItem from="1558069275054" duration="13000" />
       <workItem from="1558174139910" duration="1912000" />
       <workItem from="1558262559548" duration="1795000" />
       <workItem from="1558309897627" duration="338000" />
+=======
+      <workItem from="1558299657101" duration="17911000" />
+      <workItem from="1558323965250" duration="2573000" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
     </task>
+    <task id="LOCAL-00001" summary="test commit in phpstorm">
+      <created>1558300000571</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1558300000571</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test commit in phpstorm 2">
+      <created>1558300251239</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1558300251239</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test commit in phpstorm 3">
+      <created>1558300468737</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1558300468737</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add exel library">
+      <created>1558303436388</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1558303436388</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="87494000" />
+=======
+    <option name="totallyTimeSpent" value="102510000" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27609682" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.2375189" />
+      <window_info id="Structure" order="1" sideWeight="0.5008183" side_tool="true" weight="0.16641453" />
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -207,16 +585,17 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32890365" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3986711" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.33060557" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.7397709" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32890365" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Maven" order="2" />
@@ -252,6 +631,53 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test commit in phpstorm" />
+    <MESSAGE value="test commit in phpstorm 2" />
+    <MESSAGE value="test commit in phpstorm 3" />
+    <MESSAGE value="add exel library" />
+    <option name="LAST_COMMIT_MESSAGE" value="add exel library" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -267,18 +693,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/views/Client.php</url>
-          <line>380</line>
+          <line>378</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/views/Client.php</url>
-          <line>311</line>
+          <line>309</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -286,6 +713,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
     <entry file="file://$PROJECT_DIR$/application/controllers/Commentaire.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -340,6 +769,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/controllers/Private_area.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -354,11 +784,12 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
     <entry file="file://$PROJECT_DIR$/application/views/client/index.php" />
     <entry file="file://$PROJECT_DIR$/application/views/client/edit.php" />
     <entry file="file://$PROJECT_DIR$/application/views/client/add.php" />
     <entry file="file://$PROJECT_DIR$/assest/css/bootstrap.min.css" />
-    <entry file="file://$PROJECT_DIR$/application/views/Client.php" />
     <entry file="file://$PROJECT_DIR$/application/views/client_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -372,7 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/home.php" />
     <entry file="file://$PROJECT_DIR$/application/controllers/Client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -431,7 +861,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Projet_model.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="525">
+=======
+        <state relative-caret-position="544">
+>>>>>>> 4a76531b0c0726b109b44b72efd4272ca53ac80b
           <caret line="32" column="65" selection-start-line="29" selection-start-column="13" selection-end-line="32" selection-end-column="65" />
         </state>
       </provider>
@@ -480,6 +914,116 @@
           <caret line="246" column="35" selection-start-line="246" selection-start-column="35" selection-end-line="246" selection-end-column="35" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="26" lean-forward="true" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/PHPExcel.php" />
+    <entry file="file://$PROJECT_DIR$/application/libraries/PHPExcel/IOFactory.php" />
+    <entry file="file://$PROJECT_DIR$/application/libraries/IOFactory.php" />
+    <entry file="file://$PROJECT_DIR$/application/models/Excel_export_model.php" />
+    <entry file="file://$PROJECT_DIR$/application/controllers/Excel_export.php" />
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/excel_export_view.php" />
+    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="99" column="48" lean-forward="true" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/Exel.php" />
+    <entry file="file://$PROJECT_DIR$/application/controllers/Expoet_cvs.php" />
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/export_csv_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Private_area.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Utilisateur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/welcome_message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-293">
+          <caret line="45" column="46" lean-forward="true" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/export_csv.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Export_csv.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="30" column="113" selection-start-line="30" selection-start-column="113" selection-end-line="30" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="e#171#177#1" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Csv_import.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
