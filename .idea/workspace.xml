@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc2ef064-f857-4563-a9e9-af7dcde5ae39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/controllers/Profil.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/libraries/Csvimport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/Csv_import_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/profileInfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/csv_import.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/profil.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/profilinfo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Csv_import.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Csv_import.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Equipe_a_projet.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Equipe_a_projet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Private_area.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Private_area.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Login_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Login_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/export_csv.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assest/css/light-bootstrap-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/assest/css/light-bootstrap-dashboard.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +51,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Register.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
@@ -46,15 +65,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Profil.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -100,7 +110,6 @@
         <option value="$PROJECT_DIR$/application/views/home.php" />
         <option value="$PROJECT_DIR$/application/controllers/Export_csv.php" />
         <option value="$PROJECT_DIR$/application/views/Client.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Profil.php" />
       </list>
     </option>
   </component>
@@ -135,7 +144,7 @@
               <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
@@ -246,23 +255,16 @@
       <option name="project" value="LOCAL" />
       <updated>1558303436388</updated>
     </task>
-    <task id="LOCAL-00005" summary="modification">
-      <created>1558530881790</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1558530881790</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104597000" />
+    <option name="totallyTimeSpent" value="102712000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" weight="0.4107413" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.4107413" />
       <window_info id="Structure" order="1" sideWeight="0.5008183" side_tool="true" weight="0.16641453" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info id="Image Layers" order="3" />
@@ -362,8 +364,7 @@
     <MESSAGE value="test commit in phpstorm 2" />
     <MESSAGE value="test commit in phpstorm 3" />
     <MESSAGE value="add exel library" />
-    <MESSAGE value="modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="add exel library" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -631,13 +632,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Csv_import.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-        </state>
-      </provider>
     </entry>
   </component>
 </project>
