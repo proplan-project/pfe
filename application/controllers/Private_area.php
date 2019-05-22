@@ -6,7 +6,7 @@ class Private_area extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        if(!$this->session->userdata('id'))
+        if(!$this->session->userdata['info']['id'])
         {
             redirect('login');
         }

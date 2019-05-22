@@ -56,18 +56,19 @@ class Register extends CI_Controller {
                 $config = array(
 
                     'protocol'  => 'smtp',
-                    'smtp_host' => 'smtp.gmail.com',
-                    'smtp_port' => 993,
-                    'smtp_user'  => '',
-                    'smtp_pass'  => '',
+                    'smtp_host' => 'smtp-pulse.com',
+                    'smtp_port' => 465,
+                    'smtp_user'  => 'elalamifatimazahra3@gmail.com',
+                    'smtp_pass'  => 'GGbL2tmLJstqda',
                     'mailtype'  => 'html',
                     'charset'    => 'iso-8859-1',
                     'wordwrap'   => TRUE
                 );
-                $this->load->library('email', $config);
+                $this->load->library('email');
+                $this->email->initialize($config);
                 $this->email->set_newline("\r\n");
-                $this->email->from('alamiifati11091998@gmail.com','Fati Alami');
-                $this->email->to($this->input->post('user_email'));
+                $this->email->from('elalamifatimazahra3@gmail.com','Fati Alami');
+                $this->email->to('halaelyabouri@gmail.com');
                 $this->email->subject($subject);
                 $this->email->message($message);
                 if($this->email->send())
@@ -75,7 +76,9 @@ class Register extends CI_Controller {
                     $this->session->set_flashdata('message', 'Check in your email for email verification mail');
                     redirect('register');
                 }else{
-                    $this->session->set_flashdata('message', 'no send');
+
+                    $message =  $this->email->print_debugger();
+                    $this->session->set_flashdata('message', $message);
                     redirect('register');
                 }
             }

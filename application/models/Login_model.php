@@ -1,20 +1,24 @@
 <?php
 class Login_model extends CI_Model
 {
-    function can_login($email, $password)
+    function can_login($email, $password,$db)
     {
         $this->db->where('email', $email);
-        $query = $this->db->get('chef_projet');
+        $query = $this->db->get($db);
         if($query->num_rows() > 0)
         {
             foreach($query->result() as $row)
             {
                 if($row->is_email_verified == 'oui')
                 {
-                    /*$store_password = $this->encrypt->decode($row->password);*/
+
                     if($password == $row->password)
                     {
-                        return $this->session->set_userdata('id', $row->id_chef);
+                        $info = array(
+                            'id' => $row->id,
+                            'db' => $db
+                        );
+                        $this->session->set_userdata('info', $info);
                     }
                     else
                     {

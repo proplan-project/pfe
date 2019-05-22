@@ -6,7 +6,7 @@ class Login extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        if($this->session->userdata('id'))
+        if(isset($this->session->userdata['info']['id']))
         {
             redirect('private_area');
         }
@@ -27,7 +27,7 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('user_password', 'Password', 'required');
         if($this->form_validation->run())
         {
-           $result = $this->login_model->can_login($this->input->post('user_email'), $this->input->post('user_password'));
+           $result = $this->login_model->can_login($this->input->post('user_email'), $this->input->post('user_password'), $this->input->post('hidden'));
             if($result == '')
             {
                 redirect('private_area');

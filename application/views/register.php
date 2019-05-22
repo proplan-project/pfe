@@ -8,6 +8,9 @@
 <body>
 <div class="container">
     <br><br>
+    <?php
+      echo $this->session->flashdata('message');
+    ?>
     <div class="col-md-6 col-md-offset-3">
       <div class="panel panel-default">
         <div class="panel-heading">Register</div>

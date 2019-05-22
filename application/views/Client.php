@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>jQuery Bootgrid - Server Side Processing in Codeigniter</title>
+    <title>Clients</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css" />
@@ -165,11 +165,16 @@
                                         <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Export CSV
                                 </form>
                             </div>
-                            <div class="col-md-2" style="margin-left: -27px;">
-                                <form method="post" action="<?php echo base_url(); ?>export_csv/export">
-                                    <button type="button" id="add_button" data-toggle="modal" data-target="#clientModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                        <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Import
-                                    </button>
+                            <div class="col-md-6" style="margin-left: -27px;">
+                                <form method="post" id="import_csv" enctype="multipart/form-data">
+                                    <div class="form-group col-md-4">
+                                        <button type="submit" id="import_csv_btn" name="import_csv" data-toggle="modal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                            <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Import CSV
+                                        </button>
+                                    </div>
+                                    <div class="form-group col-md-4" style="margin-top: 7px">
+                                        <input type="file" name="csv_file" id="csv_file" required accept=".csv" />
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -261,7 +266,47 @@
         </form>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
 
+        load_data();
+
+        function load_data()
+        {
+            $.ajax({
+                url:"<?php echo base_url(); ?>csv_import/load_data",
+                method:"POST",
+                success:function(data)
+                {
+                    $('#imported_csv_data').html(data);
+                }
+            })
+        }
+
+        $('#import_csv').on('submit', function(event){
+            event.preventDefault();
+            $.ajax({
+                url:"<?php echo base_url(); ?>csv_import/import",
+                method:"POST",
+                data:new FormData(this),
+                contentType:false,
+                cache:false,
+                processData:false,
+                beforeSend:function(){
+                    $('#import_csv_btn').html('Importing...');
+                },
+                success:function(data)
+                {
+                    $('#import_csv')[0].reset();
+                    $('#import_csv_btn').attr('disabled', false);
+                    $('#import_csv_btn').html('Import Done');
+                    load_data();
+                }
+            })
+        });
+
+    });
+</script>
 <script type="text/javascript" language="javascript" >
     $(document).ready(function(){
 

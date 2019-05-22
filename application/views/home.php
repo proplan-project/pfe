@@ -191,7 +191,7 @@ if (isset($_POST['azure']))
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><b>AlamiFati</b><i>&nbspadmin</i></a></li>
-                                <li><a href="#">Voir le Profil</a></li>
+                                <li><a href="<?php echo base_url()?>/profil">Voir le Profil</a></li>
                                 <li><?php echo '<a href="'.base_url().'private_area/logout">Deconnecter</a>'; ?></li>
                             </ul>
                         </li>
@@ -524,7 +524,7 @@ if (isset($_POST['azure']))
 
         $.notify({
             icon: 'pe-7s-gift',
-            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+            message: "bienvenue à <b>proplan</b> - c'est le moment de travailler."
 
         },{
             type: 'info',

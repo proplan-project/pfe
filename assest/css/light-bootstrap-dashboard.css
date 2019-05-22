@@ -112,14 +112,6 @@ h1 .subtitle {
   color: #9A9A9A;
 }
 
-.text-primary, .text-primary:hover {
-  color: #1D62F0 !important;
-}
-
-.text-info, .text-info:hover {
-  color: #1DC7EA !important;
-}
-
 .text-success, .text-success:hover {
   color: #87CB16 !important;
 }
@@ -137,14 +129,6 @@ body,
 .wrapper {
   min-height: 100vh;
   position: relative;
-}
-
-a {
-  color: #1DC7EA;
-}
-a:hover, a:focus {
-  color: #42d0ed;
-  text-decoration: none;
 }
 
 a:focus, a:active,
