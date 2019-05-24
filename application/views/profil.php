@@ -139,8 +139,8 @@
 
 
         .modal-header {
-            background: var(--modal-color);
-            padding: 15px;
+            background: #FFFFFF;
+            height: 50px;
         }
 
         .modal-body {
@@ -158,7 +158,7 @@
             color: #ccc;
             float: right;
             font-size: 30px;
-            color: #fff;
+            color: #000;
         }
 
         .close:hover,
@@ -177,11 +177,69 @@
             }
         }
 
+
+
+        .inner-addon {
+            position: relative;
+        }
+
+        /* style icon */
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+        }
+
+        /* align icon */
+        .left-addon .glyphicon  { left:  0px;}
+        .right-addon .glyphicon { right: 0px;}
+
+        /* add padding  */
+        .left-addon input  { padding-left:  30px; }
+        .right-addon input { padding-right: 30px; }
+
+
+
+
+
+        .alert {
+            min-width: 150px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 3px;
+        p{
+            padding: 0;
+            margin: 0;
+        }
+        i{
+            padding-right: 5px;
+            vertical-align: middle;
+            font-size: 24px;
+        }
+        .close-alert{
+            -webkit-appearance: none;
+            position: relative;
+            float: right;
+            padding: 0;
+            border: 0;
+            cursor: pointer;
+            color: inherit;
+            background: 0 0;
+            font-size: 21px;
+            line-height: 1;
+            font-weight: bold;
+            text-shadow: 0 1px 0 rgba(255,255,255,.7);
+            filter: alpha(opacity=40);
+            opacity: .4;
+        }
+        }
+
     </style>
 </head>
 <body>
 <div class="wrapper">
-    <div class="sidebar"data-color="#777" data-image="assest/img/sidebar-5.jpg">
+    <div class="sidebar"data-color="#777" data-image="assest/img/sidebar-5.jpg"><!--side bar -->
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.proplan.com" class="simple-text">
@@ -252,7 +310,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div><!-- end of side baar -->
 
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
@@ -304,7 +362,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav><!--of nav bar-->
 
 
         <div class="content">
@@ -314,15 +372,21 @@
 
 
                             <div class="text-center">
-                                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                                <?php
+                                    if ($info['image']==null){
+                                        echo "<img src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png' class='avatar img-circle img-thumbnail' alt='avatar'>";
+                                    }else{
+                                        echo "<img src='".base_url()."/assest/img/faces/face-1.jpg' class='avatar img-circle img-thumbnail' alt='avatar' style='width:200px;'> ";
+                                    }
+                                ?>
                                 <h3><?php echo $info['prenom']; ?>  <?php echo $info['nom']; ?></h3>
-                            </div></hr><br>
+                            </div></hr><br><!--image with name of user or admin -->
 
 
                             <div class="panel panel-default">
                                 <div class="panel-heading"><i class="fa fa-link fa-1x"></i>Role</div>
                                 <div class="panel-body"><?php echo $info['type']; ?></div>
-                            </div>
+                            </div><!--panel of role of user or admin-->
 
 
                             <ul class="list-group">
@@ -330,7 +394,9 @@
                                 <li class="list-group-item text-right"><span class="pull-left"><strong>Taches</strong></span> 125</li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong>Projets</strong></span> 13</li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong>Equipe</strong></span> 37</li>
-                            </ul>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong>Clients</strong></span> 37</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong>Facture</strong></span> 37</li>
+                            </ul><!--list of Activities of user or admin-->
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">médias sociaux
@@ -340,15 +406,65 @@
                                     <div id="my-modal" class="modal">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <span class="close">&times;</span>
-                                                <h2 style="color: #000000">Modal Header</h2>
+                                                <span class="close" >&times;</span>
+                                                <p>Parametre :</p>
                                             </div>
                                             <div class="modal-body">
-
+                                                <div class="row">
+                                                    <form action="<?php echo base_url();?>/profil/edit" method="post">
+                                                        <div class="alert alert-warning" role="alert" style="opacity: .7">
+                                                            <span class="close close-alert" >&times;</span>
+                                                            <i class="pe-7s-attention"> </i>
+                                                            entrer le lien de votre compte correct :
+                                                        </div>
+                                                        <div class="col-md-12" style="margin-bottom: 15px">
+                                                            <div class="col-md-6">
+                                                                <div class="inner-addon left-addon">
+                                                                    <i class="glyphicon glyphicon-user fa fa-facebook" ></i>
+                                                                    <input type="text" class="form-control" name="facebook" value="<?php echo $info['Facebook']; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="inner-addon left-addon">
+                                                                    <i class="glyphicon glyphicon-user fa fa-twitter" ></i>
+                                                                    <input type="text" class="form-control" name="twitter" value="<?php echo $info['Twitter']; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12" style="margin-bottom: 15px">
+                                                            <div class="col-md-6">
+                                                                <div class="inner-addon left-addon">
+                                                                    <i class="glyphicon glyphicon-user fa fa-google-plus" ></i>
+                                                                    <input type="text" class="form-control" name="google" value="<?php echo $info['Google']; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="inner-addon left-addon">
+                                                                    <i class="glyphicon glyphicon-user fa fa-linkedin" ></i>
+                                                                    <input type="text" class="form-control" name="linkedin" value="<?php echo $info['LinkedIn']; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12" style="margin-bottom: 15px">
+                                                            <div class="col-md-6">
+                                                                <div class="inner-addon left-addon">
+                                                                    <i class="glyphicon glyphicon-user fa fa-skype " ></i>
+                                                                    <input type="text" class="form-control" value="<?php echo $info['Skype']; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="inner-addon left-addon">
+                                                                    <i class="glyphicon glyphicon-user fa fa-github" ></i>
+                                                                    <input type="text" class="form-control" name="github" value="<?php echo $info['github']; ?>" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <h3>Modal Footer</h3>
+                                                <button type="submit" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000"/> Modifier
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -362,22 +478,21 @@
                                         <li><a href="#"><i class="fa fa-github" aria-hidden="true" title="null"></i></a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div><!--social media of user or admin-->
 
-                        </div><!--/col-3-->
+                        </div><!--/end of left col-->
 
                         <div class="col-sm-8">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#home">Parametre</a></li>
                                 <li><a data-toggle="tab" href="#messages">changer le mot de passe</a></li>
-                                <li><a data-toggle="tab" href="#settings">Menu 2</a></li>
                             </ul>
 
 
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home">
                                     <hr>
-                                    <form class="form" action="<?php echo base_url();?>/profil/edit" method="post" id="registrationForm">
+                                    <form class="form" action="<?php echo base_url();?>/profil/editinfo" method="post" id="registrationForm">
                                         <div class="form-group">
 
                                             <div class="col-xs-6">
@@ -437,7 +552,7 @@
 
                                     <hr>
 
-                                </div><!--/tab-pane-->
+                                </div><!--/tab-of settings-->
                                 <div class="tab-pane" id="messages">
                                     <form class="form" action="##" method="post" id="registrationForm">
                                         <div class="col-md-6">
@@ -468,90 +583,19 @@
 
                                     </form>
 
-                                </div><!--/tab-pane-->
-                                <div class="tab-pane" id="settings">
-
-
-                                    <hr>
-                                    <form class="form" action="##" method="post" id="registrationForm">
-                                        <div class="form-group">
-
-                                            <div class="col-xs-6">
-                                                <label for="first_name"><h4>First name</h4></label>
-                                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <div class="col-xs-6">
-                                                <label for="last_name"><h4>Last name</h4></label>
-                                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-
-                                            <div class="col-xs-6">
-                                                <label for="phone"><h4>Phone</h4></label>
-                                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-xs-6">
-                                                <label for="mobile"><h4>Mobile</h4></label>
-                                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <div class="col-xs-6">
-                                                <label for="email"><h4>Email</h4></label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <div class="col-xs-6">
-                                                <label for="email"><h4>Location</h4></label>
-                                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <div class="col-xs-6">
-                                                <label for="password"><h4>Password</h4></label>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <div class="col-xs-6">
-                                                <label for="password2"><h4>Verify</h4></label>
-                                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-xs-12">
-                                                <br>
-                                                <button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                                <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                </div><!--/tab-of edit password-->
 
                             </div><!--/tab-pane-->
-                        </div><!--/tab-content-->
+                        </div><!--/end of right col-->
 
-                    </div><!--/col-9-->
+                </div><!--/col-9-->
             </div>
 
 
             <footer class="footer">
                 <div class="container-fluid">
                     <p class="copyright pull-right">
-                        &copy; 2019 <a href="http://www.proplan.com">ProPlan</a>, made by EL ALAMI FATIMA ZAHRA & HALA EL YABOURI 2019
+                        &copy; 2019 <a href="http://www.proplan.com">ProPlan</a>, made by EL ALAMI FATIMA ZAHRA & HALA EL YABOURI
                     </p>
                 </div>
             </footer>
@@ -624,6 +668,13 @@
             modal.style.display = 'none';
         }
     }
+
+</script>
+<script>
+    $(".close-alert").click(function(e){
+        $(this).parent().remove();
+        e.preventDefault();
+    });
 
 </script>
 </html>

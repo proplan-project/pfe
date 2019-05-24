@@ -528,7 +528,7 @@ if (isset($_POST['azure']))
 
         },{
             type: 'info',
-            timer: 4000
+            timer: 2000
         });
 
     });
