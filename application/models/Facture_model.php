@@ -22,7 +22,10 @@ class Facture_model extends CI_Model
         }
         $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
         $this->db->select("*");
-        $this->db->from("facture");
+        $this->db->from('facture');
+        $this->db->join('projet','projet.id_projet = facture.id_projet');
+        $this->db->join('client','client.id_client = facture.id_client');
+        $this->db->where('id_createur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
             $this->db->like('date_facture', $_POST["searchPhrase"]);

@@ -1,46 +1,40 @@
-<html>
-<head>
-    <title>Note</title>
+<?php require 'includes/head.php'; ?>
+<div class="wrapper">
+    <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assets/img/sidebar-5.jpg">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.js"></script>
-</head>
-<body>
-<div class="container box">
-    <h3 align="center">Gestion des notes</h3><br />
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-10">
-                    <h3 class="panel-title">Liste des notes</h3>
-                </div>
-                <div class="col-md-2" align="right">
-                    <button type="button" id="add_button" data-toggle="modal" data-target="#noteModal" class="btn btn-info btn-xs">Add</button>
-                </div>
-            </div>
+        <?php require 'includes/nav.php'; ?>
 
-        </div>
-        <div class="panel-body">
-            <div class="table-responsive">
-                <table id="note_data" class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th data-column-id="titre">Titre</th>
-                        <th data-column-id="description">Description</th>
-                        <th data-column-id="date_creation">Date de création</th>
-                        <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
-                    </tr>
-                    </thead>
-                </table>
+        <div class="content">
+            <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <button type="button" id="add_button" data-toggle="modal" data-target="#noteModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un Note
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="note_data" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th data-column-id="titre">Titre</th>
+                                <th data-column-id="description">Description</th>
+                                <th data-column-id="date_creation">Date de création</th>
+                                <th data-column-id="titre_projet">Projet</th>
+                                <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 </body>
-</html>
 
 <div id="noteModal" class="modal fade">
     <div class="modal-dialog">
@@ -60,6 +54,23 @@
                         <textarea type="text" name="description" id="description" class="form-control"></textarea>
                     </div>
                 </div>
+                <div class="modal-body">
+                <div class="form-group">
+                    <label>Projet</label>
+                    <select name="id_projet">
+                        <option value="">selectionner un projet</option>
+                        <?php
+                        foreach($all_projet as $projet)
+                        {
+                            $selected = ($projet['id_projet'] == $this->input->post('id_projet')) ? ' selected="selected"' : "";
+
+                            echo '<option value="'.$projet['id_projet'].'" '.$selected.'>'.$projet['titre_projet'].'</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+                </div>
+
                 <div class="modal-footer">
                     <input type="hidden" name="id_note" id="id_note" />
                     <input type="hidden" name="operation" id="operation" value="Add" />
@@ -69,7 +80,6 @@
         </form>
     </div>
 </div>
-
 <script type="text/javascript" language="javascript" >
     $(document).ready(function(){
 
@@ -86,8 +96,8 @@
             formatters:{
                 "action":function(column, row)
                 {
-                    return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_note+"'>Edit</button>" + "&nbsp;" +
-                        "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_note+"'>Delete</button>";
+                    return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_note+"' style='border:none;'><span class='glyphicon glyphicon-pencil' style='color: #000000'/></button>" + "&nbsp;" +
+                        "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_note+"' style='border:none;'><span class='glyphicon glyphicon-remove' style='color:#000'/></button>";
                 }
             }
         });
@@ -103,8 +113,9 @@
             event.preventDefault();
             var titre = $('#titre').val();
             var description = $('#description').val();
+            var id_projet = $('#id_projet').val();
             var form_data = $(this).serialize();
-            if(	description != '')
+            if(	titre != '' && description != '' && id_projet != '')
             {
                 $.ajax({
                     url:"<?php echo base_url(); ?>note/action",
@@ -138,6 +149,7 @@
                         $('#noteModal').modal('show');
                         $('#titre').val(data.titre);
                         $('#description').val(data.description);
+                        $('#id_projet').val(data.description);
                         $('.modal-title').text("Edit note Details");
                         $('#id_note').val(id_note);
                         $('#action').val('Edit');

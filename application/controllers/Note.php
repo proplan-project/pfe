@@ -5,11 +5,16 @@ class Note extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('note_model');
+        $this->load->model('projet_model');
+        $this->load->model('profileInfo');
     }
 
     function index()
     {
-        $this->load->view('note_view');
+        $data['titre']='Les projets';
+        $data['nom'] = $this->profileInfo->get_info();
+        $data['all_projet'] = $this->projet_model->all_projet();
+        $this->load->view('note',$data);
     }
 
     function fetch_data()
@@ -18,6 +23,10 @@ class Note extends CI_Controller{
         $array = array();
         foreach($data as $row)
         {
+            $row[]=$row['titre'];
+            $row[]=$row['description'];
+            $row[]=$row['date_creation'];
+            $row[]=$row['titre_projet'];
             $array[] = $row;
         }
         $output = array(
@@ -36,6 +45,8 @@ class Note extends CI_Controller{
             $data = array(
                 'titre' => $this->input->post('titre'),
                 'description' => $this->input->post('description'),
+                'id_projet' => $this->input->post('id_projet'),
+                'id_utilisateur' => $this->session->userdata['info']['id'],
             );
             if($this->input->post('operation') == 'Add')
             {
@@ -60,6 +71,7 @@ class Note extends CI_Controller{
                 $output['titre'] = $row['titre'];
                 $output['description'] = $row['description'];
                 $output['date_creation'] = $row['date_creation'];
+                $output['id_projet'] = $row['id_projet'];
             }
             echo json_encode($output);
         }

@@ -1,16 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Equipe extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
         $this->load->model('Equipe_model');
+        $this->load->model('Utilisateur_model');
+        $this->load->model('Utilisateur_equipe_model');
+        $this->load->model('profileInfo');
     }
 
     function index()
     {
-        $this->load->view('equipe_view');
+        $data['titre']='Les équipes';
+        $data['nom'] = $this->profileInfo->get_info();
+        $this->load->view('equipe',$data);
+    }
+
+    function detail($id_equipe='')
+    {
+        $data['titre']='Détaille';
+        $data['id_equipe']=$id_equipe;
+        $data['nom'] = $this->profileInfo->get_info();
+        $data['equipe'] = $this->Equipe_model->fetch_single_data($id_equipe);
+        $data['all_utilisateur'] = $this->Utilisateur_model->make_query();
+        $this->load->view('equipe_detail',$data);
     }
 
     function fetch_data()
@@ -37,7 +51,8 @@ class Equipe extends CI_Controller{
             $data = array(
                 'nom' => $this->input->post('nom'),
                 'titre_emploi' => $this->input->post("titre_emploi"),
-            );
+                'id_createur' => $this->session->userdata['info']['id'],
+                );
             if($this->input->post('operation') == 'Add')
             {
                 $this->Equipe_model->insert($data);
@@ -49,6 +64,18 @@ class Equipe extends CI_Controller{
                 echo 'Data Updated';
             }
         }
+    }
+
+    function add_utilisateur()
+    {
+            $data = array(
+                'id' => $this->input->post("id"),
+                'id_equipe' => $this->input->post("id_equipe"),
+            );
+			$this->Utilisateur_equipe_model->insert($data);
+			$message = "L'utilisateur est invité correctement";
+			$this->session->set_flashdata('message',$message);
+			redirect('equipe/detail');
     }
 
     function fetch_single_data()
@@ -73,5 +100,5 @@ class Equipe extends CI_Controller{
             echo 'Data Deleted';
         }
     }
-    
+
 }

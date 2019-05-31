@@ -15,7 +15,7 @@
     <style>
         body{
             background-color:#41228e;
-            background-image:url(<?php echo base_url();?>assest/images/illustrations/leaf-bg.png);
+            background-image:url(<?php echo base_url();?>assets/images/illustrations/leaf-bg.png);
             padding: 50px;
         }
 

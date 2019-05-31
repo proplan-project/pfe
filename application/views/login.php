@@ -15,7 +15,7 @@
     <style>
         body{
             background-color:#41228e;
-            background-image:url(<?php echo base_url();?>assest/images/illustrations/leaf-bg.png);
+            background-image:url(<?php echo base_url();?>assets/images/illustrations/leaf-bg.png);
             padding: 50px;
         }
 
@@ -105,19 +105,19 @@
             </div>
         </div>
         <div style="position: fixed;margin-left: 650px;margin-top: 135px">
-            <img src="<?php echo base_url();?>assest/images/illustrations/dots-cyan.png" alt="bg-shape">
+            <img src="<?php echo base_url();?>assets/images/illustrations/dots-cyan.png" alt="bg-shape">
         </div>
         <div style="z-index: -222;position: fixed">
-            <img src="<?php echo base_url();?>assest/images/illustrations/leaf-yellow.png" alt="bg-shape">
+            <img src="<?php echo base_url();?>assets/images/illustrations/leaf-yellow.png" alt="bg-shape">
         </div>
         <div style="z-index: -222;position: fixed;margin-top: 560px;margin-left: 200px">
-            <img src="<?php echo base_url();?>assest/images/illustrations/leaf-cyan.png" alt="bg-shape">
+            <img src="<?php echo base_url();?>assets/images/illustrations/leaf-cyan.png" alt="bg-shape">
         </div>
         <div style="position: fixed;margin-top:490px;">
-            <img src="<?php echo base_url();?>assest/images/illustrations/dots-group-orange.png" alt="bg-shape">
+            <img src="<?php echo base_url();?>assets/images/illustrations/dots-group-orange.png" alt="bg-shape">
         </div>
         <div style="position: fixed;margin-left: 900px;margin-top: 500px;">
-            <img src="<?php echo base_url();?>assest/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
+            <img src="<?php echo base_url();?>assets/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
         </div>
     </div>
 

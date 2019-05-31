@@ -1,235 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="assest/img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <title>Acceuil</title>
-
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-    <link href="assest/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assest/css/animate.min.css" rel="stylesheet"/>
-    <link href="assest/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-    <link href="assest/css/demo.css" rel="stylesheet" />
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="assest/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    <style>
-        .card-counter{
-            box-shadow: 2px 2px 10px #DADADA;
-            margin: 5px;
-            padding: 20px 10px;
-            background-color: #fff;
-            height: 100px;
-            border-radius: 5px;
-            transition: .3s linear all;
-        }
-
-        .card-counter:hover{
-            box-shadow: 4px 4px 20px #DADADA;
-            transition: .3s linear all;
-        }
-
-        .card-counter.primary{
-            background-color: #007bff;
-            color: #FFF;
-        }
-
-        .card-counter.danger{
-            background-color: #ef5350;
-            color: #FFF;
-        }
-
-        .card-counter.success{
-            background-color: #66bb6a;
-            color: #FFF;
-        }
-
-        .card-counter.info{
-            background-color: #26c6da;
-            color: #FFF;
-        }
-
-        .card-counter i{
-            font-size: 5em;
-            opacity: 0.2;
-        }
-
-        .card-counter .count-numbers{
-            position: absolute;
-            right: 35px;
-            top: 20px;
-            font-size: 32px;
-            display: block;
-        }
-
-        .card-counter .count-name{
-            position: absolute;
-            right: 35px;
-            top: 65px;
-            font-style: italic;
-            text-transform: capitalize;
-            opacity: 0.5;
-            display: block;
-            font-size: 18px;
-        }
-    </style>
-</head>
-<body>
-<?php
-$color = "#777";
-if (isset($_POST['green']))
-    $color = "green";
-if (isset($_POST['red']))
-    $color = "red";
-if (isset($_POST['blue']))
-    $color = "blue";
-if (isset($_POST['orange']))
-    $color = "orange";
-if (isset($_POST['grey']))
-    $color = "#777";
-if (isset($_POST['purple']))
-    $color = "purple";
-if (isset($_POST['azure']))
-    $color = "azure";
-?>
+<?php require 'includes/head.php'; ?>
 <div class="wrapper">
-    <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assest/img/sidebar-5.jpg">
-        <div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://www.proplan.com" class="simple-text">
-                    ProPlan
-                </a>
-            </div>
+    <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assets/img/sidebar-5.jpg">
 
-            <ul class="nav">
-                <li class="active">
-                    <a href="#">
-                        <i class="pe-7s-graph"></i>
-                        <p>Accueil</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url(); ?>client">
-                        <i class="pe-7s-note2"></i>
-                        <p>Clients</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Projets</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Taches</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-cash"></i>
-                        <p>Factures</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Notes</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="user.html">
-                        <i class="pe-7s-chat"></i>
-                        <p>Message</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-graph3"></i>
-                        <p>Rapports de temps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="user.html">
-                        <i class="pe-7s-graph1"></i>
-                        <p>Fuilles de temps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="user.html">
-                        <i class="pe-7s-users"></i>
-                        <p>membre de l'équipe</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#" ><b>ProPlan</b> : Créer une harmonie de travail</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="pe-7s-user" style="font-size: 25px"></i>
-                                <span style="opacity:0 ;">5</span>
-
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><b>AlamiFati</b><i>&nbspadmin</i></a></li>
-                                <li><a href="<?php echo base_url()?>profil">Voir le Profil</a></li>
-                                <li><?php echo '<a href="'.base_url().'private_area/logout">Deconnecter</a>'; ?></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="pe-7s-mail" style="font-size: 25px"></i>
-                                <span class="notification">5</span>
-
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Message De Hala</a></li>
-                                <li><a href="#">Autre Message</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="pe-7s-global" style="font-size: 25px"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Françcais</a></li>
-                                <li><a href="#">English</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+        <?php require 'includes/nav.php'; ?>
 
         <div class="content">
             <div class="container-fluid">
                 <div class="col-sm-12"  >
                     <div class="row">
                         <div class="col-md-8" style="margin-bottom: 20px;">
-                            <div class="col-md-2"><img src="assest/img/tim_80x80.png" style="border-radius: 50%; "></div>
+                            <div class="col-md-2"><img src="assets/img/tim_80x80.png" style="border-radius: 50%; "></div>
                             <div class="col-md-6" style="margin-top: 10px;">
-                                <b>Salut bon retour! FatiAlami</b><br>
+                                <b>Salut bon retour! <?php echo $nom['nom']." ".$nom['prenom'];?></b><br>
                                 <i>Admin</i><br>
                                 dernière connexion il y a 23 heures vieu details
                             </div>
@@ -480,7 +262,6 @@ if (isset($_POST['azure']))
                 </div>
             </div>
 
-
             <footer class="footer">
                 <div class="container-fluid">
                     <p class="copyright pull-right">
@@ -491,31 +272,8 @@ if (isset($_POST['azure']))
 
         </div>
     </div>
-
-
+</div>
 </body>
-
-<!--   Core JS Files   -->
-<script src="assest/js/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="assest/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Checkbox, Radio & Switch Plugins -->
-<script src="assest/js/bootstrap-checkbox-radio-switch.js"></script>
-
-<!--  Charts Plugin -->
-<script src="assest/js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="assest/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="assest/js/light-bootstrap-dashboard.js"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assest/js/demo.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -528,10 +286,9 @@ if (isset($_POST['azure']))
 
         },{
             type: 'info',
-            timer: 2000
+            timer: 4000
         });
 
     });
 </script>
-
 </html>

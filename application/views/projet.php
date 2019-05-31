@@ -1,50 +1,48 @@
-<html>
-<head>
-    <title>Projet</title>
+<?php require 'includes/head.php'; ?>
+<div class="wrapper">
+    <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assets/img/sidebar-5.jpg">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.js"></script>
-</head>
-<body>
-<div class="container box">
-    <h3 align="center">Gestion des projets</h3><br />
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-10">
-                    <h3 class="panel-title">Liste des projets</h3>
-                </div>
-                <div class="col-md-2" align="right">
-                    <button type="button" id="add_button" data-toggle="modal" data-target="#projetModal" class="btn btn-info btn-xs">Add</button>
-                </div>
-            </div>
+        <?php require 'includes/nav.php'; ?>
 
-        </div>
-        <div class="panel-body">
-            <div class="table-responsive">
-                <table id="projet_data" class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th data-column-id="titre">Titre</th>
-                        <th data-column-id="description">Description</th>
-                        <th data-column-id="date_debut">Date_debut</th>
-                        <th data-column-id="date_limite">Date limite</th>
-                        <th data-column-id="date_creation">Date creation</th>
-                        <th data-column-id="status">Status</th>
-                        <th data-column-id="prix">Prix</th>
-                        <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
-                    </tr>
-                    </thead>
-                </table>
+        <div class="content">
+            <div class="panel panel-default">
+                <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button type="button" id="add_button" data-toggle="modal" data-target="#projetModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Un projet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <?php }?>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="projet_data" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th data-column-id="titre_projet" data-formatter="titre_projet">titre_projet</th>
+                                <th data-column-id="description">Description</th>
+                                <th data-column-id="date_debut">Date début</th>
+                                <th data-column-id="date_limite">Date limite</th>
+                                <th data-column-id="date_creation">Date creation</th>
+                                <th data-column-id="status">Status</th>
+                                <th data-column-id="prix">Prix</th>
+                                <th data-column-id="nom">Client</th>
+                                <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
+                                <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
+                                <?php }?>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 </body>
-</html>
 
 <div id="projetModal" class="modal fade">
     <div class="modal-dialog">
@@ -56,8 +54,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Titre</label>
-                        <input type="text" name="titre" id="titre" class="form-control" />
+                        <label>titre_projet</label>
+                        <input type="text" name="titre_projet" id="titre_projet" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Description</label>
@@ -69,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label>Date limite</label>
-                        <input type="date" name="date_limite" id="date_limitet" class="form-control" />
+                        <input type="date" name="date_limite" id="date_limite" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Status</label>
@@ -84,11 +82,26 @@
                         <label>Prix</label>
                         <input type="number" name="prix" id="prix" class="form-control" />
                     </div>
+
+                    <div class="form-group">
+                        <label>Client</label>
+                        <select name="id_client">
+                            <option value="">selectionner un client</option>
+                            <?php
+                            foreach($all_client as $client)
+                            {
+                                $selected = ($client['id_client'] == $this->input->post('id_client')) ? ' selected="selected"' : "";
+
+                                echo '<option value="'.$client['id_client'].'" '.$selected.'>'.$client['nom'].' '.$client['prenom'].' </option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id_projet" id="id_projet" />
                     <input type="hidden" name="operation" id="operation" value="Add" />
-                    <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />
+                    <input type="submit" name="action" id="action" class="btn btn-success" value="Ajouter" />
                 </div>
             </div>
         </form>
@@ -97,22 +110,25 @@
 
 <script type="text/javascript" language="javascript" >
     $(document).ready(function(){
-
         var projetTable = $('#projet_data').bootgrid({
             ajax:true,
             rowSelect: true,
             post:function()
             {
                 return{
-                    id:"b0df282a-0d67-40e5-8558-c9e93b7befed"
+                    id:"b0df282a-0d67-40e5-8558-c9e93b7befed",
                 }
             },
             url:"<?php echo base_url(); ?>projet/fetch_data",
             formatters:{
                 "action":function(column, row)
                 {
-                    return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_projet+"'>Edit</button>" + "&nbsp;" +
-                        "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_projet+"'>Delete</button>";
+                    return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_projet+"' style='border:none;'><span class='glyphicon glyphicon-pencil' style='color: #000000'/> </button>" + "&nbsp;" +
+                        "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_projet+"'style='border:none;'><span class='glyphicon glyphicon-remove' style='color:#000'/></button>";
+                },
+                "titre_projet":function(column, row)
+                {
+                    return "<a href=\"<?php echo base_url()?>projet/detail/" +row.id_projet+ "\">" + row.titre_projet + "</a>";
                 }
             }
         });
@@ -126,14 +142,15 @@
 
         $(document).on('submit', '#projet_form', function(event){
             event.preventDefault();
-            var titre = $('#titre').val();
+            var titre_projet = $('#titre_projet').val();
             var description = $('#description').val();
             var date_debut = $('#date_debut').val();
             var date_limite = $('#date_limite').val();
             var status = $('#status').val();
             var prix = $('#prix').val();
+            var id_client = $('#id_client').val();
             var form_data = $(this).serialize();
-            if(	titre != '' && description != '' && date_debut != '' && date_limite != '' && status != '')
+            if(	titre_projet != '' && description != '' && date_debut != '' && date_limite != '' && status != '')
             {
                 $.ajax({
                     url:"<?php echo base_url(); ?>projet/action",
@@ -165,12 +182,13 @@
                     success:function(data)
                     {
                         $('#projetModal').modal('show');
-                        $('#titre').val(data.titre);
+                        $('#titre_projet').val(data.titre_projet);
                         $('#description').val(data.description);
                         $('#date_debut').val(data.date_debut);
                         $('#date_limite').val(data.date_limite);
                         $('#status').val(data.status);
                         $('#prix').val(data.prix);
+                        $('#id_client').val(data.id_client);
                         $('.modal-title').text("Edit projet Details");
                         $('#id_projet').val(id_projet);
                         $('#action').val('Edit');

@@ -5,11 +5,18 @@ class Facture extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Facture_model');
+        $this->load->model('Client_model');
+        $this->load->model('projet_model');
+        $this->load->model('profileInfo');
     }
 
     function index()
     {
-        $this->load->view('facture_view');
+        $data['titre']='Les factures';
+        $data['nom'] = $this->profileInfo->get_info();
+        $data['all_client'] = $this->Client_model->make_query();
+        $data['all_projet'] = $this->projet_model->all_projet();
+        $this->load->view('facture',$data);
     }
 
     function fetch_data()
@@ -18,6 +25,14 @@ class Facture extends CI_Controller{
         $array = array();
         foreach($data as $row)
         {
+            $row[]=$row['Numero'];
+            $row[]=$row['date_facture'];
+            $row[]=$row['date_echeance'];
+            $row[]=$row['montant'];
+            $row[]=$row['paiement_recu'];
+            $row[]=$row['status'];
+            $row[]=$row['titre_projet'];
+            $row[]=$row['nom'];
             $array[] = $row;
         }
         $output = array(
@@ -34,10 +49,13 @@ class Facture extends CI_Controller{
         if($this->input->post('operation'))
         {
             $data = array(
+                'Numero' => $this->input->post('Numero'),
                 'date_echeance' => $this->input->post('date_echeance'),
                 'montant' => $this->input->post("montant"),
                 'paiement_recu' => $this->input->post("paiement_recu"),
                 'status' => $this->input->post("status"),
+                'id_client' => $this->input->post("id_client"),
+                'id_projet' => $this->input->post("id_projet"),
             );
             if($this->input->post('operation') == 'Add')
             {
@@ -59,6 +77,7 @@ class Facture extends CI_Controller{
             $data = $this->Facture_model->fetch_single_data($this->input->post('id_facture'));
             foreach($data as $row)
             {
+                $output['Numero'] = $row['Numero'];
                 $output['date_echeance'] = $row['date_echeance'];
                 $output['montant'] = $row['montant'];
                 $output['paiement_recu'] = $row['paiement_recu'];

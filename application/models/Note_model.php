@@ -21,7 +21,9 @@ class Note_model extends CI_Model
         }
         $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
         $this->db->select("*");
-        $this->db->from("note");
+        $this->db->from('projet');
+        $this->db->join('note','note.id_projet = projet.id_projet');
+        $this->db->where('id_utilisateur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
             $this->db->like('description', $_POST["searchPhrase"]);

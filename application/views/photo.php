@@ -32,18 +32,18 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <script src="<?php echo base_url(); ?>assest/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>assest/js/light-bootstrap-dashboard.js"></script>
-    <script src="<?php echo base_url(); ?>assest/js/demo.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/light-bootstrap-dashboard.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/demo.js"></script>
 
-    <link href="<?php echo base_url(); ?>assest/css/bootstrap.min.css"  rel="stylesheet"/>
-    <link href="<?php echo base_url(); ?>assest/css/croppie.css"  rel="stylesheet"  />
-    <link href="<?php echo base_url(); ?>assest/css/animate.min.css" rel="stylesheet"/>
-    <link href="<?php echo base_url(); ?>assest/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-    <link href="<?php echo base_url(); ?>assest/css/demo.css" rel="stylesheet" />
-    <link href="<?php echo base_url(); ?>assest/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css"  rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/css/croppie.css"  rel="stylesheet"  />
+    <link href="<?php echo base_url(); ?>assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/css/demo.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
-    <link href="<?php echo base_url(); ?>assest/img/favicon.ico" rel="icon" type="image/png" >
+    <link href="<?php echo base_url(); ?>assets/img/favicon.ico" rel="icon" type="image/png" >
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 
@@ -51,7 +51,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar"data-color="#777" data-image="<?php echo base_url(); ?>assest/img/sidebar-5.jpg"><!--side bar -->
+    <div class="sidebar"data-color="#777" data-image="<?php echo base_url(); ?>assets/img/sidebar-5.jpg"><!--side bar -->
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.proplan.com" class="simple-text">
