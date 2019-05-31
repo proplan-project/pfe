@@ -1,5 +1,6 @@
 <?php
-
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Register extends CI_Controller {
@@ -35,9 +36,9 @@ class Register extends CI_Controller {
            /* $encrypted_password = $this->encryption->encrypt($this->input->post('user_password'));*/
             $data = array(
                 'nom'  => $this->input->post('user_name'),
-                'prenom'  => $this->input->post('user_name'),
-                'adresse'  => $this->input->post('user_name'),
-                'tel'  => $this->input->post('user_name'),
+                'prenom'  => $this->input->post('user_prenom'),
+                'adresse'  => $this->input->post('adresse'),
+                'tel'  => $this->input->post('tel'),
                 'email'  => $this->input->post('user_email'),
                 'password' => $this->input->post('user_password'),
                 'verification_key' => $verification_key
@@ -45,36 +46,22 @@ class Register extends CI_Controller {
             $id = $this->register_model->insert($data);
             if($id > 0)
             {
-                $subject = "Please verify email for login";
-                $message = "
-                <p>Hi ".$this->input->post('user_name')."</p>
-                <p>This is email verification mail from Codeigniter Login Register system. For complete registration process and login into system.
-                 First you want to verify you email by click this <a href='".base_url()."register/verify_email/".$verification_key."'>link</a>.</p>
-                <p>Once you click this link your email will be verified and you can login into system.</p>
-                <p>Thanks,</p>
-                ";
-                $config = array(
+                $mg = Mailgun::create('key-61da27ef9ce66a35d52647281b7b961f');
+                $result = $mg->messages()->send('golaxi.com', array(
+                    'from'    => 'proplan@golaxi.com',
+                    'to'      => $this->input->post('user_email'),
+                    'subject' => 'Veuillez vérifier votre email pour vous connecter',
+                    'text'    => "<p>Salut ".$this->input->post('user_name')."</p>
+                                  <p>Ceci est un courrier électronique de vérification envoyé par le système Codeigniter Login Register.
+                                    Pour compléter le processus d'inscription et vous connecter au système. D'abord, vous voulez vérifier votre courrier en cliquant dessus 
+                                  <a href='".base_url()."register/verify_email/".$verification_key."'>lien</a>.</p>
+                                  <p>Une fois que vous avez cliqué sur ce lien, votre email sera vérifié et vous pourrez vous connecter au système..</p>
+                                  <p>Merci,</p>"
+                ));
 
-                    'protocol'  => 'smtp',
-                    'smtp_host' => 'smtp-pulse.com',
-                    'smtp_port' => 465,
-                    'smtp_user'  => 'elalamifatimazahra3@gmail.com',
-                    'smtp_pass'  => 'GGbL2tmLJstqda',
-                    'mailtype'  => 'html',
-                    'charset'    => 'iso-8859-1',
-                    'wordwrap'   => TRUE
-                );
-                $this->load->library('email');
-                $this->email->initialize($config);
-                $this->email->set_newline("\r\n");
-                $this->email->from('elalamifatimazahra3@gmail.com','Fati Alami');
-                $this->email->to('halaelyabouri@gmail.com');
-                $this->email->subject($subject);
-                $this->email->message($message);
-                if($this->email->send())
+                if($result)
                 {
-                    $this->session->set_flashdata('message', 'Check in your email for email verification mail');
-                    redirect('register');
+                    $this->verify();
                 }else{
 
                     $message =  $this->email->print_debugger();
@@ -104,6 +91,10 @@ class Register extends CI_Controller {
             }
             $this->load->view('email_verification', $data);
         }
+    }
+
+    function verify(){
+        $this->load->view('verify');
     }
 
 }

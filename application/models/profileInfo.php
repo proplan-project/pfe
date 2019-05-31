@@ -27,4 +27,29 @@ class profileInfo extends  CI_Model {
         return $this->db->update($sdb,$params);
 
     }
+
+    function addsocial(){
+        $field = array(
+            'google'=>$this->input->post('google'),
+            'twitter'=>$this->input->post('twitter'),
+            'skype'=>$this->input->post('skype'),
+            'github'=>$this->input->post('github'),
+            'linkedin'=>$this->input->post('linkedin'),
+            'facebook'=>$this->input->post('facebook')
+        );
+        $id = $this->session->userdata['info']['id'];
+        $db = $this->session->userdata['info']['db'];
+        $sid = "$id";
+        $sdb = "$db";
+        $this->db->where('id',$sid);
+        return $this->db->update($sdb,$field);
+        if($this->db->affected_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
 }

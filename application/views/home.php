@@ -191,7 +191,7 @@ if (isset($_POST['azure']))
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><b>AlamiFati</b><i>&nbspadmin</i></a></li>
-                                <li><a href="<?php echo base_url()?>/profil">Voir le Profil</a></li>
+                                <li><a href="<?php echo base_url()?>profil">Voir le Profil</a></li>
                                 <li><?php echo '<a href="'.base_url().'private_area/logout">Deconnecter</a>'; ?></li>
                             </ul>
                         </li>

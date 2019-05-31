@@ -11,11 +11,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body{
+            background-color:#41228e;
+            background-image:url(<?php echo base_url();?>assest/images/illustrations/leaf-bg.png);
+            padding: 50px;
+        }
+
+    </style>
 </head>
 <body>
 <div class="container register">
     <div class="row">
-        <div class="col-md-6 register-right" style="background-color: #f8f9fa">
+        <div class="col-md-3 register-center" >
+        </div>
+        <div class="col-md-5 register-center" style="background-color: #ffffff;height:auto;margin-top: 50px;border-radius: 3%;box-shadow: -8px 9px 11px -5px rgba(0,0,0,0.75);">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Utilisateur</a>
@@ -56,7 +67,8 @@
                                     <input type="hidden" name="hidden" value="utilisateur"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" name="login" value="Login" class="btn btn-info" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>register">Register</a>
+                                    <input type="submit" name="login" value="Login" class="btn btn-info" />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>reset/resetuser">forget password ?</a>
                                 </div>
                             </form>
                         </div>
@@ -82,13 +94,30 @@
                                     <input type="hidden" name="hidden" value="chef_projet"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" name="login" value="Login" class="btn btn-info" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>register">Register</a>
+                                    <input type="submit" name="login" value="Login" class="btn btn-info" />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>register">Register</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>register">forget password ?</a>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div style="position: fixed;margin-left: 650px;margin-top: 135px">
+            <img src="<?php echo base_url();?>assest/images/illustrations/dots-cyan.png" alt="bg-shape">
+        </div>
+        <div style="z-index: -222;position: fixed">
+            <img src="<?php echo base_url();?>assest/images/illustrations/leaf-yellow.png" alt="bg-shape">
+        </div>
+        <div style="z-index: -222;position: fixed;margin-top: 560px;margin-left: 200px">
+            <img src="<?php echo base_url();?>assest/images/illustrations/leaf-cyan.png" alt="bg-shape">
+        </div>
+        <div style="position: fixed;margin-top:490px;">
+            <img src="<?php echo base_url();?>assest/images/illustrations/dots-group-orange.png" alt="bg-shape">
+        </div>
+        <div style="position: fixed;margin-left: 900px;margin-top: 500px;">
+            <img src="<?php echo base_url();?>assest/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
         </div>
     </div>
 

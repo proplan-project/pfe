@@ -6,9 +6,6 @@ class Client extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Client_model');
-        if($this->session->userdata('id'))
-        {
-        }
     }
 
     function index()
