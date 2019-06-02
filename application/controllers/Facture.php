@@ -19,6 +19,15 @@ class Facture extends CI_Controller{
         $this->load->view('facture',$data);
     }
 
+    function detail($id_facture='')
+    {
+        $data['titre']='Détaille';
+        $data['id_facture']=$id_facture;
+        $data['nom'] = $this->profileInfo->get_info();
+        $data['facture'] = $this->Facture_model->fetch_single_data($id_facture);
+        $this->load->view('facture_detail',$data);
+    }
+
     function fetch_data()
     {
         $data = $this->Facture_model->make_query();
@@ -32,6 +41,30 @@ class Facture extends CI_Controller{
             $row[]=$row['paiement_recu'];
             $row[]=$row['status'];
             $row[]=$row['titre_projet'];
+            $row[]=$row['nom'];
+            $array[] = $row;
+        }
+        $output = array(
+            'current'  => intval($_POST["current"]),
+            'rowCount'  => 10,
+            'total'   => intval($this->Facture_model->count_all_data()),
+            'rows'   => $array
+        );
+        echo json_encode($output);
+    }
+
+    function facture_projet($id_projet='')
+    {
+        $data = $this->Facture_model->facture_projet($id_projet);
+        $array = array();
+        foreach($data as $row)
+        {
+            $row[]=$row['Numero'];
+            $row[]=$row['date_facture'];
+            $row[]=$row['date_echeance'];
+            $row[]=$row['montant'];
+            $row[]=$row['paiement_recu'];
+            $row[]=$row['status'];
             $row[]=$row['nom'];
             $array[] = $row;
         }
@@ -69,6 +102,33 @@ class Facture extends CI_Controller{
             }
         }
     }
+
+    function action_facture($id_projet='')
+    {
+        if($this->input->post('operation'))
+        {
+            $data = array(
+                'Numero' => $this->input->post('Numero'),
+                'date_echeance' => $this->input->post('date_echeance'),
+                'montant' => $this->input->post("montant"),
+                'paiement_recu' => $this->input->post("paiement_recu"),
+                'status' => $this->input->post("status"),
+                'id_client' => $this->input->post("id_client"),
+                'id_projet' =>$id_projet,
+            );
+            if($this->input->post('operation') == 'Add')
+            {
+                $this->Facture_model->insert($data);
+                echo 'Data Inserted';
+            }
+            if($this->input->post('operation') == 'Edit')
+            {
+                $this->Facture_model->update($data, $this->input->post('id_facture'));
+                echo 'Data Updated';
+            }
+        }
+    }
+
 
     function fetch_single_data()
     {

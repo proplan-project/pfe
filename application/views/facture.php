@@ -22,7 +22,7 @@
                         <table id="facture_data" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th data-column-id="Numero">Numero</th>
+                                <th data-column-id="Numero" data-formatter="num">Numero</th>
                                 <th data-column-id="date_facture">Date facture</th>
                                 <th data-column-id="date_echeance">Date échéance</th>
                                 <th data-column-id="montant">Montant</th>
@@ -138,6 +138,10 @@
                 {
                     return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_facture+"' style='border:none;'><span class='glyphicon glyphicon-pencil' style='color: #000000'/></button>" + "&nbsp;" +
                         "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_facture+"' style='border:none;'><span class='glyphicon glyphicon-remove' style='color:#000'/></button>";
+                },
+                "num":function(column, row)
+                {
+                    return "<a href=\"<?php echo base_url()?>facture/detail/" +row.id_facture+ "\" target=\"_blank\">" + row.Numero + "</a>";
                 }
             }
         });

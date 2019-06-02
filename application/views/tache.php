@@ -24,6 +24,7 @@
                                 <th data-column-id="date_debut">Date_debut</th>
                                 <th data-column-id="date_limite">Date limite</th>
                                 <th data-column-id="status">Status</th>
+                                <th data-column-id="percent_complete" data-formatter="pourcentage">Pourcentage</th>
                                 <th data-column-id="titre_projet" data-formatter="titre_projet">Projet</th>
                                 <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
                             </tr>
@@ -71,6 +72,10 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>Pourcentage</label>
+                        <input type="range" minlength="0" maxlength="100" step="10" name="percent_complete" id="percent_complete" class="form-control"/>
+                    </div>
+                    <div class="form-group">
                         <label>Projet</label>
                         <select name="id_projet">
                             <option value="">selectionner un projet</option>
@@ -116,6 +121,10 @@
                     "titre_projet":function(column, row)
                     {
                         return "<a href=\"<?php echo base_url()?>projet/detail/" +row.id_projet+ "\">" + row.titre_projet + "</a>";
+                    },
+                    "pourcentage":function(column, row)
+                    {
+                        return "<progress class=\"progress\" value='"+row.percent_complete+"' max=\"100\" data-row-id='"+row.id_tache+"'></progress>";
                     }
                 }
             });
@@ -134,6 +143,7 @@
                 var date_debut = $('#date_debut').val();
                 var date_limite = $('#date_limite').val();
                 var status = $('#status').val();
+                var percent_complete = $('#percent_complete').val();
                 var id_projet = $('#id_projet').val();
                 var form_data = $(this).serialize();
                 if(	titre != '' && description != '' && date_debut != '' && date_limite != '' && status != '')
@@ -173,6 +183,7 @@
                             $('#date_debut').val(data.date_debut);
                             $('#date_limite').val(data.date_limite);
                             $('#status').val(data.status);
+                            $('#percent_complete').val(data.percent_complete);
                             $('#id_projet').val(data.id_projet);
                             $('.modal-title').text("Edit tache Details");
                             $('#id_tache').val(id_tache);

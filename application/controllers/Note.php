@@ -38,6 +38,23 @@ class Note extends CI_Controller{
         echo json_encode($output);
     }
 
+    function note_projet($id_projet='')
+    {
+        $data = $this->note_model->note_projet($id_projet);
+        $array = array();
+        foreach($data as $row)
+        {
+            $array[] = $row;
+        }
+        $output = array(
+            'current'  => intval($_POST["current"]),
+            'rowCount'  => 10,
+            'total'   => intval($this->note_model->count_all_data()),
+            'rows'   => $array
+        );
+        echo json_encode($output);
+    }
+
     function action()
     {
         if($this->input->post('operation'))
@@ -46,6 +63,29 @@ class Note extends CI_Controller{
                 'titre' => $this->input->post('titre'),
                 'description' => $this->input->post('description'),
                 'id_projet' => $this->input->post('id_projet'),
+                'id_utilisateur' => $this->session->userdata['info']['id'],
+            );
+            if($this->input->post('operation') == 'Add')
+            {
+                $this->note_model->insert($data);
+                echo 'Data Inserted';
+            }
+            if($this->input->post('operation') == 'Edit')
+            {
+                $this->note_model->update($data, $this->input->post('id_note'));
+                echo 'Data Updated';
+            }
+        }
+    }
+
+    function action_note($id_projet='')
+    {
+        if($this->input->post('operation'))
+        {
+            $data = array(
+                'titre' => $this->input->post('titre'),
+                'description' => $this->input->post('description'),
+                'id_projet' => $id_projet,
                 'id_utilisateur' => $this->session->userdata['info']['id'],
             );
             if($this->input->post('operation') == 'Add')

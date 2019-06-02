@@ -52,7 +52,7 @@
             </a>
         </li>
         <li>
-            <a href="notifications.html">
+            <a href="<?php echo base_url();?>gantt">
                 <i class="pe-7s-graph3"></i>
                 <p>Rapports de temps</p>
             </a>

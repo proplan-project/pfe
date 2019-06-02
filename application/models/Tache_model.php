@@ -21,8 +21,8 @@ class Tache_model extends CI_Model
         }
         $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
         $this->db->select("*");
-        $this->db->from("tache");
-        $this->db->join('projet','tache.id_projet = projet.id_projet');
+        $this->db->from("projet");
+        $this->db->join('tache','projet.id_projet = tache.id_projet');
         $this->db->where('assigne_a',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
