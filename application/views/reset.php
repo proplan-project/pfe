@@ -23,9 +23,17 @@
 </head>
 <body>
        <form method="post" action="<?php  echo base_url(); ?>reset/resetpassword ">
-           <div class="form-group">
-               <input type="hidden" name="db" class="form-control" placeholder="votre email valid" value="<?php echo $db['db']; ?>"/>
-           </div>
+           <?php
+           if($this->session->flashdata('message'))
+           {
+               echo '
+                            <div class="alert alert-danger alert-dismissible">
+                               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                '.$this->session->flashdata("message").'
+                            </div>
+                           ';
+           }
+           ?>
            <div class="form-group">
                <label style="font-size: 13px">Email :</label>
                <input type="text" name="user_email" class="form-control" placeholder="votre email valid"/>
