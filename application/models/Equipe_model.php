@@ -23,6 +23,7 @@ class Equipe_model extends CI_Model
         $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
         $this->db->select("*");
         $this->db->from("equipe");
+        $this->db->where('id_createur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
             $this->db->like('nom', $_POST["nom"]);

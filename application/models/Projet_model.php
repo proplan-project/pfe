@@ -22,10 +22,59 @@ class Projet_model extends CI_Model
         }
         $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
         $this->db->select("*");
-        $this->db->from("projet");
+        $this->db->from('projet');
+        $this->db->join('client','client.id_client = projet.id_client');
+        $this->db->where('id_createur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
-            $this->db->like('titre', $_POST["searchPhrase"]);
+            $this->db->like('titre_projet', $_POST["searchPhrase"]);
+            $this->db->or_like('description', $_POST["searchPhrase"]);
+            $this->db->or_like('date_debut', $_POST["searchPhrase"]);
+            $this->db->or_like('date_limite', $_POST["searchPhrase"]);
+            $this->db->or_like('date_creation', $_POST["searchPhrase"]);
+            $this->db->or_like('status', $_POST["searchPhrase"]);
+            $this->db->or_like('prix', $_POST["searchPhrase"]);
+        }
+        if(isset($_POST["sort"]) && is_array($_POST["sort"]))
+        {
+            foreach($_POST["sort"] as $key => $value)
+            {
+                $this->db->order_by($key, $value);
+            }
+        }
+        else
+        {
+            $this->db->order_by('id_projet', 'DESC');
+        }
+        if($this->records_per_page != -1)
+        {
+            $this->db->limit($this->records_per_page, $this->start_from);
+        }
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    function all_projet()
+    {
+        if(isset($_POST["rowCount"]))
+        {
+            $this->records_per_page = $_POST["rowCount"];
+        }
+        else
+        {
+            $this->records_per_page = 10;
+        }
+        if(isset($_POST["current"]))
+        {
+            $this->current_page_number = $_POST["current"];
+        }
+        $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
+        $this->db->select("*");
+        $this->db->from('projet');
+        $this->db->where('id_createur',$this->session->userdata['info']['id']);
+        if(!empty($_POST["searchPhrase"]))
+        {
+            $this->db->like('titre_projet', $_POST["searchPhrase"]);
             $this->db->or_like('description', $_POST["searchPhrase"]);
             $this->db->or_like('date_debut', $_POST["searchPhrase"]);
             $this->db->or_like('date_limite', $_POST["searchPhrase"]);

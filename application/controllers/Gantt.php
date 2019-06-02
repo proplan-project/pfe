@@ -6,12 +6,15 @@ class Gantt extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Gantt_model');
+        $this->load->model('projet_model');
     }
 
     function index()
     {
+        $data['titre']='Gantt';
         $data["fetch_data"] = $this->Gantt_model->fetch_data();
-        $this->load->view('Gantt_view',$data);
+        $data['all_projet'] = $this->projet_model->all_projet();
+        $this->load->view('gantt',$data);
     }
 }
 

@@ -1,48 +1,48 @@
-<html>
-<head>
-    <title>Facture</title>
+<?php require 'includes/head.php'; ?>
+<div class="wrapper">
+    <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assets/img/sidebar-5.jpg">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.js"></script>
-</head>
-<body>
-<div class="container box">
-    <h3 align="center">Gestion des factures</h3><br />
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-10">
-                    <h3 class="panel-title">Liste des factures</h3>
-                </div>
-                <div class="col-md-2" align="right">
-                    <button type="button" id="add_button" data-toggle="modal" data-target="#factureModal" class="btn btn-info btn-xs">Add</button>
-                </div>
-            </div>
+        <?php require 'includes/nav.php'; ?>
 
-        </div>
-        <div class="panel-body">
-            <div class="table-responsive">
-                <table id="facture_data" class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th data-column-id="date_facture">Date facture</th>
-                        <th data-column-id="date_echeance">Date échéance</th>
-                        <th data-column-id="montant">Montant</th>
-                        <th data-column-id="paiement_recu">Paiement reçu</th>
-                        <th data-column-id="status">Status</th>
-                        <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
-                    </tr>
-                    </thead>
-                </table>
+        <div class="content">
+            <div class="panel panel-default">
+                <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <button type="button" id="add_button" data-toggle="modal" data-target="#factureModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un Facture
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php }?>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="facture_data" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th data-column-id="Numero" data-formatter="num">Numero</th>
+                                <th data-column-id="date_facture">Date facture</th>
+                                <th data-column-id="date_echeance">Date échéance</th>
+                                <th data-column-id="montant">Montant</th>
+                                <th data-column-id="paiement_recu">Paiement reçu</th>
+                                <th data-column-id="status">Status</th>
+                                <th data-column-id="titre_projet">Projet</th>
+                                <th data-column-id="nom">Client</th>
+                                <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
+                                    <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
+                                <?php }?>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 </body>
-</html>
 
 <div id="factureModal" class="modal fade">
     <div class="modal-dialog">
@@ -53,6 +53,10 @@
                     <h4 class="modal-title">Ajouter un facture</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label>Numero Facture</label>
+                        <input type="number" name="Numero" id="Numero" class="form-control" />
+                    </div>
                     <div class="form-group">
                         <label>Date échéance</label>
                         <input type="date" name="date_echeance" id="date_echeance" class="form-control" />
@@ -71,6 +75,37 @@
                             <option value="brouillon">Brouillon</option>
                             <option value="impayé">Impayé</option>
                             <option value="payé">Payé</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Client</label>
+                        <select name="id_client">
+                            <option value="">selectionner un client</option>
+                            <?php
+                            foreach($all_client as $client)
+                            {
+                                $selected = ($client['id_client'] == $this->input->post('id_client')) ? ' selected="selected"' : "";
+
+                                echo '<option value="'.$client['id_client'].'" '.$selected.'>'.$client['nom'].' '.$client['prenom'].' </option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Projet</label>
+                        <select name="id_projet">
+                            <option value="">selectionner un projet</option>
+                            <?php
+                            foreach($all_projet as $projet)
+                            {
+                                $selected = ($projet['id_projet'] == $this->input->post('id_projet')) ? ' selected="selected"' : "";
+
+                                echo '<option value="'.$projet['id_projet'].'" '.$selected.'>'.$projet['titre_projet'].'</option>';
+                            }
+                            ?>
                         </select>
                     </div>
 
@@ -101,8 +136,12 @@
             formatters:{
                 "action":function(column, row)
                 {
-                    return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_facture+"'>Edit</button>" + "&nbsp;" +
-                        "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_facture+"'>Delete</button>";
+                    return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_facture+"' style='border:none;'><span class='glyphicon glyphicon-pencil' style='color: #000000'/></button>" + "&nbsp;" +
+                        "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_facture+"' style='border:none;'><span class='glyphicon glyphicon-remove' style='color:#000'/></button>";
+                },
+                "num":function(column, row)
+                {
+                    return "<a href=\"<?php echo base_url()?>facture/detail/" +row.id_facture+ "\" target=\"_blank\">" + row.Numero + "</a>";
                 }
             }
         });
@@ -116,12 +155,15 @@
 
         $(document).on('submit', '#facture_form', function(event){
             event.preventDefault();
+            var Numero = $('#Numero').val();
             var date_echeance = $('#date_echeance').val();
             var montant = $('#montant').val();
             var paiement_recu = $('#paiement_recu').val();
             var status = $('#status').val();
+            var id_client = $('#id_client').val();
+            var id_projet = $('#id_projet').val();
             var form_data = $(this).serialize();
-            if(	date_echeance != '' && montant != '' && paiement_recu != '' && status != '')
+            if(	Numero != '' && montant != '' && paiement_recu != '' && status != '' && id_client != '' && id_projet != '')
             {
                 $.ajax({
                     url:"<?php echo base_url(); ?>facture/action",
@@ -153,10 +195,12 @@
                     success:function(data)
                     {
                         $('#factureModal').modal('show');
+                        $('#Numero').val(data.Numero);
                         $('#date_echeance').val(data.date_echeance);
                         $('#montant').val(data.montant);
                         $('#paiement_recu').val(data.paiement_recu);
                         $('#status').val(data.status);
+                        $('#id_projet').val(data.id_projet);
                         $('.modal-title').text("Edit facture Details");
                         $('#id_facture').val(id_facture);
                         $('#action').val('Edit');
