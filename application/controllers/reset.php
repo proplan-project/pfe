@@ -17,30 +17,68 @@ class reset extends CI_Controller
     }
 
      function index(){
-        $this->load->view('login');
-     }
-
-     function resetuser(){
-         $data['db'] = array(
-             'db'=>'utilisateur'
-         );
-         $this->load->view('reset',$data);
+        $this->load->view('reset');
      }
 
      function resetpassword(){
          $this->form_validation->set_rules('user_email', 'Address Email', 'required|trim|valid_email');
+         $email = $this->input->post('user_email');
+         $this->session->set_userdata('emailuser', $email);
          if($this->form_validation->run()) {
-
-             $db = $this->input->post('db');
-             $email = $this->input->post('user_email');
-
-             $result = $this->resetpass->resetpassword($db, $email);
-
+             $result = $this->resetpass->resetpassword($email);
              foreach ($result as $row) {
                  echo $row['nom'];
+                 $mg = Mailgun::create('key-61da27ef9ce66a35d52647281b7b961f');
+                 $result = $mg->messages()->send('golaxi.com', array(
+                     'from'    => 'proplan@golaxi.com',
+                     'to'      => $this->input->post('user_email'),
+                     'subject' => 'hhhh tnsaalik mot de pass',
+                     'text'    => "Salut ".$row['nom']."
+                                     Ceci est un courrier électronique de mot de pass oublie , envoyé par le système ProPlan.
+                                    Pour compléter le processus et vous connecter au système. D'abord, vous voulez vérifier votre courrier en cliquant dessus 
+                                  <a href='".base_url()."reset/verify_password/".$row[verification_key]."'>lien</a>.</p>
+                                  <p>Merci ./p>"
+                 ));
+
+                 if($result)
+                 {
+                     $message = 'xof email dyalk';
+                     $this->session->set_flashdata('message', $message);
+                     redirect('reset');
+                 }else{
+
+                     $message =  $this->email->print_debugger();
+                     $this->session->set_flashdata('message', $message);
+                     redirect('reset');
+                 }
              }
          }else{
-             echo 'no';
+             $this->index();
          }
+     }
+
+     function verify_password(){
+         if($this->uri->segment(3))
+         {
+            $key =  $this->uri->segment(3);
+            $this->load->view('userforget');
+
+         }
+     }
+
+     function submit(){
+        if ($_POST){
+            $pass1 = $this->input->post('pass1');
+            $pass2 = $this->input->post('pass2');
+
+           if ($pass2 == $pass1){
+               echo $this->session->flashdata("emailuser");
+           }
+           else{
+
+           }
+
+            //$this->resetpass->submit($email,$pass1);
+        }
      }
 }
