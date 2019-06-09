@@ -1,8 +1,7 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Private_area extends CI_Controller {
+class private_area_admin extends  CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
@@ -11,19 +10,14 @@ class Private_area extends CI_Controller {
         $this->load->helper('cookie');
         if(!$this->session->userdata['info']['id'])
         {
-            redirect('login');
+            redirect('Admin');
         }
     }
-
     function index()
     {
         $data['titre']='Acceuil';
         $data['nom'] = $this->profileInfo->get_info();
-        $data['sum_facture'] = $this->Private_area_model->sum_facture();
-        $data['taches'] = $this->Private_area_model->count_all_tache();
-        $data['projets'] = $this->Private_area_model->count_all_projet();
-        $data['clients'] = $this->Private_area_model->count_all_client();
-        $this->load->view('home',$data);
+        $this->load->view('admin/home_admin',$data);
     }
 
     function logout()
@@ -33,8 +27,6 @@ class Private_area extends CI_Controller {
         {
             $this->session->unset_userdata($row);
         }
-        redirect('login');
+        redirect('Admin');
     }
 }
-
-?>

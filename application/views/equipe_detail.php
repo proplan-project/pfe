@@ -31,13 +31,36 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-12">
-
-
-
-
-
+                <div class="panel-body">
+                    <div class="col-md-4">
+                        <div class="table-responsive">
+                            <table id="nom_projet" class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Les projets</th>
+                                </tr>
+                                <?php
+                                foreach($projet as $p)
+                                {
+                                    echo '<tr><td>'.$p['titre_projet'].' </td></tr>';
+                                }
+                                ?>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <table id="nom_utilisateur" class="table table-striped table-bordered">
+                            <tr>
+                                <th>Les membres d'équipe</th>
+                            </tr>
+                            <?php
+                            foreach($utilisateur as $u)
+                            {
+                                echo '<tr><td>'.$u['nom'].' '.$u['prenom'].' </td></tr>';
+                            }
+                            ?>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

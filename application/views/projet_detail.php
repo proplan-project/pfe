@@ -1,4 +1,62 @@
-<?php require 'includes/head.php'; ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title><?php echo $titre; ?></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.js"></script>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/css/demo.css" rel="stylesheet" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="<?php echo base_url(); ?>assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+</head>
+<body>
+<?php
+$color = get_cookie('color');;
+if (isset($_POST['green'])){
+    $color = "green";
+    set_cookie('color','green','3600');
+}
+if (isset($_POST['red'])){
+    $color = "red";
+    set_cookie('color','red','3600');
+}
+if (isset($_POST['blue'])){
+    $color = "blue";
+    set_cookie('color','blue','3600');
+}
+if (isset($_POST['orange'])){
+    $color = "orange";
+    set_cookie('color','orange','3600');
+}
+if (isset($_POST['grey'])){
+    $color = "#777";
+    set_cookie('color','#777','3600');
+}
+if (isset($_POST['purple'])){
+    $color = "purple";
+    set_cookie('color','purple','3600');
+}
+if (isset($_POST['azure'])){
+    $color = "azure";
+    set_cookie('color','azure','3600');
+}
+?>
 <div class="wrapper">
     <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assets/img/sidebar-5.jpg">
 
@@ -30,13 +88,50 @@
                     <li><a data-toggle="tab" href="#facture">Facture</a></li>
                 </ul>
             </div>
+
+
             <div class="col-sm-12">
                 <div class="tab-content">
                     <div class="tab-pane active" id="informations">
-                        <div class="col-xs-12">
-                            <?php foreach ($projet as $p){ ?>
-                                <p><?php echo $p['description']; ?></p>
-                            <?php } ?>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="content">
+                                        <div class="header">
+                                            <h4 class="title">Email Statistics</h4>
+                                            <p class="category">Last Campaign Performance</p>
+                                        </div>
+                                        <div class="content">
+                                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+                                            <div class="footer">
+                                                <div class="legend">
+                                                    <i class="fa fa-circle text-info"></i> Open
+                                                    <i class="fa fa-circle text-danger"></i> Bounce
+                                                    <i class="fa fa-circle text-warning"></i> Unsubscribe
+                                                </div>
+                                                <hr>
+                                                <div class="stats">
+                                                    <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="header">
+                                        <h4 class="title">Description</h4>
+                                    </div>
+                                    <div class="content">
+                                        <?php foreach ($projet as $p){ ?>
+                                            <p class="text-justify"><?php echo $p['description']; ?></p>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="taches">
@@ -45,7 +140,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <button type="button" id="add_button" data-toggle="modal" data-target="#tacheModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                        <button type="button" id="add_tache_button" data-toggle="modal" data-target="#tacheModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Un tache
                                         </button>
                                     </div>
@@ -78,7 +173,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <button type="button" id="add_button" data-toggle="modal" data-target="#noteModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                        <button type="button" id="add_note_button" data-toggle="modal" data-target="#noteModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un Note
                                         </button>
                                     </div>
@@ -112,7 +207,7 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <button type="button" id="add_button" data-toggle="modal" data-target="#factureModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                            <button type="button" id="add_facture_button" data-toggle="modal" data-target="#factureModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un Facture
                                             </button>
                                         </div>
@@ -147,6 +242,7 @@
     </div>
 </div>
 </body>
+
 <!-- Facture MODEL ----------------------------------------------------------------------------------------------------->
 <div id="factureModal" class="modal fade">
     <div class="modal-dialog">
@@ -277,13 +373,12 @@
                 <div class="modal-footer">
                     <input type="hidden" name="id_tache" id="id_tache" />
                     <input type="hidden" name="operation" id="operation" value="Add" />
-                    <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />
+                    <input type="submit" name="action_tache" id="action_tache" class="btn btn-success" value="Add" />
                 </div>
             </div>
         </form>
     </div>
 </div>
-
 <!-- EQUIPE MODEL ----------------------------------------------------------------------------------------------------->
 
 <div id="equipeModal" class="modal fade">
@@ -383,10 +478,10 @@
             }
         });
 
-        $('#add_button').click(function(){
+        $('#add_tache_button').click(function(){
             $('#tache_form')[0].reset();
-            $('.modal-title').text("Add tache");
-            $('#action').val("Add");
+            $('.modal-title').text("Ajouter un tache");
+            $('#action_tache').val("Add");
             $('#operation').val("Add");
         });
 
@@ -397,9 +492,9 @@
             var date_debut = $('#date_debut').val();
             var date_limite = $('#date_limite').val();
             var status = $('#status').val();
+            var percent_complete = $('#percent_complete').val();
+            var id_projet = $('#id_projet').val();
             var form_data = $(this).serialize();
-            if(	titre != '' && description != '' && date_debut != '' && date_limite != '' && status != '')
-            {
                 $.ajax({
                     url:"<?php echo base_url(); ?>tache/action_tache/<?php echo $id_projet; ?>",
                     method:"POST",
@@ -412,12 +507,8 @@
                         $('#tache_data').bootgrid('reload');
                     }
                 });
-            }
-            else
-            {
-                alert("Field is Required");
-            }
         });
+
 
         $(document).on("loaded.rs.jquery.bootgrid", function(){
             tacheTable.find('.update').on('click', function(event){
@@ -486,7 +577,7 @@
             }
         });
 
-        $('#add_button').click(function(){
+        $('#add_note_button').click(function(){
             $('#note_form')[0].reset();
             $('.modal-title').text("Add note");
             $('#action').val("Add");
@@ -586,7 +677,7 @@
             }
         });
 
-        $('#add_button').click(function(){
+        $('#add_facture_button').click(function(){
             $('#facture_form')[0].reset();
             $('.modal-title').text("Add facture");
             $('#action').val("Add");

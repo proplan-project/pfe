@@ -5,8 +5,9 @@ class Equipe extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Equipe_model');
+        $this->load->model('Equipe_projet_model');
         $this->load->model('Utilisateur_model');
-        $this->load->model('Utilisateur_equipe_model');
+        $this->load->model('Utilisateur_a_equipe_model');
         $this->load->model('profileInfo');
     }
 
@@ -23,6 +24,8 @@ class Equipe extends CI_Controller{
         $data['id_equipe']=$id_equipe;
         $data['nom'] = $this->profileInfo->get_info();
         $data['equipe'] = $this->Equipe_model->fetch_single_data($id_equipe);
+        $data['projet'] = $this->Equipe_projet_model->make_query($id_equipe);
+        $data['utilisateur'] = $this->Utilisateur_a_equipe_model->make_query($id_equipe);
         $data['all_utilisateur'] = $this->Utilisateur_model->make_query();
         $this->load->view('equipe_detail',$data);
     }

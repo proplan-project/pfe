@@ -26,6 +26,7 @@ class Projet extends CI_Controller{
         $data['nom'] = $this->profileInfo->get_info();
         $data['projet'] = $this->projet_model->fetch_single_data($id_projet);
         $data['all_equipe'] = $this->Equipe_model->make_query();
+        $data['all_client'] = $this->Client_model->make_query();
         $this->load->view('projet_detail',$data);
     }
 

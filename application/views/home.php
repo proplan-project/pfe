@@ -12,8 +12,7 @@
                             <div class="col-md-2"><img src="assets/img/tim_80x80.png" style="border-radius: 50%; "></div>
                             <div class="col-md-6" style="margin-top: 10px;">
                                 <b>Salut bon retour! <?php echo $nom['nom']." ".$nom['prenom'];?></b><br>
-                                <i>Admin</i><br>
-                                dernière connexion il y a 23 heures vieu details
+                                Bonne chance dans votre travail.
                             </div>
                         </div>
                         <div class="col-md-4" style=" padding:30px">
@@ -34,7 +33,7 @@
                             <div class="col-md-3">
                                 <div class="card-counter primary">
                                     <i class="fa fa-money "></i>
-                                    <span class="count-numbers">1600 $</span>
+                                    <span class="count-numbers"><?php echo $sum_facture;?> DH</span>
                                     <span class="count-name">facture</span>
                                 </div>
                             </div>
@@ -42,14 +41,14 @@
                             <div class="col-md-3">
                                 <div class="card-counter danger">
                                     <i class="fa fa-tasks"></i>
-                                    <span class="count-numbers">140</span>
+                                    <span class="count-numbers"><?php echo $taches;?></span>
                                     <span class="count-name">Taches</span>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="card-counter" style="background-color: #f7973f ;color: #fff ">                               <i class="fa fa-cubes"></i>
-                                    <span class="count-numbers">20</span>
+                                    <span class="count-numbers"><?php echo $projets;?></span>
                                     <span class="count-name">Projets</span>
                                 </div>
                             </div>
@@ -57,7 +56,7 @@
                             <div class="col-md-3">
                                 <div class="card-counter info">
                                     <i class="fa fa-users"></i>
-                                    <span class="count-numbers">35</span>
+                                    <span class="count-numbers"><?php echo $clients;?></span>
                                     <span class="count-name">Clients</span>
                                 </div>
                             </div>
@@ -274,6 +273,8 @@
     </div>
 </div>
 </body>
+
+<?php require 'includes/js_include.php'; ?>
 
 <script type="text/javascript">
     $(document).ready(function(){

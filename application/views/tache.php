@@ -37,6 +37,8 @@
     </div>
 </div>
 </body>
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
 
 <div id="tacheModal" class="modal fade">
     <div class="modal-dialog">

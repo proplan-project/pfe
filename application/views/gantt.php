@@ -89,21 +89,35 @@
 </head>
 <body>
 <?php
-$color = "#777";
-if (isset($_POST['green']))
+$color = get_cookie('color');;
+if (isset($_POST['green'])){
     $color = "green";
-if (isset($_POST['red']))
+    set_cookie('color','green','3600');
+}
+if (isset($_POST['red'])){
     $color = "red";
-if (isset($_POST['blue']))
+    set_cookie('color','red','3600');
+}
+if (isset($_POST['blue'])){
     $color = "blue";
-if (isset($_POST['orange']))
+    set_cookie('color','blue','3600');
+}
+if (isset($_POST['orange'])){
     $color = "orange";
-if (isset($_POST['grey']))
+    set_cookie('color','orange','3600');
+}
+if (isset($_POST['grey'])){
     $color = "#777";
-if (isset($_POST['purple']))
+    set_cookie('color','#777','3600');
+}
+if (isset($_POST['purple'])){
     $color = "purple";
-if (isset($_POST['azure']))
+    set_cookie('color','purple','3600');
+}
+if (isset($_POST['azure'])){
     $color = "azure";
+    set_cookie('color','azure','3600');
+}
 ?>
 <div class="wrapper">
     <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assets/img/sidebar-5.jpg">
@@ -129,6 +143,9 @@ if (isset($_POST['azure']))
     </div>
 </div>
 </body>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
 
 <div id="tacheModal" class="modal fade">
     <div class="modal-dialog">

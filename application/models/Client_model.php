@@ -58,6 +58,7 @@ class Client_model extends CI_Model
     {
         $this->db->select("*");
         $this->db->from("client");
+        $this->db->where('id_utilisateur',$this->session->userdata['info']['id']);
         $query = $this->db->get();
         return $query->num_rows();
     }

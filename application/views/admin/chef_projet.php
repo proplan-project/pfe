@@ -22,9 +22,7 @@
                             <tr>
                                 <th data-column-id="nom">Nom</th>
                                 <th data-column-id="prenom">Prenom</th>
-                                <th data-column-id="type">Type</th>
                                 <th data-column-id="email">Email</th>
-                                <th data-column-id="password">Mot De Passe</th>
                                 <th data-column-id="genre">Genre</th>
                                 <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
                             </tr>
@@ -57,10 +55,6 @@
                     <div class="form-group">
                         <label>Prenom</label>
                         <input type="text" name="prenom" id="prenom" class="form-control"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Type</label>
-                        <input type="text" name="type" id="type" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
@@ -100,7 +94,7 @@
                     id:"b0df282a-0d67-40e5-8558-c9e93b7befed"
                 }
             },
-            url:"<?php echo base_url(); ?>utilisateur/fetch_data",
+            url:"<?php echo base_url(); ?>chef_projet/fetch_data",
             formatters:{
                 "action":function(column, row)
                 {
@@ -121,7 +115,6 @@
             event.preventDefault();
             var nom = $('#nom').val();
             var prenom = $('#prenom').val();
-            var type = $('#type').val();
             var email = $('#email').val();
             var password = $('#password').val();
             var genre = $('#genre').val();
@@ -130,7 +123,7 @@
             if(	nom != '' && prenom != '' && type != '' && email != '' && password != '' && genre != '')
             {
                 $.ajax({
-                    url:"<?php echo base_url(); ?>utilisateur/action",
+                    url:"<?php echo base_url(); ?>chef_projet/action",
                     method:"POST",
                     data:form_data,
                     success:function(data)
@@ -152,7 +145,7 @@
             utilisateurTable.find('.update').on('click', function(event){
                 var id = $(this).data('row-id');
                 $.ajax({
-                    url:"<?php echo base_url(); ?>utilisateur/fetch_single_data",
+                    url:"<?php echo base_url(); ?>chef_projet/fetch_single_data",
                     method:"POST",
                     data:{id:id},
                     dataType:"json",
@@ -161,7 +154,6 @@
                         $('#utilisateurModal').modal('show');
                         $('#nom').val(data.nom);
                         $('#prenom').val(data.prenom);
-                        $('#type').val(data.type);
                         $('#email').val(data.email);
                         $('#password').val(data.password);
                         $('#genre').val(data.genre);
@@ -178,7 +170,7 @@
                 {
                     var id = $(this).data('row-id');
                     $.ajax({
-                        url:"<?php echo base_url(); ?>utilisateur/delete_data",
+                        url:"<?php echo base_url(); ?>chef_projet/delete_data",
                         method:"POST",
                         data:{id:id},
                         success:function(data)

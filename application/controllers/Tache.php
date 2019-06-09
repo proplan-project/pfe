@@ -96,6 +96,7 @@ class tache extends CI_Controller{
                 'date_debut' => $this->input->post("date_debut"),
                 'date_limite' => $this->input->post("date_limite"),
                 'status' => $this->input->post("status"),
+                'percent_complete' => $this->input->post("percent_complete"),
                 'id_projet' => $id_projet,
                 'assigne_a' =>$this->session->userdata['info']['id'],
             );

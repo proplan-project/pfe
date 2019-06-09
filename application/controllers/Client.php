@@ -7,6 +7,7 @@ class Client extends CI_Controller
         parent::__construct();
         $this->load->model('Client_model');
         $this->load->model('profileInfo');
+        $this->load->helper('cookie');
     }
 
     function index()

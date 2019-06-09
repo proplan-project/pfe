@@ -8,15 +8,15 @@
         <?php require 'includes/nav.php'; ?>
 
         <div class="content">
-            <div class="panel panel-default" style="max-width: 1050px;">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-10">
                             <button type="button" id="add_button" data-toggle="modal" data-target="#clientModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Un Client
                             </button>
                         </div>
-                        <div class="col-md-2" >
+                        <div class="col-md-2" align="right" >
                             <form method="post" action="<?php echo base_url(); ?>export_csv/export" >
                                 <button type="submit" name="export" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000"/>
                                 <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Export CSV
@@ -27,7 +27,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table id="client_data" class="table table-striped table-bordered  table-hover">
+                        <table id="client_data" class="table table-striped table-bordered">
                             <thead>
                             <tr>
                                 <th data-column-id="nom">Nom</th>
@@ -51,6 +51,10 @@
     </div>
     </body>
 
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+<script src="assets/js/demo.js"></script>
     <div id="clientModal" class="modal fade">
         <div class="modal-dialog">
             <form method="post" id="client_form">
