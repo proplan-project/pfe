@@ -20,51 +20,15 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo base_url();?>projet">
+            <a href="<?php echo base_url();?>contact">
                 <i class="pe-7s-news-paper"></i>
-                <p>Projets</p>
+                <p>Contact</p>
             </a>
         </li>
         <li>
-            <a href="<?php echo base_url();?>tache">
-                <i class="pe-7s-science"></i>
-                <p>Taches</p>
-            </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url();?>facture">
-                <i class="pe-7s-cash"></i>
-                <p>Factures</p>
-            </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url();?>note">
-                <i class="pe-7s-note2"></i>
-                <p>Notes</p>
-            </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url();?>utilisateur">
-                <i class="pe-7s-chat"></i>
-                <p>Utilisateurs</p>
-            </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url();?>gantt">
-                <i class="pe-7s-graph3"></i>
-                <p>Rapports de temps</p>
-            </a>
-        </li>
-        <li>
-            <a href="user.html">
-                <i class="pe-7s-graph1"></i>
-                <p>Fuilles de temps</p>
-            </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url();?>equipe">
+            <a href="<?php echo base_url();?>administration">
                 <i class="pe-7s-users"></i>
-                <p>membre de l'équipe</p>
+                <p>administration</p>
             </a>
         </li>
     </ul>

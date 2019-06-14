@@ -6,15 +6,6 @@
 
         <div class="content">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <button type="button" id="add_button" data-toggle="modal" data-target="#utilisateurModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un utilisateur
-                            </button>
-                        </div>
-                    </div>
-                </div>
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table id="utilisateur_data" class="table table-striped table-bordered">
@@ -98,73 +89,12 @@
             formatters:{
                 "action":function(column, row)
                 {
-                    return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id+"' style='border:none;'><span class='glyphicon glyphicon-pencil' style='color: #000000'/></button>" + "&nbsp;" +
-                        "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id+"' style='border:none;'><span class='glyphicon glyphicon-remove' style='color:#000'/></button>";
+                    return "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id+"' style='border:none;'><span class='glyphicon glyphicon-remove' style='color:#000'/></button>";
                 }
             }
         });
 
-        $('#add_button').click(function(){
-            $('#utilisateur_form')[0].reset();
-            $('.modal-title').text("Add Utilisateur");
-            $('#action').val("Add");
-            $('#operation').val("Add");
-        });
-
-        $(document).on('submit', '#utilisateur_form', function(event){
-            event.preventDefault();
-            var nom = $('#nom').val();
-            var prenom = $('#prenom').val();
-            var email = $('#email').val();
-            var password = $('#password').val();
-            var genre = $('#genre').val();
-            var id = $('#id').val();
-            var form_data = $(this).serialize();
-            if(	nom != '' && prenom != '' && type != '' && email != '' && password != '' && genre != '')
-            {
-                $.ajax({
-                    url:"<?php echo base_url(); ?>chef_projet/action",
-                    method:"POST",
-                    data:form_data,
-                    success:function(data)
-                    {
-                        alert(data);
-                        $('#utilisateur_form')[0].reset();
-                        $('#utilisateurModal').modal('hide');
-                        $('#utilisateur_data').bootgrid('reload');
-                    }
-                });
-            }
-            else
-            {
-                alert("Field is Required");
-            }
-        });
-
         $(document).on("loaded.rs.jquery.bootgrid", function(){
-            utilisateurTable.find('.update').on('click', function(event){
-                var id = $(this).data('row-id');
-                $.ajax({
-                    url:"<?php echo base_url(); ?>chef_projet/fetch_single_data",
-                    method:"POST",
-                    data:{id:id},
-                    dataType:"json",
-                    success:function(data)
-                    {
-                        $('#utilisateurModal').modal('show');
-                        $('#nom').val(data.nom);
-                        $('#prenom').val(data.prenom);
-                        $('#email').val(data.email);
-                        $('#password').val(data.password);
-                        $('#genre').val(data.genre);
-                        $('.modal-title').text("Edit utilisateur Details");
-                        $('#id').val(id);
-                        $('#action').val('Edit');
-                        $('#operation').val('Edit');
-                    }
-                });
-            });
-
             utilisateurTable.find('.delete').on('click', function(event){
                 if(confirm("Are you sure you want to delete this?"))
                 {
@@ -186,6 +116,5 @@
                 }
             });
         });
-
     });
 </script>
