@@ -45,7 +45,7 @@
 
                                 <?php foreach ($utilisateur_equipe as $up){ ?>
                                 <tr>
-                                    <td><?php echo $up['nom']; ?></td>
+                                    <td><a href="<?php echo base_url()?>equipe/detail/<?php echo $up['id_equipe']; ?>"><?php echo $up['nom']; ?></a></td>
                                     <td><?php echo $up['titre_emploi']; ?></td>
                                 </tr>
                                 <?php } ?>

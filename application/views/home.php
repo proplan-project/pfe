@@ -28,6 +28,7 @@
                             </form>
                         </div>
                     </div>
+                    <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
                     <div class="col-sm-12" style="margin-bottom:20px;" >
                         <div class="row">
                             <div class="col-md-3">
@@ -37,7 +38,6 @@
                                     <span class="count-name">facture</span>
                                 </div>
                             </div>
-
                             <div class="col-md-3">
                                 <div class="card-counter danger">
                                     <i class="fa fa-tasks"></i>
@@ -62,6 +62,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card">
