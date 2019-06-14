@@ -33,34 +33,32 @@
                 <p>Taches</p>
             </a>
         </li>
+        <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
         <li>
             <a href="<?php echo base_url();?>facture">
                 <i class="pe-7s-cash"></i>
                 <p>Factures</p>
             </a>
         </li>
+        <?php }?>
         <li>
             <a href="<?php echo base_url();?>note">
                 <i class="pe-7s-note2"></i>
                 <p>Notes</p>
             </a>
         </li>
+        <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
         <li>
             <a href="<?php echo base_url();?>utilisateur">
                 <i class="pe-7s-chat"></i>
                 <p>Utilisateurs</p>
             </a>
         </li>
+        <?php }?>
         <li>
             <a href="<?php echo base_url();?>gantt">
                 <i class="pe-7s-graph3"></i>
                 <p>Rapports de temps</p>
-            </a>
-        </li>
-        <li>
-            <a href="user.html">
-                <i class="pe-7s-graph1"></i>
-                <p>Fuilles de temps</p>
             </a>
         </li>
         <li>
@@ -95,7 +93,7 @@
 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><b><?php echo $nom['nom']." ".$nom['prenom'];?></b><i>&nbspadmin</i></a></li>
+                            <li><a href="#"><b><?php echo $nom['nom']." ".$nom['prenom'];?></b><i>&nbsp<?php if($this->session->userdata['info']['db'] == 'chef_projet'){echo "Chef de projet";} ?><?php echo $nom['type']; ?></b></i></a></li>
                             <li><a href="<?php echo base_url()?>/profil">Voir le Profil</a></li>
                             <li><?php echo '<a href="'.base_url().'private_area/logout">Deconnecter</a>'; ?></li>
                         </ul>

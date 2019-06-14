@@ -10,4 +10,9 @@ class Utilisateur_a_equipe_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    function insert($data)
+    {
+        return $this->db->insert('utilisateur_a_equipe', $data);
+    }
 }

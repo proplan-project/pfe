@@ -14,6 +14,7 @@ class tache extends CI_Controller{
         $data['titre']='Les tâches';
         $data['nom'] = $this->profileInfo->get_info();
         $data['all_projet'] = $this->projet_model->all_projet();
+        $data['utilisateur_projet'] = $this->projet_model->make_query_utilisateur();
         $this->load->view('tache',$data);
     }
 
@@ -125,6 +126,8 @@ class tache extends CI_Controller{
                 $output['date_debut'] = $row['date_debut'];
                 $output['date_limite'] = $row['date_limite'];
                 $output['status'] = $row['status'];
+                $output['percent_complete'] = $row['percent_complete'];
+                $output['id_projet'] = $row['id_projet'];
             }
             echo json_encode($output);
         }

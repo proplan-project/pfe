@@ -274,7 +274,7 @@
 </div>
 </body>
 
-<?php require 'includes/js_include.php'; ?>
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){

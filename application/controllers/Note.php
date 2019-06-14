@@ -14,6 +14,7 @@ class Note extends CI_Controller{
         $data['titre']='Les projets';
         $data['nom'] = $this->profileInfo->get_info();
         $data['all_projet'] = $this->projet_model->all_projet();
+        $data['utilisateur_projet'] = $this->projet_model->make_query_utilisateur();
         $this->load->view('note',$data);
     }
 

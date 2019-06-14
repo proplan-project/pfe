@@ -7,37 +7,63 @@
         <div class="content">
             <div class="panel panel-default">
                 <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <button type="button" id="add_button" data-toggle="modal" data-target="#projetModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Un projet
-                            </button>
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <button type="button" id="add_button" data-toggle="modal" data-target="#projetModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Un projet
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php }?>
-                <div class="panel-body">
-                    <div class="table-responsive">
-                        <table id="projet_data" class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th data-column-id="titre_projet" data-formatter="titre_projet">titre_projet</th>
-                                <th data-column-id="description">Description</th>
-                                <th data-column-id="date_debut">Date début</th>
-                                <th data-column-id="date_limite">Date limite</th>
-                                <th data-column-id="date_creation">Date creation</th>
-                                <th data-column-id="status">Status</th>
-                                <th data-column-id="prix">Prix</th>
-                                <th data-column-id="nom">Client</th>
-                                <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
-                                <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
-                                <?php }?>
-                            </tr>
-                            </thead>
-                        </table>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="projet_data" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th data-column-id="titre_projet" data-formatter="titre_projet">titre_projet</th>
+                                    <th data-column-id="description">Description</th>
+                                    <th data-column-id="date_debut">Date début</th>
+                                    <th data-column-id="date_limite">Date limite</th>
+                                    <th data-column-id="date_creation">Date creation</th>
+                                    <th data-column-id="status">Status</th>
+                                    <th data-column-id="prix">Prix</th>
+                                    <th data-column-id="nom">Client</th>
+                                    <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
-                </div>
+                <?php }?>
+                <?php if($this->session->userdata['info']['db'] == 'utilisateur'){ ?>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>titre_projet</th>
+                                    <th>Description</th>
+                                    <th>Date début</th>
+                                    <th>Date limite</th>
+                                    <th>Date creation</th>
+                                    <th>Status</th>
+                                </tr>
+                                <?php foreach ($utilisateur_projet as $up){ ?>
+                                    <tr>
+                                        <td><a href="<?php echo base_url()?>projet/detail/<?php echo $up['id_projet']; ?>"><?php echo $up['titre_projet']; ?></a></td>
+                                        <td><?php echo $up['description']; ?></td>
+                                        <td><?php echo $up['date_debut']; ?></td>
+                                        <td><?php echo $up['date_limite']; ?></td>
+                                        <td><?php echo $up['date_creation']; ?></td>
+                                        <td><?php echo $up['status']; ?></td>
+                                    </tr>
+                                <?php } ?>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                <?php }?>
             </div>
         </div>
     </div>

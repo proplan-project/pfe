@@ -16,6 +16,7 @@ class Gantt extends CI_Controller
         $data['nom'] = $this->profileInfo->get_info();
         $data["fetch_data"] = $this->Gantt_model->fetch_data();
         $data['all_projet'] = $this->projet_model->all_projet();
+        $data['utilisateur_projet'] = $this->projet_model->make_query_utilisateur();
         $this->load->view('gantt',$data);
     }
 }

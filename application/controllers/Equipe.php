@@ -15,6 +15,7 @@ class Equipe extends CI_Controller{
     {
         $data['titre']='Les équipes';
         $data['nom'] = $this->profileInfo->get_info();
+        $data['utilisateur_equipe'] = $this->Equipe_projet_model->make_query_utilisateur();
         $this->load->view('equipe',$data);
     }
 
@@ -75,7 +76,7 @@ class Equipe extends CI_Controller{
                 'id' => $this->input->post("id"),
                 'id_equipe' => $this->input->post("id_equipe"),
             );
-			$this->Utilisateur_equipe_model->insert($data);
+			$this->Utilisateur_a_equipe_model->insert($data);
 			$message = "L'utilisateur est invité correctement";
 			$this->session->set_flashdata('message',$message);
 			redirect('equipe/detail');

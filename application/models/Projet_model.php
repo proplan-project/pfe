@@ -53,6 +53,18 @@ class Projet_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+    function make_query_utilisateur()
+    {
+        $this->db->select("*");
+        $this->db->from('utilisateur');
+        $this->db->join('utilisateur_a_equipe','utilisateur_a_equipe.id = utilisateur.id');
+        $this->db->join('equipe_a_projet','equipe_a_projet.id_equipe = utilisateur_a_equipe.id_equipe');
+        $this->db->join('projet','projet.id_projet = equipe_a_projet.id_projet');
+        $this->db->where('utilisateur.id',$this->session->userdata['info']['id']);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
 
     function all_projet()
     {

@@ -16,6 +16,7 @@ class Projet extends CI_Controller{
         $data['titre']='Les projets';
         $data['nom'] = $this->profileInfo->get_info();
         $data['all_client'] = $this->Client_model->make_query();
+        $data['utilisateur_projet'] = $this->projet_model->make_query_utilisateur();
         $this->load->view('projet',$data);
     }
 
@@ -52,7 +53,6 @@ class Projet extends CI_Controller{
         );
         echo json_encode($output);
     }
-
     function action()
     {
         if($this->input->post('operation'))

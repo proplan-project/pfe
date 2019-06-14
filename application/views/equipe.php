@@ -16,7 +16,6 @@
                             </div>
                         </div>
                     </div>
-                <?php }?>
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table id="equipe_data" class="table table-striped table-bordered">
@@ -32,6 +31,28 @@
                         </table>
                     </div>
                 </div>
+                <?php }?>
+                <?php if($this->session->userdata['info']['db'] == 'utilisateur'){ ?>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Nom d'équpe</th>
+                                    <th>Titre d'emploi</th>
+                                </tr>
+                                </thead>
+
+                                <?php foreach ($utilisateur_equipe as $up){ ?>
+                                <tr>
+                                    <td><?php echo $up['nom']; ?></td>
+                                    <td><?php echo $up['titre_emploi']; ?></td>
+                                </tr>
+                                <?php } ?>
+                            </table>
+                        </div>
+                    </div>
+                <?php }?>
             </div>
         </div>
     </div>

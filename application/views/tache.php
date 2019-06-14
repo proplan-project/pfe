@@ -77,6 +77,7 @@
                         <label>Pourcentage</label>
                         <input type="range" minlength="0" maxlength="100" step="10" name="percent_complete" id="percent_complete" class="form-control"/>
                     </div>
+                    <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
                     <div class="form-group">
                         <label>Projet</label>
                         <select name="id_projet">
@@ -91,6 +92,24 @@
                             ?>
                         </select>
                     </div>
+                    <?php } ?>
+                    <?php if($this->session->userdata['info']['db'] == 'utilisateur'){ ?>
+                        <div class="form-group">
+                            <label>Projet</label>
+                            <select name="id_projet">
+                                <option value="">selectionner un projet</option>
+                                <?php
+                                foreach($utilisateur_projet as $up)
+                                {
+                                    $selected = ($up['id_projet'] == $this->input->post('id_projet')) ? ' selected="selected"' : "";
+
+                                    echo '<option value="'.$up['id_projet'].'" '.$selected.'>'.$up['titre_projet'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    <?php } ?>
+
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id_tache" id="id_tache" />
