@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../PHP/.idea/PHP.iml" filepath="$PROJECT_DIR$/../PHP/.idea/PHP.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cicrud-ajax/.idea/cicrud-ajax.iml" filepath="$PROJECT_DIR$/../cicrud-ajax/.idea/cicrud-ajax.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pfe.iml" filepath="$PROJECT_DIR$/.idea/pfe.iml" />
     </modules>

@@ -40,7 +40,7 @@ class Register extends CI_Controller {
                 'adresse'  => $this->input->post('adresse'),
                 'tel'  => $this->input->post('tel'),
                 'email'  => $this->input->post('user_email'),
-                'password' => $this->input->post('user_password'),
+                'password' => password_hash($this->input->post('user_password'), PASSWORD_DEFAULT),
                 'verification_key' => $verification_key
             );
             $id = $this->register_model->insert($data);
@@ -51,10 +51,10 @@ class Register extends CI_Controller {
                     'from'    => 'proplan@golaxi.com',
                     'to'      => $this->input->post('user_email'),
                     'subject' => 'Veuillez vérifier votre email pour vous connecter',
-                    'text'    => "<p>Salut ".$this->input->post('user_name')."</p>
+                    'html'    => "<p>Salut ".$this->input->post('user_name')."</p>
                                   <p>Ceci est un courrier électronique de vérification envoyé par le système Codeigniter Login Register.
-                                    Pour compléter le processus d'inscription et vous connecter au système. D'abord, vous voulez vérifier votre courrier en cliquant dessus 
-                                  <a href='".base_url()."register/verify_email/".$verification_key."'>lien</a>.</p>
+                                    Pour compléter le processus d'inscription et vous connecter au système. D'abord, vous voulez vérifier votre courrier en cliquant
+                                  <a href='".base_url()."register/verify_email/".$verification_key."'>ICI</a>.</p>
                                   <p>Une fois que vous avez cliqué sur ce lien, votre email sera vérifié et vous pourrez vous connecter au système..</p>
                                   <p>Merci,</p>"
                 ));

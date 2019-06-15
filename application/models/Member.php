@@ -15,26 +15,22 @@ class Member extends CI_Model{
             $image_array_1 = explode(";", $data);
             $image_array_2 = explode(",", $image_array_1[1]);
             $data = base64_decode($image_array_2[1]);
-            $imageName = time() . '.png';
+            $imageName = ''.time() . '.png';
             file_put_contents($imageName, $data);
-            $image_file = addslashes(file_get_contents($imageName));
-
-            /*$query = "INSERT INTO tbl_images(images) VALUES ('".$image_file."')";
-
-            $statement = $connect->prepare($query);*/
+            $image_file = base64_encode(file_get_contents($imageName));
 
             $params = array(
-                'image' => $image_file
+                'image' => $image_file ,
+                'nom' => $imageName
             );
-            $id = $this->session->userdata['info']['id'];
+
             $db = $this->session->userdata['info']['db'];
-            $sid = "$id";
             $sdb = "$db";
-            //$this->db->where('id',$sid);
-            if($this->db->insert($sdb, $params))
+
+            if($this->db->insert('utilisateur', $params))
             {
                 echo 'Mise à jour de l\'image dans la base de données avec succès';
-                unlink($imageName);
+                //unlink($imageName);
             }
 
         }
@@ -51,7 +47,7 @@ class Member extends CI_Model{
             {
                 $output .= '
                       <div class="col-md-2" style="margin-bottom:16px;">
-                       <img src="data:image/png;base64,'.base64_encode($row['image']).'" class="img-thumbnail" />
+                       <img src="'.$row['nom'].'" class="img-thumbnail" />
                       </div>
                       ';
             }
@@ -59,6 +55,10 @@ class Member extends CI_Model{
         $output .= '</div>';
         echo $output;
 
+    }
+
+    function show(){
+        echo 'yes';
     }
 
 

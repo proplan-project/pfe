@@ -56,7 +56,7 @@
                            ';
                             }
                             ?>
-                            <form method="post" action="<?php echo base_url(); ?>reset/modifier">
+                            <form method="post" action="<?php echo base_url(); ?>resetAdmin/modifierPass">
                                 <div class="form-group">
                                     <label>nouveau mot de passe : *</label>
                                     <input type="password" name="pass1" class="form-control" placeholder="********"/>

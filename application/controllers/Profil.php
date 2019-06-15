@@ -17,7 +17,6 @@ class Profil extends CI_Controller{
         $data['info'] = $this->profileInfo->get_info();
         $this->load->view('profil',$data);
     }
-
     function edit()
     {
         $data['info'] = $this->profileInfo->get_info();
@@ -76,7 +75,6 @@ class Profil extends CI_Controller{
             $this->addsocial();
         }
     }
-
     function editinfo()
     {
         $data['info'] = $this->profileInfo->get_info();
@@ -123,7 +121,6 @@ class Profil extends CI_Controller{
             $this->index();
         }
     }
-
     function addsocial(){
         $result = $this->profileInfo->addsocial();
         $msg['success'] = false;
@@ -133,7 +130,6 @@ class Profil extends CI_Controller{
         }
         echo json_encode($msg);
     }
-
     public function showprofil(){
         $result = $this->profileInfo->showprofil();
         echo json_encode($result);

@@ -184,7 +184,7 @@
                         <div class="panel-heading">Sélectionnez Fichier</div>
                         <div class="panel-body">
                             <div class="file-loading">
-                                <input id="input-fr"  type="file"  name="excel" multiple >
+                                <input id="input-fr"  type='file' name='files[]' data-browse-on-zone-click="true" multiple >
                             </div>
                         </div>
                     </div>
@@ -216,9 +216,9 @@
     <script>
     $("#input-fr").fileinput({
         language: "fr",
-        uploadUrl: "../livre/implod.php",
+        uploadUrl: "<?php echo base_url(); ?>upload",
         maxFileCount: 10,
-        allowedFileExtensions: ["xls", "xlsx", "csv","pdf","ppt","docx","Psd","Ai","mp3","mp3"]
+        allowedFileExtensions: ["xls", "xlsx", "csv","pdf","ppt","docx","Psd","Ai","mp4","mp3"]
     });
 </script>
 
