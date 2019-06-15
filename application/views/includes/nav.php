@@ -1,7 +1,6 @@
 <div class="sidebar-wrapper">
     <div class="logo">
-        <a href="http://www.proplan.com" class="simple-text">
-            ProPlan
+        <img src="<?php echo base_url(); ?>assets/images/logo_proplan.png" alt="Myself">
         </a>
     </div>
 
@@ -81,8 +80,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                <a class="navbar-brand" href="#" ><b>ProPlan</b> : Créer une harmonie de travail</a>
+                <div>
+                <img src="<?php echo base_url(); ?>assets/images/logo_home.png" alt="Myself"><h6>Créer une harmonie de travail</h6>
+				</div>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
