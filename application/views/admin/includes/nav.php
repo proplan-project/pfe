@@ -28,7 +28,7 @@
         <li>
             <a href="<?php echo base_url();?>administration">
                 <i class="pe-7s-users"></i>
-                <p>administration</p>
+                <p>L'administration</p>
             </a>
         </li>
     </ul>

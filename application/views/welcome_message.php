@@ -298,9 +298,9 @@
             <div class="col-lg-8 mx-auto">
                 <div class="bg-white rounded text-center p-5 shadow-down">
                     <h4 class="mb-80">Formulaire de contact</h4>
-                    <form action="contact" method="post" class="row">
+                    <form action="#" class="row">
                         <div class="col-md-6">
-                            <input type="text" id="nom" name="nom" placeholder="Nom" class="form-control px-0 mb-4">
+                            <input type="text" id="name" name="Nom" placeholder="Nom" class="form-control px-0 mb-4">
                         </div>
                         <div class="col-md-6">
                             <input type="email" id="email" name="email" placeholder="Email" class="form-control px-0 mb-4">
@@ -310,7 +310,7 @@
                         placeholder="Tapez le message ici"></textarea>
                         </div>
                         <div class="col-lg-6 col-10 mx-auto">
-                            <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+                            <button class="btn btn-primary w-100">Envoyer</button>
                         </div>
                     </form>
                 </div>
