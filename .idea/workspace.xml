@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc2ef064-f857-4563-a9e9-af7dcde5ae39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/images/logo_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/logo_proplan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/1657bc07b6d4b88.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/1657bc07b6d4b881.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/ballpen-blur-close-up-461077.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Administration.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Administration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Administration_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Administration_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/administration.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/administration.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Administration.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+            <state relative-caret-position="1340">
+              <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -52,11 +54,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
               <caret line="137" column="29" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#button#1;n#th#6;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#button#1;n#th#6;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#2492#2499#1#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -64,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Administration_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-597">
+            <state relative-caret-position="540">
               <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
             </state>
           </provider>
@@ -73,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Projet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="41" column="38" lean-forward="true" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+            <state relative-caret-position="820">
+              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -82,16 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/projet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="155" column="25" lean-forward="true" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="206" />
-              <folding>
-                <element signature="e#4383#4390#1#HTML" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#button#0;n#!!top" expanded="true" />
-                <element signature="e#171#177#1" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#button#1;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="3100">
+              <caret line="155" column="25" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="206" />
             </state>
           </provider>
         </entry>
@@ -137,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/includes/nav.php" />
         <option value="$PROJECT_DIR$/application/models/Gantt_model.php" />
         <option value="$PROJECT_DIR$/application/views/facture_detail.php" />
         <option value="$PROJECT_DIR$/application/controllers/Register.php" />
@@ -188,6 +176,7 @@
         <option value="$PROJECT_DIR$/application/models/Administration_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Administration.php" />
         <option value="$PROJECT_DIR$/application/views/admin/administration.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/includes/js_include.php" />
       </list>
     </option>
   </component>
@@ -195,9 +184,9 @@
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
       <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
       <path value="$PROJECT_DIR$/vendor/mailgun/mailgun-php" />
@@ -232,11 +221,11 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/kriswallsmith/buzz" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -251,7 +240,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -264,18 +252,6 @@
               <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
@@ -302,6 +278,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,6 +376,7 @@
       <workItem from="1560539268038" duration="1176000" />
       <workItem from="1560605258434" duration="4178000" />
       <workItem from="1560613517733" duration="6282000" />
+      <workItem from="1560626482360" duration="1708000" />
     </task>
     <task id="LOCAL-00001" summary="test commit in phpstorm">
       <created>1558300000571</created>
@@ -481,13 +459,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="350096000" />
+    <option name="totallyTimeSpent" value="351804000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.1913767" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.19440243" />
       <window_info id="Structure" order="1" sideWeight="0.5008183" side_tool="true" weight="0.16641453" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info id="Image Layers" order="3" />
@@ -708,13 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/includes/js_include.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="14" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -947,39 +918,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Projet.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Administration.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="41" column="38" lean-forward="true" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/projet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="155" column="25" lean-forward="true" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="206" />
-          <folding>
-            <element signature="e#4383#4390#1#HTML" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="e#171#177#1" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#button#1;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="1340">
+          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Administration_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-597">
+        <state relative-caret-position="540">
           <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Administration.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Projet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+        <state relative-caret-position="820">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/projet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3100">
+          <caret line="155" column="25" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/includes/js_include.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -987,11 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="137" column="29" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#button#1;n#th#6;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#button#1;n#th#6;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#2492#2499#1#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
