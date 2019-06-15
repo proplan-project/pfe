@@ -12,7 +12,7 @@ class Login_model extends CI_Model
                 if($row->is_email_verified == 'oui')
                 {
 
-                    if($password == $row->password)
+                    if(password_verify($password, $row->password))
                     {
                         $info = array(
                             'id' => $row->id,

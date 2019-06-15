@@ -8,6 +8,10 @@ class Client extends CI_Controller
         $this->load->model('Client_model');
         $this->load->model('profileInfo');
         $this->load->helper('cookie');
+        if(!$this->session->userdata['info']['id'])
+        {
+            redirect('login');
+        }
     }
 
     function index()

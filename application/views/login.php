@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" name="login" value="Login" class="btn btn-info" />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>reset/resetuser">forget password ?</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>reset">forget password ?</a>
                                 </div>
                             </form>
                         </div>
@@ -96,7 +96,7 @@
                                 <div class="form-group">
                                     <input type="submit" name="login" value="Login" class="btn btn-info" />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>register">Register</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>register">forget password ?</a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>resetAdmin">forget password ?</a>
                                 </div>
                             </form>
                         </div>

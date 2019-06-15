@@ -32,17 +32,17 @@ class reset extends CI_Controller
                  $result = $mg->messages()->send('golaxi.com', array(
                      'from'    => 'proplan@golaxi.com',
                      'to'      => $this->input->post('user_email'),
-                     'subject' => 'hhhh tnsaalik mot de pass',
-                     'text'    => "Salut ".$row['nom']."
+                     'subject' => 'réinitialiser votre mot de passe ici',
+                     'html'    => "Salut ".$row['nom']."
                                      Ceci est un courrier électronique de mot de pass oublie , envoyé par le système ProPlan.
                                     Pour compléter le processus et vous connecter au système. D'abord, vous voulez vérifier votre courrier en cliquant dessus 
                                   <a href='".base_url()."reset/verify_password/".$row[verification_key]."'>lien</a>.</p>
-                                  <p>Merci ./p>"
+                                  <p>Merci .</p>"
                  ));
 
                  if($result)
                  {
-                     $message = 'xof email dyalk';
+                     $message = 'vous avez reçu un message dans votre boîte';
                      $this->session->set_flashdata('message', $message);
                      redirect('reset');
                  }else{
@@ -60,25 +60,33 @@ class reset extends CI_Controller
      function verify_password(){
          if($this->uri->segment(3))
          {
-            $key =  $this->uri->segment(3);
-            $this->load->view('userforget');
+            $data['key'] =  $this->uri->segment(3);
+            $this->load->view('userforget',$data);
 
          }
      }
 
-     function submit(){
+     function modifier(){
         if ($_POST){
+            $this->form_validation->set_rules('pass1', 'Mot De Pass', 'required');
+            $this->form_validation->set_rules('pass2', 'Mot De Pass', 'required');
             $pass1 = $this->input->post('pass1');
-            $pass2 = $this->input->post('pass2');
-
-           if ($pass2 == $pass1){
-               echo $this->session->flashdata("emailuser");
-           }
-           else{
-
-           }
-
-            //$this->resetpass->submit($email,$pass1);
+            $pass2 = $this->input->post('pass2' );
+            $data['key']   = $this->input->post('hidden' );
+            if($this->form_validation->run()) {
+                if ($pass1 == $pass2){
+                    $this->resetpass->modifier($pass1,$this->input->post('hidden' ));
+                    $this->load->view('userforget',$data);
+                    $messagepass = 'le mot de pass bien modifie';
+                    $this->session->set_flashdata('messagepass',$messagepass);
+                }else{
+                    $message = 'les mots de pass pas identique';
+                    $this->session->set_flashdata('message',$message);
+                    $this->load->view('userforget',$data);
+                }
+            }else{
+                $this->load->view('userforget',$data);
+            }
         }
      }
 }

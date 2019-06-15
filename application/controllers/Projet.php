@@ -94,7 +94,6 @@ class Projet extends CI_Controller{
             }
         }
     }
-
     function fetch_single_data()
     {
         if($this->input->post('id_projet'))
@@ -114,7 +113,6 @@ class Projet extends CI_Controller{
             echo json_encode($output);
         }
     }
-
     function delete_data()
     {
         if($this->input->post('id_projet'))
