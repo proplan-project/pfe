@@ -28,12 +28,14 @@ class Facture_model extends CI_Model
         $this->db->where('id_createur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
-            $this->db->like('date_facture', $_POST["searchPhrase"]);
-            $this->db->or_like('date_echeance', $_POST["searchPhrase"]);
+            $this->db->like('Numero', $_POST["searchPhrase"]);
+            $this->db->or_like('date_facture', $_POST["searchPhrase"]);
             $this->db->or_like('montant', $_POST["searchPhrase"]);
-            //$this->db->or_like('paiement_recu', $_POST["paiement_recu"]);
+            $this->db->or_like('paiement_recu', $_POST["searchPhrase"]);
+            $this->db->or_like('date_echeance', $_POST["searchPhrase"]);
             //$this->db->or_like('status', $_POST["searchPhrase"]);
         }
+        $this->db->having('id_createur',$this->session->userdata['info']['id']);
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {
             foreach($_POST["sort"] as $key => $value)

@@ -22,7 +22,7 @@ class Client_model extends CI_Model
         $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
         $this->db->select("*");
         $this->db->from("client");
-        $this->db->where('id_utilisateur',$this->session->userdata['info']['id']);
+        //$this->db->where('id_utilisateur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
             $this->db->like('nom', $_POST["searchPhrase"]);
@@ -35,6 +35,7 @@ class Client_model extends CI_Model
             $this->db->or_like('telephone', $_POST["searchPhrase"]);
             $this->db->or_like('site', $_POST["searchPhrase"]);
         }
+        $this->db->having('id_utilisateur',$this->session->userdata['info']['id']);
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {
             foreach($_POST["sort"] as $key => $value)

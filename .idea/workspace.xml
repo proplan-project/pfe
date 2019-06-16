@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fc2ef064-f857-4563-a9e9-af7dcde5ae39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Client_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Client_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Equipe_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Equipe_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Facture_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Facture_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Note_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Note_model.php" afterDir="false" />
@@ -41,11 +42,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Utilisateur_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="33" column="80" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/Equipe_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="54" column="79" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
+            <state relative-caret-position="380">
+              <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -99,7 +109,6 @@
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/controllers/Private_area.php" />
         <option value="$PROJECT_DIR$/application/controllers/Client.php" />
-        <option value="$PROJECT_DIR$/application/views/tache.php" />
         <option value="$PROJECT_DIR$/application/views/facture.php" />
         <option value="$PROJECT_DIR$/application/views/note.php" />
         <option value="$PROJECT_DIR$/application/views/utilisateur.php" />
@@ -137,6 +146,7 @@
         <option value="$PROJECT_DIR$/application/views/admin/includes/js_include.php" />
         <option value="$PROJECT_DIR$/application/models/Client_model.php" />
         <option value="$PROJECT_DIR$/application/models/Projet_model.php" />
+        <option value="$PROJECT_DIR$/application/views/tache.php" />
         <option value="$PROJECT_DIR$/application/models/Tache_model.php" />
         <option value="$PROJECT_DIR$/application/models/Facture_model.php" />
         <option value="$PROJECT_DIR$/application/models/Note_model.php" />
@@ -224,6 +234,12 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -254,6 +270,15 @@
       <recent name="C:\wamp64\www\ProPlan\application\controllers" />
       <recent name="C:\wamp64\www\pfe\application\views" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Gradle tasks" flag="false" />
+      <visibility group="Maven goals" flag="false" />
+      <visibility group="Recent projects" flag="false" />
+      <visibility group="Run configurations" flag="false" />
+      <visibility group="npm scripts" flag="false" />
+    </myKeys>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -327,7 +352,7 @@
       <workItem from="1560605258434" duration="4178000" />
       <workItem from="1560613517733" duration="6282000" />
       <workItem from="1560626482360" duration="2107000" />
-      <workItem from="1560707842998" duration="4088000" />
+      <workItem from="1560707842998" duration="9756000" />
     </task>
     <task id="LOCAL-00001" summary="test commit in phpstorm">
       <created>1558300000571</created>
@@ -413,11 +438,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560628761858</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Correction  de la fonction all_count">
+      <created>1560712058325</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1560712058325</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="356291000" />
+    <option name="totallyTimeSpent" value="361959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -511,7 +543,8 @@
     <MESSAGE value="update admin : création page contact + administration" />
     <MESSAGE value="update admin : contact complete" />
     <MESSAGE value="add logo git" />
-    <option name="LAST_COMMIT_MESSAGE" value="add logo git" />
+    <MESSAGE value="Correction  de la fonction all_count" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correction  de la fonction all_count" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -525,20 +558,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/gantt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="147" selection-start-line="147" selection-end-line="147" selection-end-column="62" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="e#170#176#1" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#button#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/includes/js_include.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -863,20 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Projet_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="119" column="79" lean-forward="true" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Tache_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="104" column="35" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Facture.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1760">
@@ -884,38 +889,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Facture_model.php">
+    <entry file="file://$PROJECT_DIR$/application/models/Client_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="106" column="73" selection-start-line="106" selection-start-column="73" selection-end-line="106" selection-end-column="73" />
+        <state relative-caret-position="320">
+          <caret line="37" column="83" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="83" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Client_model.php">
+    <entry file="file://$PROJECT_DIR$/application/views/tache.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="60" column="82" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="82" />
+        <state relative-caret-position="108">
+          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="e#170#176#1" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Tache_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Projet_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="37" column="80" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Note_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="94" selection-start-line="94" selection-end-line="94" selection-end-column="82" />
+        <state relative-caret-position="340">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Facture_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="37" column="80" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Utilisateur_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="54" column="79" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="79" />
+        <state relative-caret-position="420">
+          <caret line="33" column="80" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Equipe_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="54" column="79" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
+        <state relative-caret-position="380">
+          <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
         </state>
       </provider>
     </entry>

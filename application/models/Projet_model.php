@@ -24,7 +24,7 @@ class Projet_model extends CI_Model
         $this->db->select("*");
         $this->db->from('projet');
         $this->db->join('client','client.id_client = projet.id_client');
-        $this->db->where('id_createur',$this->session->userdata['info']['id']);
+        //$this->db->where('id_createur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
             $this->db->like('titre_projet', $_POST["searchPhrase"]);
@@ -35,6 +35,7 @@ class Projet_model extends CI_Model
             $this->db->or_like('status', $_POST["searchPhrase"]);
             $this->db->or_like('prix', $_POST["searchPhrase"]);
         }
+        $this->db->having('id_createur',$this->session->userdata['info']['id']);
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {
             foreach($_POST["sort"] as $key => $value)

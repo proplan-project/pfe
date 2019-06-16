@@ -23,12 +23,13 @@ class Equipe_model extends CI_Model
         $this->start_from = ($this->current_page_number - 1) * $this->records_per_page;
         $this->db->select("*");
         $this->db->from("equipe");
-        $this->db->where('id_createur',$this->session->userdata['info']['id']);
+        //$this->db->where('id_createur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
             $this->db->like('nom', $_POST["nom"]);
             $this->db->or_like('titre_emploi', $_POST["titre_emploi"]);
         }
+        $this->db->having('id_createur',$this->session->userdata['info']['id']);
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {
             foreach($_POST["sort"] as $key => $value)

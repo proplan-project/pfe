@@ -23,11 +23,12 @@ class Note_model extends CI_Model
         $this->db->select("*");
         $this->db->from('projet');
         $this->db->join('note','note.id_projet = projet.id_projet');
-        $this->db->where('id_utilisateur',$this->session->userdata['info']['id']);
+        //$this->db->where('id_utilisateur',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
-            $this->db->like('description', $_POST["searchPhrase"]);
+            $this->db->like('titre', $_POST["searchPhrase"]);
         }
+        $this->db->having('id_utilisateur',$this->session->userdata['info']['id']);
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {
             foreach($_POST["sort"] as $key => $value)
