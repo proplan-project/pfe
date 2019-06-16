@@ -103,7 +103,9 @@ class Facture_model extends CI_Model
     function count_all_data()
     {
         $this->db->select("*");
-        $this->db->from("facture");
+        $this->db->from('facture');
+        $this->db->join('projet','projet.id_projet = facture.id_projet');
+        $this->db->where('id_createur',$this->session->userdata['info']['id']);
         $query = $this->db->get();
         return $query->num_rows();
     }

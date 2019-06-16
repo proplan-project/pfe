@@ -117,6 +117,7 @@ class Projet_model extends CI_Model
     {
         $this->db->select("*");
         $this->db->from("projet");
+        $this->db->where('id_createur',$this->session->userdata['info']['id']);
         $query = $this->db->get();
         return $query->num_rows();
     }

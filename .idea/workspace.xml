@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc2ef064-f857-4563-a9e9-af7dcde5ae39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/logo_home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/logo_proplan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/1657bc07b6d4b88.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/1657bc07b6d4b881.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/ballpen-blur-close-up-461077.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Equipe_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Equipe_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Facture_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Facture_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Note_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Note_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Projet_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Projet_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Tache_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Tache_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Utilisateur_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Utilisateur_model.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,48 +40,12 @@
     <favorites_list name="pfe" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Administration.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1340">
-              <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/administration.php">
+        <entry file="file://$PROJECT_DIR$/application/models/Equipe_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="137" column="29" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Administration_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Projet.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="820">
-              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/projet.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3100">
-              <caret line="155" column="25" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="206" />
+            <state relative-caret-position="240">
+              <caret line="54" column="79" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -126,16 +91,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/models/Gantt_model.php" />
-        <option value="$PROJECT_DIR$/application/views/facture_detail.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Register.php" />
-        <option value="$PROJECT_DIR$/application/models/Facture_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Facture.php" />
         <option value="$PROJECT_DIR$/application/controllers/Tache.php" />
         <option value="$PROJECT_DIR$/application/models/Equipe_projet_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Equipe.php" />
         <option value="$PROJECT_DIR$/application/models/Utilisateur_a_equipe_model.php" />
-        <option value="$PROJECT_DIR$/application/models/Client_model.php" />
         <option value="$PROJECT_DIR$/application/models/Private_area_model.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/controllers/Private_area.php" />
@@ -171,12 +130,18 @@
         <option value="$PROJECT_DIR$/application/views/admin/contact.php" />
         <option value="$PROJECT_DIR$/application/models/Contact_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Contact.php" />
-        <option value="$PROJECT_DIR$/application/models/Projet_model.php" />
         <option value="$PROJECT_DIR$/application/views/projet.php" />
         <option value="$PROJECT_DIR$/application/models/Administration_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Administration.php" />
         <option value="$PROJECT_DIR$/application/views/admin/administration.php" />
         <option value="$PROJECT_DIR$/application/views/admin/includes/js_include.php" />
+        <option value="$PROJECT_DIR$/application/models/Client_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Projet_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Tache_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Facture_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Note_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Utilisateur_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Equipe_model.php" />
       </list>
     </option>
   </component>
@@ -240,7 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,28 +222,13 @@
               <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProPlan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProPlan" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,7 +326,8 @@
       <workItem from="1560539268038" duration="1176000" />
       <workItem from="1560605258434" duration="4178000" />
       <workItem from="1560613517733" duration="6282000" />
-      <workItem from="1560626482360" duration="1708000" />
+      <workItem from="1560626482360" duration="2107000" />
+      <workItem from="1560707842998" duration="4088000" />
     </task>
     <task id="LOCAL-00001" summary="test commit in phpstorm">
       <created>1558300000571</created>
@@ -455,17 +406,24 @@
       <option name="project" value="LOCAL" />
       <updated>1560609211374</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add logo git">
+      <created>1560628761858</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1560628761858</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="351804000" />
+    <option name="totallyTimeSpent" value="356291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.19440243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.19742814" />
       <window_info id="Structure" order="1" sideWeight="0.5008183" side_tool="true" weight="0.16641453" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info id="Image Layers" order="3" />
@@ -552,7 +510,8 @@
     <MESSAGE value="update admin : chefs des projet + nav" />
     <MESSAGE value="update admin : création page contact + administration" />
     <MESSAGE value="update admin : contact complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="update admin : contact complete" />
+    <MESSAGE value="add logo git" />
+    <option name="LAST_COMMIT_MESSAGE" value="add logo git" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -566,34 +525,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/includes/head.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="93" selection-start-line="25" selection-start-column="93" selection-end-line="25" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Gantt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="522" column="26" selection-start-line="522" selection-start-column="26" selection-end-line="522" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/gantt.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -707,13 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Utilisateur_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="80" column="5" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -876,20 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Projet_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="31" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Client_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-140">
@@ -904,31 +814,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Facture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Profil.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Administration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1340">
-          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Administration_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -957,6 +846,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="137" column="29" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Administration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Administration_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Projet_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="119" column="79" lean-forward="true" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Tache_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="104" column="35" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Facture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1760">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Facture_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="106" column="73" selection-start-line="106" selection-start-column="73" selection-end-line="106" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Client_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="60" column="82" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Note_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="94" selection-start-line="94" selection-end-line="94" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Utilisateur_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="54" column="79" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Equipe_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="54" column="79" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
         </state>
       </provider>
     </entry>

@@ -102,6 +102,7 @@ class Tache_model extends CI_Model
     {
         $this->db->select("*");
         $this->db->from("tache");
+        $this->db->where('assigne_a',$this->session->userdata['info']['id']);
         $query = $this->db->get();
         return $query->num_rows();
     }
