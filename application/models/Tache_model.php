@@ -23,7 +23,7 @@ class Tache_model extends CI_Model
         $this->db->select("*");
         $this->db->from("projet");
         $this->db->join('tache','projet.id_projet = tache.id_projet');
-        $this->db->where('assigne_a',$this->session->userdata['info']['id']);
+        //$this->db->where('assigne_a',$this->session->userdata['info']['id']);
         if(!empty($_POST["searchPhrase"]))
         {
             $this->db->like('titre', $_POST["searchPhrase"]);
@@ -33,6 +33,7 @@ class Tache_model extends CI_Model
             $this->db->or_like('status', $_POST["searchPhrase"]);
 
         }
+        $this->db->having('assigne_a',$this->session->userdata['info']['id']);
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {
             foreach($_POST["sort"] as $key => $value)
@@ -102,6 +103,7 @@ class Tache_model extends CI_Model
     {
         $this->db->select("*");
         $this->db->from("tache");
+        $this->db->where('assigne_a',$this->session->userdata['info']['id']);
         $query = $this->db->get();
         return $query->num_rows();
     }
