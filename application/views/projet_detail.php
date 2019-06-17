@@ -1,103 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <title><?php echo $titre; ?></title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.js"></script>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-    <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url(); ?>assets/css/animate.min.css" rel="stylesheet"/>
-    <link href="<?php echo base_url(); ?>assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-    <link href="<?php echo base_url(); ?>assets/css/demo.css" rel="stylesheet" />
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="<?php echo base_url(); ?>assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    <style>
-
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 100px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 50%;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-<?php
-$color = get_cookie('color');;
-if (isset($_POST['green'])){
-    $color = "green";
-    set_cookie('color','green','3600');
-}
-if (isset($_POST['red'])){
-    $color = "red";
-    set_cookie('color','red','3600');
-}
-if (isset($_POST['blue'])){
-    $color = "blue";
-    set_cookie('color','blue','3600');
-}
-if (isset($_POST['orange'])){
-    $color = "orange";
-    set_cookie('color','orange','3600');
-}
-if (isset($_POST['grey'])){
-    $color = "#777";
-    set_cookie('color','#777','3600');
-}
-if (isset($_POST['purple'])){
-    $color = "purple";
-    set_cookie('color','purple','3600');
-}
-if (isset($_POST['azure'])){
-    $color = "azure";
-    set_cookie('color','azure','3600');
-}
-?>
+<?php require 'includes/head.php'; ?>
 <div class="wrapper">
     <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assets/img/sidebar-5.jpg">
 
@@ -113,11 +14,11 @@ if (isset($_POST['azure'])){
                             <?php } ?>
                         </div>
                         <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
-                        <div class="col-md-2" align="right">
-                            <button type="button" id="add_equipe_button" data-toggle="modal" data-target="#equipeModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Inviter un équipe
-                            </button>
-                        </div>
+                            <div class="col-md-2" align="right">
+                                <button type="button" id="add_equipe_button" data-toggle="modal" data-target="#equipeModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Inviter un équipe
+                                </button>
+                            </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -129,7 +30,7 @@ if (isset($_POST['azure'])){
                     <li><a data-toggle="tab" href="#fichiers">Fichiers</a></li>
                     <li><a data-toggle="tab" href="#commentaires">Commentaires</a></li>
                     <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
-                    <li><a data-toggle="tab" href="#facture">Facture</a></li>
+                        <li><a data-toggle="tab" href="#facture">Facture</a></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -233,9 +134,9 @@ if (isset($_POST['azure'])){
                                             <div class="form-group row">
                                                 <input type="hidden" name="projet" value="<?php echo $id_projet; ?>" />
                                             </div>
-                                           <div class="form-group row">
-                                               <input type="file" name="image_file" id="image_file" />
-                                           </div>
+                                            <div class="form-group row">
+                                                <input type="file" name="image_file" id="image_file" />
+                                            </div>
                                             <div class="form-group row">
                                                 <input type="submit" name="upload" id="upload" value="Upload" class="btn btn-info" style="float: right"/>
                                             </div>
@@ -279,7 +180,7 @@ if (isset($_POST['azure'])){
                                             <th data-column-id="paiement_recu">Paiement reçu</th>
                                             <th data-column-id="status">Status</th>
                                             <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
-                                            <th data-column-id="nom">Client</th>
+                                                <th data-column-id="nom">Client</th>
                                             <?php }?>
                                         </tr>
                                         </thead>
@@ -294,10 +195,10 @@ if (isset($_POST['azure'])){
     </div>
 </div>
 </body>
-
+<script src="<?php echo base_url(); ?>assets/js/light-bootstrap-dashboard.js"></script>
 <!-- EQUIPE MODEL ----------------------------------------------------------------------------------------------------->
 
-<div id="equipeModal" class="modal fade">
+<div id="equipeModal" class="modal fade" style="z-index:5000">
     <div class="modal-dialog">
         <form method="post" id="equipe_form">
             <div class="modal-content">
@@ -336,6 +237,7 @@ if (isset($_POST['azure'])){
 <script type="text/javascript" language="javascript" >
     $(document).ready(function(){
         $('#add_equipe_button').click(function(){
+
             $('#equipe_form')[0].reset();
             $('.modal-title').text("Inviter un équipe");
             $('#add_equipe').val("Add");

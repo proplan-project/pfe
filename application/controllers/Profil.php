@@ -14,6 +14,7 @@ class Profil extends CI_Controller{
 
     function index()
     {
+        $data['titre']='profil';
         $data['info'] = $this->profileInfo->get_info();
         $this->load->view('profil',$data);
     }

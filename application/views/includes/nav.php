@@ -71,7 +71,7 @@
 </div>
 
 <div class="main-panel">
-    <nav class="navbar navbar-default navbar-fixed">
+    <nav class="navbar navbar-default navbar-fixed" style="padding: 2px">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
@@ -81,7 +81,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div>
-                <img src="<?php echo base_url(); ?>assets/images/logo_home.png" alt="Myself"><h6>Créer une harmonie de travail</h6>
+                <img src="<?php echo base_url(); ?>assets/images/logo_home.png" alt="Myself" style="margin-top: 8px"><h3 style="margin-left: 70px ;margin-top: -43px">Créer une harmonie de travail</h3>
 				</div>
             </div>
             <div class="collapse navbar-collapse">
@@ -94,7 +94,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#"><b><?php echo $nom['nom']." ".$nom['prenom'];?></b><i>&nbsp<?php if($this->session->userdata['info']['db'] == 'chef_projet'){echo "Chef de projet";} ?><?php echo $nom['type']; ?></b></i></a></li>
-                            <li><a href="<?php echo base_url()?>/profil">Voir le Profil</a></li>
+                            <li><a href="<?php echo base_url()?>profil">Voir le Profil</a></li>
                             <li><?php echo '<a href="'.base_url().'private_area/logout">Deconnecter</a>'; ?></li>
                         </ul>
                     </li>
@@ -116,7 +116,7 @@
                             <i class="pe-7s-global" style="font-size: 25px"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Françcais</a></li>
+                            <li><a href="#">Français</a></li>
                             <li><a href="#">English</a></li>
                         </ul>
                     </li>

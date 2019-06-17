@@ -68,9 +68,9 @@
                     <div class="form-group">
                         <label>Status</label>
                         <select name="status" id="status" class="form-control">
-                            <option value="à faire">à faire</option>
-                            <option value="en cours">en cours</option>
-                            <option value="terminé">terminé</option>
+                            <option value="à faire">A faire</option>
+                            <option value="en cours">En cours</option>
+                            <option value="terminé">Terminé</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -78,26 +78,26 @@
                         <input type="range" minlength="0" maxlength="100" step="10" name="percent_complete" id="percent_complete" class="form-control"/>
                     </div>
                     <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
-                    <div class="form-group">
-                        <label>Projet</label>
-                        <select name="id_projet">
-                            <option value="">selectionner un projet</option>
-                            <?php
-                            foreach($all_projet as $projet)
-                            {
-                                $selected = ($projet['id_projet'] == $this->input->post('id_projet')) ? ' selected="selected"' : "";
+                        <div class="form-group">
+                            <label>Projet</label>
+                            <select name="id_projet" id="id_projet" class="form-control">
+                                <option value="">Selectionner un Projet</option>
+                                <?php
+                                foreach($all_projet as $projet)
+                                {
+                                    $selected = ($projet['id_projet'] == $this->input->post('id_projet')) ? ' selected="selected"' : "";
 
-                                echo '<option value="'.$projet['id_projet'].'" '.$selected.'>'.$projet['titre_projet'].'</option>';
-                            }
-                            ?>
-                        </select>
-                    </div>
+                                    echo '<option value="'.$projet['id_projet'].'" '.$selected.'>'.$projet['titre_projet'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
                     <?php } ?>
                     <?php if($this->session->userdata['info']['db'] == 'utilisateur'){ ?>
                         <div class="form-group">
                             <label>Projet</label>
-                            <select name="id_projet">
-                                <option value="">selectionner un projet</option>
+                            <select name="id_projet" id="id_projet" class="form-control">
+                                <option value="">Selectionner un Projet</option>
                                 <?php
                                 foreach($utilisateur_projet as $up)
                                 {
@@ -121,119 +121,123 @@
     </div>
 </div>
 
-    <script type="text/javascript" language="javascript" >
-        $(document).ready(function(){
-            var tacheTable = $('#tache_data').bootgrid({
-                ajax:true,
-                rowSelect: true,
-                post:function()
-                {
-                    return{
-                        id:"b0df282a-0d67-40e5-8558-c9e93b7befed"
-                    }
-                },
-                url:"<?php echo base_url(); ?>tache/fetch_data",
-                formatters:{
-                    "action":function(column, row)
-                    {
-                        return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_tache+"' style='border:none;'><span class='glyphicon glyphicon-pencil' style='color: #000000'/></button>" + "&nbsp;" +
-                            "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_tache+"' style='border:none;'><span class='glyphicon glyphicon-remove' style='color:#000'/></button>";
-                    },
-                    "titre_projet":function(column, row)
-                    {
-                        return "<a href=\"<?php echo base_url()?>projet/detail/" +row.id_projet+ "\">" + row.titre_projet + "</a>";
-                    },
-                    "pourcentage":function(column, row)
-                    {
-                        return "<progress class=\"progress\" value='"+row.percent_complete+"' max=\"100\" data-row-id='"+row.id_tache+"'></progress>";
-                    }
+<script type="text/javascript" language="javascript" >
+    $(document).ready(function(){
+        var tacheTable = $('#tache_data').bootgrid({
+            ajax:true,
+            rowSelect: true,
+            post:function()
+            {
+                return{
+                    id:"b0df282a-0d67-40e5-8558-c9e93b7befed"
                 }
-            });
-
-            $('#add_button').click(function(){
-                $('#tache_form')[0].reset();
-                $('.modal-title').text("Add tache");
-                $('#action').val("Add");
-                $('#operation').val("Add");
-            });
-
-            $(document).on('submit', '#tache_form', function(event){
-                event.preventDefault();
-                var titre = $('#titre').val();
-                var description = $('#description').val();
-                var date_debut = $('#date_debut').val();
-                var date_limite = $('#date_limite').val();
-                var status = $('#status').val();
-                var percent_complete = $('#percent_complete').val();
-                var id_projet = $('#id_projet').val();
-                var form_data = $(this).serialize();
-                if(	titre != '' && description != '' && date_debut != '' && date_limite != '' && status != '')
+            },
+            url:"<?php echo base_url(); ?>tache/fetch_data",
+            formatters:{
+                "action":function(column, row)
                 {
+                    return "<button type='button' class='btn btn-warning btn-xs update' data-row-id='"+row.id_tache+"' style='border:none;'><span class='glyphicon glyphicon-pencil' style='color: #000000'/></button>" + "&nbsp;" +
+                        "<button type='button' class='btn btn-danger btn-xs delete' data-row-id='"+row.id_tache+"' style='border:none;'><span class='glyphicon glyphicon-remove' style='color:#000'/></button>";
+                },
+                "titre_projet":function(column, row)
+                {
+                    return "<a href=\"<?php echo base_url()?>projet/detail/" +row.id_projet+ "\">" + row.titre_projet + "</a>";
+                },
+                "pourcentage":function(column, row)
+                {
+                    return "<progress class=\"progress\" value='"+row.percent_complete+"' max=\"100\" data-row-id='"+row.id_tache+"'></progress>";
+                }
+            }
+        });
+
+        $('#add_button').click(function(){
+            $('#tache_form')[0].reset();
+            $('.modal-title').text("Add tache");
+            $('#action').val("Add");
+            $('#operation').val("Add");
+        });
+
+        $(document).on('submit', '#tache_form', function(event){
+            event.preventDefault();
+            var titre = $('#titre').val();
+            var description = $('#description').val();
+            var date_debut = $('#date_debut').val();
+            var date_limite = $('#date_limite').val();
+            var status = $('#status').val();
+            var percent_complete = $('#percent_complete').val();
+            var id_projet = $('#id_projet').val();
+            var form_data = $(this).serialize();
+
+            if(	titre != '' && description != '' && date_debut != '' && date_limite != '' && status != ''  && id_projet != ''  )
+            {
+                $.ajax({
+                    url:"<?php echo base_url(); ?>tache/action",
+                    method:"POST",
+                    data:form_data,
+                    success:function(data)
+                    {
+                        alert(data);
+                        $('#tache_form')[0].reset();
+                        $('#tacheModal').modal('hide');
+                        $('#tache_data').bootgrid('reload');
+                    }
+                });
+            }
+            else
+            {
+                alert("Field is Required");
+            }
+        });
+
+        $(document).on("loaded.rs.jquery.bootgrid", function(){
+            tacheTable.find('.update').on('click', function(event){
+                var id_tache = $(this).data('row-id');
+                var form_data = $(this).serialize();
+                $.ajax({
+                    url:"<?php echo base_url(); ?>tache/fetch_single_data",
+                    method:"POST",
+                    data:{id_tache:id_tache},
+                    dataType:"json",
+                    success:function(data)
+                    {
+                        $('#tacheModal').modal('show');
+                        $('#titre').val(data.titre);
+                        $('#description').val(data.description);
+                        $('#date_debut').val(data.date_debut);
+                        $('#date_limite').val(data.date_limite);
+                        $('#status').val(data.status);
+                        $('#percent_complete').val(data.percent_complete);
+                        $('#id_projet').val(data.id_projet);
+                        $('.modal-title').text("Modifier la tache");
+                        $('#id_tache').val(data.id_tache);
+                        $('#action').val('Edit');
+                        $('#operation').val('Edit');
+                        $('#tache_data').bootgrid('reload');
+
+                    }
+                });
+            });
+
+            tacheTable.find('.delete').on('click', function(event){
+                if(confirm("Are you sure you want to delete this?"))
+                {
+                    var id_tache = $(this).data('row-id');
                     $.ajax({
-                        url:"<?php echo base_url(); ?>tache/action",
+                        url:"<?php echo base_url(); ?>tache/delete_data",
                         method:"POST",
-                        data:form_data,
+                        data:{id_tache:id_tache},
                         success:function(data)
                         {
                             alert(data);
-                            $('#tache_form')[0].reset();
-                            $('#tacheModal').modal('hide');
                             $('#tache_data').bootgrid('reload');
                         }
                     });
                 }
                 else
                 {
-                    alert("Field is Required");
+                    return false;
                 }
             });
-
-            $(document).on("loaded.rs.jquery.bootgrid", function(){
-                tacheTable.find('.update').on('click', function(event){
-                    var id_tache = $(this).data('row-id');
-                    $.ajax({
-                        url:"<?php echo base_url(); ?>tache/fetch_single_data",
-                        method:"POST",
-                        data:{id_tache:id_tache},
-                        dataType:"json",
-                        success:function(data)
-                        {
-                            $('#tacheModal').modal('show');
-                            $('#titre').val(data.titre);
-                            $('#description').val(data.description);
-                            $('#date_debut').val(data.date_debut);
-                            $('#date_limite').val(data.date_limite);
-                            $('#status').val(data.status);
-                            $('#percent_complete').val(data.percent_complete);
-                            $('#id_projet').val(data.id_projet);
-                            $('.modal-title').text("Edit tache Details");
-                            $('#id_tache').val(id_tache);
-                            $('#action').val('Edit');
-                            $('#operation').val('Edit');
-                        }
-                    });
-                });
-
-                tacheTable.find('.delete').on('click', function(event){
-                    if(confirm("Are you sure you want to delete this?"))
-                    {
-                        var id_tache = $(this).data('row-id');
-                        $.ajax({
-                            url:"<?php echo base_url(); ?>tache/delete_data",
-                            method:"POST",
-                            data:{id_tache:id_tache},
-                            success:function(data)
-                            {
-                                alert(data);
-                                $('#tache_data').bootgrid('reload');
-                            }
-                        });
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                });
-            });
         });
-    </script>
+    });
+</script>

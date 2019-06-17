@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/images/logo_home.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
 
     <title><?php echo $titre; ?></title>
 
@@ -12,11 +17,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.3.1/jquery.bootgrid.js"></script>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <script src="<?php echo base_url(); ?>assets/js/light-bootstrap-dashboard.js"></script>
+
+
+    <script src="<?php echo base_url(); ?>assets/js/croppie.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/light-bootstrap-dashboard.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/demo.js"></script>
+
+
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/css/animate.min.css" rel="stylesheet"/>
     <link href="<?php echo base_url(); ?>assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
@@ -24,6 +32,8 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url(); ?>assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/css/croppie.css"  rel="stylesheet"  />
+
     <style>
         .card-counter{
             box-shadow: 2px 2px 10px #DADADA;

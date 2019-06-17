@@ -34,6 +34,8 @@ class Projet_model extends CI_Model
             $this->db->or_like('date_creation', $_POST["searchPhrase"]);
             $this->db->or_like('status', $_POST["searchPhrase"]);
             $this->db->or_like('prix', $_POST["searchPhrase"]);
+            $this->db->having('id_utilisateur',$this->session->userdata['info']['id']);
+
         }
         if(isset($_POST["sort"]) && is_array($_POST["sort"]))
         {

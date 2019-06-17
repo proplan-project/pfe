@@ -15,7 +15,7 @@ class Member extends CI_Model{
             $image_array_1 = explode(";", $data);
             $image_array_2 = explode(",", $image_array_1[1]);
             $data = base64_decode($image_array_2[1]);
-            $imageName = ''.time() . '.png';
+            $imageName = './uploads/profiles/'.time() . '.png';
             file_put_contents($imageName, $data);
             $image_file = base64_encode(file_get_contents($imageName));
 
@@ -23,11 +23,13 @@ class Member extends CI_Model{
                 'image' => $image_file ,
                 'nom' => $imageName
             );
-
             $db = $this->session->userdata['info']['db'];
             $sdb = "$db";
-
-            if($this->db->insert('utilisateur', $params))
+            $id = $this->session->userdata['info']['id'];
+            $sid = "$id";
+            $this->db->where('id',$sid);
+            $res = $this->db->update($sdb, $params) ;
+            if($res)
             {
                 echo 'Mise à jour de l\'image dans la base de données avec succès';
                 //unlink($imageName);
@@ -45,13 +47,25 @@ class Member extends CI_Model{
             $result = $query->result_array();
             foreach($result as $row)
             {
-                $output .= '
-                      <div class="col-md-2" style="margin-bottom:16px;">
-                       <img src="'.$row['nom'].'" class="img-thumbnail" />
-                      </div>
-                      ';
+                if ($row['image'] != null){
+                    $img = "<img id='avatar' src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png' class='avatar img-circle img-thumbnail' alt='avatar' style='width: 200px;height: 200px;cursor: pointer'>";
+                }else{
+                    $img = "<img  id='avatar' src='" .base_url(). "/assets/img/faces/face-1.jpg' class='avatar img-circle img-thumbnail' alt='avatar'   style='width: 200px;height: 200px ;cursor: pointer'>";
+                }
+                $output .= "
+                     <div style=\"margin-left: 55px \" id=\"imghide\" class=\"new_Btn\" onmouseover='showhiddenimg()' >
+                             $img
+                        
+                            <div style=\"background-color:hsla(0, 3%, 0%, 0.3);width: 200px;height: 200px ;border-radius: 50%;position: absolute;margin-top: -200px; display: none \" id=\"boxson\">
+                                <br><br><br>
+                                <p style=\"text-align: center;color: #FFFFFF\"><i class=\"fa fa-camera\" aria-hidden=\"true\" style=\"font-size: 40px;margin-left: -24px\"></i><br>
+                                    CHANGER LA <br>PHOTO DE <br>PROFILE</p>
+                            </div>
+                        </div>
+                ";
             }
         }
+
         $output .= '</div>';
         echo $output;
 

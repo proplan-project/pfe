@@ -83,21 +83,26 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>titre_projet</label>
+                        <label>Titre Du Projet</label>
                         <input type="text" name="titre_projet" id="titre_projet" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Description</label>
                         <textarea type="text" name="description" id="description" class="form-control"></textarea>
                     </div>
+
                     <div class="form-group">
-                        <label>Date_debut</label>
-                        <input type="date" name="date_debut" id="date_debut" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Date limite</label>
-                        <input type="date" name="date_limite" id="date_limite" class="form-control" />
-                    </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Date Debut</label>
+                                <input type="date" name="date_debut" id="date_debut" class="form-control" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label>Date Limite</label>
+                                <input type="date" name="date_limite" id="date_limite" class="form-control" />
+                            </div>
+                        </div></div>
                     <div class="form-group">
                         <label>Status</label>
                         <select name="status" id="status" class="form-control">
@@ -114,8 +119,8 @@
 
                     <div class="form-group">
                         <label>Client</label>
-                        <select name="id_client">
-                            <option value="">selectionner un client</option>
+                        <select class="form-control" id ="id_client" name="id_client">
+                            <option value="">Sélectionner un client</option>
                             <?php
                             foreach($all_client as $client)
                             {
@@ -179,7 +184,8 @@
             var prix = $('#prix').val();
             var id_client = $('#id_client').val();
             var form_data = $(this).serialize();
-            if(	titre_projet != '' && description != '' && date_debut != '' && date_limite != '' && status != '')
+
+            if(	titre_projet != '' && description != '' && date_debut != '' && date_limite != '' && status != '' && id_client != '')
             {
                 $.ajax({
                     url:"<?php echo base_url(); ?>projet/action",
@@ -219,7 +225,7 @@
                         $('#prix').val(data.prix);
                         $('#id_client').val(data.id_client);
                         $('.modal-title').text("Edit projet Details");
-                        $('#id_projet').val(id_projet);
+                        $('#id_projet').val(data.id_projet);
                         $('#action').val('Edit');
                         $('#operation').val('Edit');
                     }
