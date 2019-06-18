@@ -24,8 +24,14 @@
                             <li class="list-group-item text-right"><span class="pull-left"><strong>Taches</strong></span> 125</li>
                             <li class="list-group-item text-right"><span class="pull-left"><strong>Projets</strong></span> 13</li>
                             <li class="list-group-item text-right"><span class="pull-left"><strong>Equipe</strong></span> 37</li>
-                            <li class="list-group-item text-right"><span class="pull-left"><strong>Clients</strong></span> 37</li>
-                            <li class="list-group-item text-right"><span class="pull-left"><strong>Facture</strong></span> 37</li>
+                            <?php
+                                if ($this->session->userdata['info']['db'] =='chef_projet'){
+                            ?>
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Clients</strong></span> 37</li>
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Facture</strong></span> 37</li>
+                            <?php
+                                }
+                            ?>
                         </ul><!--list of Activities of user or admin-->
                         <div id="alert-success">
 
@@ -33,7 +39,7 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">médias sociaux
-                                <button type="button" id="btn" class="btn" style="border:none;color: #000;border-radius: 50%;float: right;margin-top: -8px">
+                                <button type="button" id="btns" class="btn" style="border:none;color: #000;border-radius: 50%;float: right;margin-top: -8px">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                 </button>
                             </div>
@@ -57,6 +63,17 @@
                             <div class="alert alert-danger alert-dismissible">
                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 '.$this->session->flashdata("message").'
+                            </div>
+                           ';
+                        }
+                        ?>
+                        <?php
+                        if($this->session->flashdata('res'))
+                        {
+                            echo '
+                            <div class="alert alert-success alert-dismissible">
+                               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                '.$this->session->flashdata("res").'
                             </div>
                            ';
                         }
@@ -276,7 +293,7 @@
         margin: 10% auto; /* 15% from the top and centered */
         padding: 20px;
         border: 1px solid #888;
-        width: 60%; /* Could be more or less, depending on screen size */
+        width: 100%; /* Could be more or less, depending on screen size */
     }
 
 
@@ -351,66 +368,79 @@
     }
 
 </style>
-<div id="modtn" class="modal">
-    <div class="modal-content">
-        <div class="modal-body">
-            <div class="row">
-                <form  method="post" id="myForm" action="">
-                    <div class="alert alert-warning" role="alert" style="opacity: .7">
-                        <span class="close close-alert" >&times;</span>
-                        <i class="pe-7s-attention"> </i>
-                        entrer le lien de votre compte correct :
-                    </div>
-                    <div class="col-md-12" style="margin-bottom: 15px">
-                        <div class="col-md-6">
-                            <div class="inner-addon left-addon">
-                                <i class="glyphicon glyphicon-user fa fa-facebook" ></i>
-                                <input type="text" class="form-control" name="facebook" id="facebook" value="<?php echo $info['Facebook']; ?>"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="inner-addon left-addon">
-                                <i class="glyphicon glyphicon-user fa fa-twitter" ></i>
-                                <input type="text" class="form-control" name="twitter" id="twitter" value="<?php echo $info['Twitter']; ?>"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12" style="margin-bottom: 15px">
-                        <div class="col-md-6">
-                            <div class="inner-addon left-addon">
-                                <i class="glyphicon glyphicon-user fa fa-google-plus" ></i>
-                                <input type="text" class="form-control" name="google" id="google" value="<?php echo $info['Google']; ?>"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="inner-addon left-addon">
-                                <i class="glyphicon glyphicon-user fa fa-linkedin" ></i>
-                                <input type="text" class="form-control" name="linkedin" id="linkedin" value="<?php echo $info['LinkedIn']; ?>"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12" style="margin-bottom: 15px">
-                        <div class="col-md-6">
-                            <div class="inner-addon left-addon">
-                                <i class="glyphicon glyphicon-user fa fa-skype " ></i>
-                                <input type="text" class="form-control" name="skype" id="skype" value="<?php echo $info['Skype']; ?>"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="inner-addon left-addon">
-                                <i class="glyphicon glyphicon-user fa fa-github" ></i>
-                                <input type="text" class="form-control" name="github" id="github" value="<?php echo $info['github']; ?>" />
-                            </div>
-                        </div>
-                    </div>
+<div id="modalbtn" class="modal fade" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">parametre</h4>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" id="btnsocial" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000"/> Modifier
-        </div>
-        </form>
-    </div>
-</div><!-- /.modal social media -->
+            <div class=" alert alert-success" style="display: none"></div>
+            <div class="modal-body">
+                <div class="row">
+                    <form action="" id="myForm" method="post">
+                        <div class="alert alert-warning" role="alert" style="opacity: .7">
+                            <span class="close close-alert" >&times;</span>
+                            <i class="pe-7s-attention"> </i>
+                            entrer le lien de votre compte correct :
+                        </div>
+                        <div class="col-md-12" style="margin-bottom: 15px">
+                            <div class="col-md-6">
+                                <div class="inner-addon left-addon">
+                                    <i class="glyphicon glyphicon-user fa fa-facebook" ></i>
+                                    <input type="text" class="form-control" name="facebook" id="facebook" value="<?php echo $info['Facebook']; ?>"/>
+                                    <div id="error"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inner-addon left-addon">
+                                    <i class="glyphicon glyphicon-user fa fa-twitter" ></i>
+                                    <input type="text" class="form-control" name="twitter" id="twitter" value="<?php echo $info['Twitter']; ?>"/>
+                                    <div id="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-bottom: 15px">
+                            <div class="col-md-6">
+                                <div class="inner-addon left-addon">
+                                    <i class="glyphicon glyphicon-user fa fa-google-plus" ></i>
+                                    <input type="text" class="form-control" name="google" id="google" value="<?php echo $info['Google']; ?>"/>
+                                    <div id="error"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inner-addon left-addon">
+                                    <i class="glyphicon glyphicon-user fa fa-linkedin" ></i>
+                                    <input type="text" class="form-control" name="linkedin" id="linkedin" value="<?php echo $info['LinkedIn']; ?>"/>
+                                    <div id="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-bottom: 15px">
+                            <div class="col-md-6">
+                                <div class="inner-addon left-addon">
+                                    <i class="glyphicon glyphicon-user fa fa-skype " ></i>
+                                    <input type="text" class="form-control" name="skype" id="skype" value="<?php echo $info['Skype']; ?>"/>
+                                    <div id="error"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inner-addon left-addon">
+                                    <i class="glyphicon glyphicon-user fa fa-github" ></i>
+                                    <input type="text" class="form-control" name="github" id="github" value="<?php echo $info['github']; ?>" />
+                                    <div id="error"></div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: #fff;border: 1px solid #888;color: #000">Close</button>
+                <button type="button" id="btnSave" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div id="insertimageModal" class="modal" role="dialog" >
     <div class="modal-dialog" style="width:670px ;">
         <div class="modal-content">
@@ -545,40 +575,39 @@
 
 </script><!-- close alert -->
 <script>
-    $(function(){
-
-        $('#btn').click(function(){//
-            $('#modtn').modal('show');
-
+    $(function(){;
+        $('#btns').click(function(){
+            $('#modalbtn').modal('show');
+            $('#myForm').attr('action', '<?php echo base_url() ?>profil/validations');
         });
 
 
-        $('#btnsocial').click(function(){
+        $('#btnSave').click(function(){
             var url = $('#myForm').attr('action');
             var data = $('#myForm').serialize();
 
-
+            if(true){
                 $.ajax({
                     type: 'ajax',
                     method: 'post',
-                    url:  '<?php echo base_url() ?>profil/validations',
+                    url: url,
                     data: data,
                     async: false,
                     dataType: 'json',
                     success: function(response){
                         if(response.success){
-                            $('#myForm')[0].reset();
+                            $('#myForm')[0].trigger('reset');//makatkhdemx
                             $('.alert-success').html('kolxi mzyaan').fadeIn().delay(4000).fadeOut('slow');
-                        }else{
+                                     }else{
                             alert('un champs field ou un lien non valid');
                             console.log(json);
                         }
                     },
                     error: function(){
-                        alert('Could not add data');
+                        alert('Could not add data'); // hit tatakhdi les valeur b PHP , hna
                     }
                 });
-
+            }
         });
 
     });

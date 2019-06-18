@@ -42,7 +42,7 @@ class Member extends CI_Model{
 
      //   $this->db->where('id',$this->session->userdata['info']['id']);
 
-        $query = $this->db->get_where('utilisateur', array('id' =>  $this->session->userdata['info']['id'] ));
+        $query = $this->db->get_where(array('db' =>  $this->session->userdata['info']['db'] ), array('id' =>  $this->session->userdata['info']['id'] ));
         $output = '<div class="row">';
         if($query->num_rows() > 0){
             $result = $query->result_array();

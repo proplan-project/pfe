@@ -18,6 +18,7 @@ class Profil extends CI_Controller{
         $data['info'] = $this->profileInfo->get_info();
         $this->load->view('profil',$data);
     }
+    var $ddd;
     function edit()
     {
         $data['info'] = $this->profileInfo->get_info();
@@ -36,6 +37,7 @@ class Profil extends CI_Controller{
                 );
 
                 $this->profileInfo->edit($params);
+                $ddd= $params;
                 redirect('profil');
             }
             else
@@ -131,9 +133,10 @@ class Profil extends CI_Controller{
         if($result >0){
             $msg['success'] = true;
         }
+
         $this->output
             ->set_content_type('application/json')
-            ->set_output(json_encode($msg));
+            ->set_output(json_encode($msg ));
     }
     public function showprofil(){
         $result = $this->profileInfo->showprofil();
@@ -148,8 +151,34 @@ class Profil extends CI_Controller{
             $pass = $this->input->post('pass');
             $pass1 = $this->input->post('pass1');
             $pass2 = $this->input->post('pass2');
-            $data['info'] = $this->profileInfo->get_info();
-            echo $data['password'];
+            $query = $this->db->get_where(array('db' =>  $this->session->userdata['info']['db'] ), array('id' =>  $this->session->userdata['info']['id'] ));
+            if($query->num_rows() > 0){
+                $result = $query->result_array();
+                foreach($result as $row)
+                {
+                   if (password_verify($pass, $row['password'])){
+                       if ($pass1 == $pass2){
+                           $params = array(
+                               'password' => password_hash($pass1, PASSWORD_DEFAULT)
+                           );
+
+                           $this->profileInfo->edit($params);
+                           $message = 'Le mot de pass a bien modiffie!';
+                           $this->session->set_flashdata('res',$message);
+                           redirect('profil');
+                       }
+                       else{
+                           $result = 'les valeurs pas idententique !';
+                           $this->session->set_flashdata('message',$result);
+                           redirect('profil');
+                       }
+                   }else{
+                       $result = 'Le mot de pass incorrect !!';
+                       $this->session->set_flashdata('message',$result);
+                       redirect('profil');
+                   }
+                }
+            }
         }else{
             $result = 'tous les champs sans obligatoires';
             $this->session->set_flashdata('message',$result);
