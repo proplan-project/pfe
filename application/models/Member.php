@@ -20,8 +20,7 @@ class Member extends CI_Model{
             $image_file = base64_encode(file_get_contents($imageName));
 
             $params = array(
-                'image' => $image_file ,
-                'nom' => $imageName
+                'image' => $imageName
             );
             $db = $this->session->userdata['info']['db'];
             $sdb = "$db";
@@ -42,6 +41,7 @@ class Member extends CI_Model{
     function fetch() {
 
      //   $this->db->where('id',$this->session->userdata['info']['id']);
+
         $query = $this->db->get_where('utilisateur', array('id' =>  $this->session->userdata['info']['id'] ));
         $output = '<div class="row">';
         if($query->num_rows() > 0){
@@ -50,10 +50,17 @@ class Member extends CI_Model{
             {
                 if ($row['image'] == null){
                     $img = "<img id='avatar' src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png' class='avatar img-circle img-thumbnail' alt='avatar' style='width: 200px;height: 200px;cursor: pointer'> ";
+                    break;
                 }else{
-                    $img = "<img  id='avatar' src='" .base_url(). "/assets/img/faces/face-1.jpg' class='avatar img-circle img-thumbnail' alt='avatar'   style='width: 200px;height: 200px ;cursor: pointer'>";
+                    $img =  " <img  id='avatar' src='" .base_url() . $row['image']. "' class='avatar img-circle img-thumbnail' alt='avatar'   style='width: 200px;height: 200px ;cursor: pointer'>";
+                    break;
                 }
-                $output .= "
+
+
+             }
+        }
+
+        $output .= "
                      <div style=\"margin-left: 55px ; position:relative\" id=\"imghide\" class=\"new_Btn\"  onmouseover='showhiddenimg()' >
                              $img
                         
@@ -62,14 +69,12 @@ class Member extends CI_Model{
                                 <p style=\"text-align: center;color: #FFFFFF\"><i class=\"fa fa-camera\" aria-hidden=\"true\" style=\"font-size: 40px;margin-left: -24px\"></i><br>
                                     CHANGER LA  <br>PHOTO DE <br>PROFILE</p>
                             </div>
-                        </div>
+                        </div></div>
                 ";
-            }
-        }
 
-        $output .= '</div>';
-        echo $output;
+        echo  "$output";
 
+        return 0;
     }
 
     function show(){

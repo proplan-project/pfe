@@ -8,21 +8,9 @@
                 <div class="row">
                     <div id="store_image" style="background-color: red;width: 100px"></div>
                     <div class="col-sm-4" ><!--left col-->
-                        <div style="margin-left: 55px ;cursor: pointer" id="imghide" class="new_Btn" >
-                            <?php
-                            if ($info['image']==null){
-                                echo "<img src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png' class='avatar img-circle img-thumbnail' alt='avatar' style='width: 200px;height: 200px'>";
-                            }else{
-                                echo "<img src='".base_url()."/assets/img/faces/face-1.jpg' class='avatar img-circle img-thumbnail' alt='avatar' style='width:200px;' style='width: 200px;height: 200px;'> ";
-
-                            }
-                            ?>
-                            <div style="background-color:hsla(0, 3%, 0%, 0.3);width: 200px;height: 200px ;border-radius: 50%;position: absolute;margin-top: -200px;display: none" id="boxson">
-                                <br><br><br>
-                                <p style="text-align: center;color: #FFFFFF"><i class="fa fa-camera" aria-hidden="true" style="font-size: 40px;margin-left: -24px"></i><br>
-                                    CHANGER LA <br>PHOTO DE <br>PROFILE</p>
-                            </div>
-                        </div>
+                        <input type="file" name="insert_image" id="insert_image" accept="image/*" style="display: none"/>
+                        <br />
+                        <div id="showdata"></div>
                         <div class="text-center">
                             <input type="file" name="insert_image" id="insert_image" accept="image/*" style="display: none"/>
                             <h3><?php echo $info['prenom']; ?>  <?php echo $info['nom']; ?></h3>
@@ -39,9 +27,10 @@
                             <li class="list-group-item text-right"><span class="pull-left"><strong>Clients</strong></span> 37</li>
                             <li class="list-group-item text-right"><span class="pull-left"><strong>Facture</strong></span> 37</li>
                         </ul><!--list of Activities of user or admin-->
-                        <div class="alert alert-success" style="display: none;">
+                        <div id="alert-success">
 
                         </div>
+
                         <div class="panel panel-default">
                             <div class="panel-heading">médias sociaux
                                 <button type="button" id="btn" class="btn" style="border:none;color: #000;border-radius: 50%;float: right;margin-top: -8px">
@@ -61,6 +50,17 @@
                         </div><!--social media of user or admin-->
                     </div><!--/end of left col-->
                     <div class="col-sm-8">
+                        <?php
+                        if($this->session->flashdata('message'))
+                        {
+                            echo '
+                            <div class="alert alert-danger alert-dismissible">
+                               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                '.$this->session->flashdata("message").'
+                            </div>
+                           ';
+                        }
+                        ?>
                         <ul class="nav nav-tabs">
                             <li class="active"><a data-toggle="tab" href="#home">Parametre</a></li>
                             <li><a data-toggle="tab" href="#messages">changer le mot de passe</a></li>
@@ -137,21 +137,21 @@
 
                             </div><!--/tab-of settings-->
                             <div class="tab-pane" id="messages">
-                                <form class="form" action="##" method="post" id="registrationForm">
+                                <form class="form" action="<?php echo base_url()?>profil/passwordupdate" method="post" id="registrationForm">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password"><h4>mot de passe actuel</h4></label>
-                                            <input type="password" class="form-control" name="first_name" id="password" placeholder="***" >
+                                            <input type="password" class="form-control" name="pass" id="password" placeholder="***" >
                                             <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                         </div>
                                         <div class="form-group">
                                             <label for="newpass"><h4>nouveau mot de passe</h4></label>
-                                            <input type="password" class="form-control" name="last_name" id="newpass" placeholder="***">
+                                            <input type="password" class="form-control" name="pass1" id="newpass" placeholder="***">
                                             <span toggle="#newpass" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                         </div>
                                         <div class="form-group">
                                             <label for="newpassc"><h4>Confirmez le mot de passe</h4></label>
-                                            <input type="password" class="form-control" name="last_name" id="newpassc" placeholder="***" >
+                                            <input type="password" class="form-control" name="pass2" id="newpassc" placeholder="***" >
                                             <span toggle="#newpassc" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                         </div>
                                         <div class="form-group">
@@ -183,6 +183,7 @@
     </div>
 </div>
 </body>
+
 
 <style>
     .ul {
@@ -269,6 +270,16 @@
         --modal-duration: 1s;
         --modal-color: #FFFFFF;
     }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%; /* Could be more or less, depending on screen size */
+    }
+
+
     .close {
         color: #ccc;
         float: right;
@@ -344,7 +355,7 @@
     <div class="modal-content">
         <div class="modal-body">
             <div class="row">
-                <form action="<?php echo base_url();?>/profil/addtest" method="post">
+                <form  method="post" id="myForm" action="">
                     <div class="alert alert-warning" role="alert" style="opacity: .7">
                         <span class="close close-alert" >&times;</span>
                         <i class="pe-7s-attention"> </i>
@@ -399,7 +410,7 @@
         </div>
         </form>
     </div>
-</div>
+</div><!-- /.modal social media -->
 <div id="insertimageModal" class="modal" role="dialog" >
     <div class="modal-dialog" style="width:670px ;">
         <div class="modal-content">
@@ -415,268 +426,6 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success crop_image">Crop & Insert Image</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    $(function(){
-
-        //Add New
-        $('#modal-btn').click(function(){
-            $('#my-modal').modal('show');
-        });
-
-
-        $('#btnsocial').click(function(){
-            var url = $('#myForm').attr('action');
-            var data = $('#myForm').serialize();
-            $.ajax({
-                type: 'ajax',
-                method: 'post',
-                url: url,
-                data: data,
-                async: false,
-                dataType: 'json',
-                success: function(response){
-                    if(response.success){
-                        $('#myModal').modal('hide');
-                        $('#myForm')[0].reset();
-                        $('.alert-success').html('Employee aded successfully').fadeIn().delay(4000).fadeOut('slow');
-                    }else{
-                        alert('Error');
-                    }
-                },
-                error: function(){
-                    alert('Could not add data');
-                }
-            });
-        });
-
-    });
-</script>
-<script>
-    $(document).ready(function (){
-        $("#imghide").hover(function()
-            {
-                $("#boxson").show();
-            },
-            function()
-            {
-                $("#boxson").hide();
-            });
-
-    })
-</script><!-- hide image user -->
-<script>
-    $('.new_Btn').bind("click" , function () {
-        $('#insert_image').click();
-    });
-</script><!-- load image style -->
-<script>
-    $(document).ready(function(){
-        $('.new_Btn').bind("click" , function () {
-            $('#insert_image').click();
-        });
-
-        $image_crop = $('#image_demo').croppie({
-            enableExif: true,
-            viewport: {
-                width:200,
-                height:200,
-                type:'circle' //square
-            },
-            boundary:{
-                width:300,
-                height:300
-            }
-        });
-
-        $('#insert_image').on('change', function(){
-            var reader = new FileReader();
-            reader.onload = function (event) {
-                $image_crop.croppie('bind', {
-                    url: event.target.result
-                }).then(function(){
-                    console.log('jQuery bind complete');
-                });
-            }
-            reader.readAsDataURL(this.files[0]);
-            $('#insertimageModal').modal('show');
-        });
-
-        $('.crop_image').click(function(event){
-            $image_crop.croppie('result', {
-                type: 'canvas',
-                size: 'viewport'
-            }).then(function(response){
-                $.ajax({
-                    url:'<?php echo base_url(); ?>insert',
-                    type:'POST',
-                    data:{"image":response},
-                    success:function(data){
-                        $('#insertimageModal').modal('hide');
-                        alert(data);
-                    }
-                })
-            });
-        });
-
-
-    });
-</script><!-- load image and crop it -->
-<script>
-    $(".toggle-password").click(function() {
-
-        $(this).toggleClass("fa-eye fa-eye-slash");
-        var input = $($(this).attr("toggle"));
-        if (input.attr("type") == "password") {
-            input.attr("type", "text");
-        } else {
-            input.attr("type", "password");
-        }
-    });
-</script><!-- show and hide password -->
-<script>
-    $(".close-alert").click(function(e){
-        $(this).parent().remove();
-        e.preventDefault();
-    });
-
-</script><!-- close alert -->
-
-
-
-
-
-<div id="modalbtn" class="modal fade" tabindex="-1" role="dialog" >
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">parametre</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <form action="" id="myForm" method="post">
-                        <div class="alert alert-warning" role="alert" style="opacity: .7">
-                            <span class="close close-alert" >&times;</span>
-                            <i class="pe-7s-attention"> </i>
-                            entrer le lien de votre compte correct :
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 15px">
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-facebook" ></i>
-                                    <input type="text" class="form-control" name="facebook" id="facebook" value="<?php echo $info['Facebook']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-twitter" ></i>
-                                    <input type="text" class="form-control" name="twitter" id="twitter" value="<?php echo $info['Twitter']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 15px">
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-google-plus" ></i>
-                                    <input type="text" class="form-control" name="google" id="google" value="<?php echo $info['Google']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-linkedin" ></i>
-                                    <input type="text" class="form-control" name="linkedin" id="linkedin" value="<?php echo $info['LinkedIn']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 15px">
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-skype " ></i>
-                                    <input type="text" class="form-control" name="skype" id="skype" value="<?php echo $info['Skype']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-github" ></i>
-                                    <input type="text" class="form-control" name="github" id="github" value="<?php echo $info['github']; ?>" />
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: #fff;border: 1px solid #888;color: #000">Close</button>
-                <button type="button" id="btnSave" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">Save changes</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<script>
-    $(function(){
-        $('#btn').click(function(){
-            $('#modtn').modal('show');
-            $('#myForm').attr('action', '<?php echo base_url() ?>profil/validations');
-        });
-
-
-        $('#btnSave').click(function(){
-            var url = $('#myForm').attr('action');
-            var data = $('#myForm').serialize();
-
-            if(true){
-                $.ajax({
-                    type: 'ajax',
-                    method: 'post',
-                    url: url,
-                    data: data,
-                    async: false,
-                    dataType: 'json',
-                    success: function(response){
-                        if(response.success){
-                            $('#myForm')[0].reset();
-                            $('.alert-success').html('kolxi mzyaan').fadeIn().delay(4000).fadeOut('slow');
-                        }else{
-                            alert('un champs field ou un lien non valid');
-                            console.log(json);
-                        }
-                    },
-                    error: function(){
-                        alert('Could not add data');
-                    }
-                });
-            }
-        });
-
-    });
-</script>
-<div id="insertimageModal" class="modal" role="dialog" >
-    <div class="modal-dialog" style="width:670px ;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Crop & Insert Image</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-8 text-center">
-                        <div id="image_demo" style="width:350px; margin-top:30px"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer" >
                 <button class="btn btn-success crop_image">Crop & Insert Image</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -705,51 +454,7 @@
     }
 </script><!-- hide image user -->
 <script>
-    $(function(){
-
-        //Add New
-        $('#modal-btn').click(function(){
-            $('#my-modal').modal('show');
-        });
-
-
-
-        $('#btnsocial').click(function(){
-            var url = $('#myForm').attr('action');
-            var data = $('#myForm').serialize();
-            $.ajax({
-                type: 'ajax',
-                method: 'post',
-                url: url,
-                data: data,
-                async: false,
-                dataType: 'json',
-                success: function(response){
-                    if(response.success){
-                        $('#myModal').modal('hide');
-                        $('#myForm')[0].reset();
-                        $('.alert-success').html('Employee aded successfully').fadeIn().delay(4000).fadeOut('slow');
-                    }else{
-                        alert('Error');
-                    }
-                },
-                error: function(){
-                    alert('Could not add data');
-                }
-            });
-        });
-
-    });
-</script>
-
-<!-- load image style -->
-<script>
     $(document).ready(function(){
-        $('.new_Btn').bind("click" , function () {
-            $('#insert_image').click();
-        });
-
-
         $image_crop = $('#image_demo').croppie({
             enableExif: true,
             viewport: {
@@ -772,6 +477,7 @@
                     console.log('jQuery bind complete');
                 });
             }
+
             reader.readAsDataURL(this.files[0]);
             $('#insertimageModal').modal('show');
         });
@@ -798,15 +504,21 @@
 
         function load_images()
         {
+
             $.ajax({
                 url:"<?php echo base_url() ?>Insert/fetch",
-                success:function(data)
-                {
-                    $('#showdata').html(data);
-                },
-                error: function(){
-                    alert('Could not get Data from Database');
-                }
+                /*  success:function(data)
+                  {
+
+                      console.log( data.substring(0, data.length -1 ) );
+                      $('#showdata').html(data);
+                  },
+                  error: function(){
+                      alert('Could not get Data from Database');
+                  }*/
+            }).done(function(data){
+                data = data.substring(0, data.length -1 ) ;
+                $('#showdata').html( data);
             });
         }
 
@@ -832,95 +544,24 @@
     });
 
 </script><!-- close alert -->
-<div id="modalbtn" class="modal fade" tabindex="-1" role="dialog" >
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">parametre</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <form action="" id="myForm" method="post">
-                        <div class="alert alert-warning" role="alert" style="opacity: .7">
-                            <span class="close close-alert" >&times;</span>
-                            <i class="pe-7s-attention"> </i>
-                            entrer le lien de votre compte correct :
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 15px">
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-facebook" ></i>
-                                    <input type="text" class="form-control" name="facebook" id="facebook" value="<?php echo $info['Facebook']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-twitter" ></i>
-                                    <input type="text" class="form-control" name="twitter" id="twitter" value="<?php echo $info['Twitter']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 15px">
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-google-plus" ></i>
-                                    <input type="text" class="form-control" name="google" id="google" value="<?php echo $info['Google']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-linkedin" ></i>
-                                    <input type="text" class="form-control" name="linkedin" id="linkedin" value="<?php echo $info['LinkedIn']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 15px">
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-skype " ></i>
-                                    <input type="text" class="form-control" name="skype" id="skype" value="<?php echo $info['Skype']; ?>"/>
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="inner-addon left-addon">
-                                    <i class="glyphicon glyphicon-user fa fa-github" ></i>
-                                    <input type="text" class="form-control" name="github" id="github" value="<?php echo $info['github']; ?>" />
-                                    <div id="error"></div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: #fff;border: 1px solid #888;color: #000">Close</button>
-                <button type="button" id="btnSave" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">Save changes</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 <script>
     $(function(){
 
-        $('#btn').click(function(){
-            $('#modalbtn').modal('show');
-            $('#myForm').attr('action', '<?php echo base_url() ?>profil/validations');
+        $('#btn').click(function(){//
+            $('#modtn').modal('show');
+
         });
 
 
-        $('#btnSave').click(function(){
+        $('#btnsocial').click(function(){
             var url = $('#myForm').attr('action');
             var data = $('#myForm').serialize();
-            if(true){
+
+
                 $.ajax({
                     type: 'ajax',
                     method: 'post',
-                    url: url,
+                    url:  '<?php echo base_url() ?>profil/validations',
                     data: data,
                     async: false,
                     dataType: 'json',
@@ -937,7 +578,7 @@
                         alert('Could not add data');
                     }
                 });
-            }
+
         });
 
     });

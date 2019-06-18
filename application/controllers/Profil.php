@@ -61,7 +61,7 @@ class Profil extends CI_Controller{
         $this->form_validation->set_message('required', 'You missed the input {field}!');
 
         if (!$this->form_validation->run()) {
-            $json = array(
+            $json = array( // hna ila kan ghalt  taybayan champ li ghalt bl 7mr
                 'facebook' => form_error('facebook', '<p class="mt-3 text-danger">', '</p>'),
                 'google' => form_error('google', '<p class="mt-3 text-danger">', '</p>'),
                 'skype' => form_error('skype', '<p class="mt-3 text-danger">', '</p>'),
@@ -73,6 +73,8 @@ class Profil extends CI_Controller{
                 ->set_content_type('application/json')
                 ->set_output(json_encode($json));
         }else{
+
+            // sinon ajouti social l base don
             $this->addsocial();
         }
     }
@@ -126,14 +128,33 @@ class Profil extends CI_Controller{
         $result = $this->profileInfo->addsocial();
         $msg['success'] = false;
         $msg['type'] = 'add';
-        if($result){
+        if($result >0){
             $msg['success'] = true;
         }
-        echo json_encode($msg);
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($msg));
     }
     public function showprofil(){
         $result = $this->profileInfo->showprofil();
         echo json_encode($result);
+    }
+    function passwordupdate(){
+        $this->form_validation->set_rules('pass1', 'Mot De Pass', 'required');
+        $this->form_validation->set_rules('pass', 'Mot De Pass', 'required');
+        $this->form_validation->set_rules('pass2', 'Mot De Pass', 'required');
+
+        if ($this->form_validation->run()) {
+            $pass = $this->input->post('pass');
+            $pass1 = $this->input->post('pass1');
+            $pass2 = $this->input->post('pass2');
+            $data['info'] = $this->profileInfo->get_info();
+            echo $data['password'];
+        }else{
+            $result = 'tous les champs sans obligatoires';
+            $this->session->set_flashdata('message',$result);
+            redirect('profil');
+        }
     }
 
 }

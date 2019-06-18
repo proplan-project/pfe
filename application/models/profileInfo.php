@@ -18,8 +18,7 @@ class profileInfo extends  CI_Model {
     }
 
     function edit($params){
-
-        $id = $this->session->userdata['info']['id'];
+         $id = $this->session->userdata['info']['id'];
         $db = $this->session->userdata['info']['db'];
         $sid = "$id";
         $sdb = "$db";
