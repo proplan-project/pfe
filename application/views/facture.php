@@ -56,7 +56,7 @@
                     <h4 class="modal-title">Ajouter une Facture</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div  id ="id_facture" class="form-group">
                         <label>Numero Facture</label>
                         <input type="number" name="Numero" id="Numero" class="form-control" />
                     </div>
@@ -84,7 +84,7 @@
 
                     <div class="form-group">
                         <label>Client</label>
-                        <select name="id_client">
+                        <select name="id_client" class="form-control">
                             <option value="">Selectionner Un Client</option>
                             <?php
                             foreach($all_client as $client)
@@ -125,14 +125,14 @@
 
 <script type="text/javascript" language="javascript" >
     $(document).ready(function(){
-
+        var id_facture = $(this).data('row-id');
         var factureTable = $('#facture_data').bootgrid({
             ajax:true,
             rowSelect: true,
             post:function()
             {
                 return{
-                    id:"b0df282a-0d67-40e5-8558-c9e93b7befed"
+                    id:id_facture
                 }
             },
             url:"<?php echo base_url(); ?>facture/fetch_data",
@@ -154,7 +154,10 @@
             $('.modal-title').text("Add facture");
             $('#action').val("Add");
             $('#operation').val("Add");
+            $('#id_facture input').attr('disabled',false);
+            $('#id_facture').show();
         });
+
 
         $(document).on('submit', '#facture_form', function(event){
             event.preventDefault();
@@ -197,6 +200,8 @@
                     dataType:"json",
                     success:function(data)
                     {
+                        $('#id_facture').show();
+                        $('#id_facture input').attr('disabled',true);
                         $('#factureModal').modal('show');
                         $('#Numero').val(data.Numero);
                         $('#date_echeance').val(data.date_echeance);

@@ -93,33 +93,12 @@
 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><b><?php echo $nom['nom']." ".$nom['prenom'];?></b><i>&nbsp<?php if($this->session->userdata['info']['db'] == 'chef_projet'){echo "Chef de projet";} ?><?php echo $nom['type']; ?></b></i></a></li>
+                            <li><a href="#"><b><?php echo $nom['nom']." ".$nom['prenom'];?></b><i>&nbsp<?php if($this->session->userdata['info']['db'] == 'chef_projet'){echo "Chef de projet";}else {echo $nom['type'];} ?></b></i></a></li>
                             <li><a href="<?php echo base_url()?>profil">Voir le Profil</a></li>
                             <li><?php echo '<a href="'.base_url().'private_area/logout">Deconnecter</a>'; ?></li>
                         </ul>
                     </li>
-                    <li class="dropdown" >
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="pe-7s-mail" style="font-size: 25px"></i>
-                            <span class="notification">5</span>
 
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Message De
-                                <?php echo $nom['nom']." ".$nom['prenom'];?>
-                                </a></li>
-                            <li><a href="#">Autre Message</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="pe-7s-global" style="font-size: 25px"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Français</a></li>
-                            <li><a href="#">English</a></li>
-                        </ul>
-                    </li>
 
                 </ul>
             </div>

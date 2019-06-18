@@ -209,7 +209,7 @@
                         $('#percent_complete').val(data.percent_complete);
                         $('#id_projet').val(data.id_projet);
                         $('.modal-title').text("Modifier la tache");
-                        $('#id_tache').val(data.id_tache);
+                        $('#id_tache').val(id_tache);
                         $('#action').val('Edit');
                         $('#operation').val('Edit');
                         $('#tache_data').bootgrid('reload');

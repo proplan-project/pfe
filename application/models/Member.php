@@ -41,25 +41,26 @@ class Member extends CI_Model{
 
     function fetch() {
 
-        $query = $this->db->get('utilisateur');
+     //   $this->db->where('id',$this->session->userdata['info']['id']);
+        $query = $this->db->get_where('utilisateur', array('id' =>  $this->session->userdata['info']['id'] ));
         $output = '<div class="row">';
         if($query->num_rows() > 0){
             $result = $query->result_array();
             foreach($result as $row)
             {
-                if ($row['image'] != null){
-                    $img = "<img id='avatar' src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png' class='avatar img-circle img-thumbnail' alt='avatar' style='width: 200px;height: 200px;cursor: pointer'>";
+                if ($row['image'] == null){
+                    $img = "<img id='avatar' src='http://ssl.gstatic.com/accounts/ui/avatar_2x.png' class='avatar img-circle img-thumbnail' alt='avatar' style='width: 200px;height: 200px;cursor: pointer'> ";
                 }else{
                     $img = "<img  id='avatar' src='" .base_url(). "/assets/img/faces/face-1.jpg' class='avatar img-circle img-thumbnail' alt='avatar'   style='width: 200px;height: 200px ;cursor: pointer'>";
                 }
                 $output .= "
-                     <div style=\"margin-left: 55px \" id=\"imghide\" class=\"new_Btn\" onmouseover='showhiddenimg()' >
+                     <div style=\"margin-left: 55px ; position:relative\" id=\"imghide\" class=\"new_Btn\"  onmouseover='showhiddenimg()' >
                              $img
                         
-                            <div style=\"background-color:hsla(0, 3%, 0%, 0.3);width: 200px;height: 200px ;border-radius: 50%;position: absolute;margin-top: -200px; display: none \" id=\"boxson\">
+                            <div style=\"background-color:hsla(0, 3%, 0%, 0.3); position:relative;width: 200px;height: 200px ;border-radius: 50%; margin-top: -200px; display: none; cursor:pointer;z-index:500000\" id=\"boxson\" >
                                 <br><br><br>
                                 <p style=\"text-align: center;color: #FFFFFF\"><i class=\"fa fa-camera\" aria-hidden=\"true\" style=\"font-size: 40px;margin-left: -24px\"></i><br>
-                                    CHANGER LA <br>PHOTO DE <br>PROFILE</p>
+                                    CHANGER LA  <br>PHOTO DE <br>PROFILE</p>
                             </div>
                         </div>
                 ";
