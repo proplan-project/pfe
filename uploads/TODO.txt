@@ -1,0 +1,4 @@
+A FAIRE:
+
+
+supprimé les foreign keys apres que le parent ( primary key )  aye été supprimé 

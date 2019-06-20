@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <button type="button" id="add_button" data-toggle="modal" data-target="#projetModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Un projet
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Un Projet
                                 </button>
                             </div>
                         </div>
@@ -42,11 +42,11 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>titre_projet</th>
+                                    <th>Titre Projet</th>
                                     <th>Description</th>
-                                    <th>Date début</th>
-                                    <th>Date limite</th>
-                                    <th>Date creation</th>
+                                    <th>Date Début</th>
+                                    <th>Date Limite</th>
+                                    <th>Date Création</th>
                                     <th>Status</th>
                                 </tr>
                                 <?php foreach ($utilisateur_projet as $up){ ?>
@@ -79,7 +79,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Ajouter un projet</h4>
+                    <h4 class="modal-title">Ajouter Un Projet</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -169,7 +169,7 @@
 
         $('#add_button').click(function(){
             $('#projet_form')[0].reset();
-            $('.modal-title').text("Add projet");
+            $('.modal-title').text("Ajouter Un Projet");
             $('#action').val("Add");
             $('#operation').val("Add");
         });
@@ -224,7 +224,7 @@
                         $('#status').val(data.status);
                         $('#prix').val(data.prix);
                         $('#id_client').val(data.id_client);
-                        $('.modal-title').text("Edit projet Details");
+                        $('.modal-title').text("Modifier Info");
                         $('#id_projet').val(data.id_projet);
                         $('#action').val('Edit');
                         $('#operation').val('Edit');
@@ -233,7 +233,7 @@
             });
 
             projetTable.find('.delete').on('click', function(event){
-                if(confirm("Are you sure you want to delete this?"))
+                if(confirm("Voulez-vous supprimer ce projet ?"))
                 {
                     var id_projet = $(this).data('row-id');
                     $.ajax({

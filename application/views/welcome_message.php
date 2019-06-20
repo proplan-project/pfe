@@ -316,7 +316,7 @@
         <p class="mb-0 text-light">Copyright ©<script>
                 var CurrentYear = new Date().getFullYear()
                 document.write(CurrentYear)
-            </script> Développées par Fatima Zahra El Alami & Hala El Yabouri</p>
+            </script> Développé par Fatima Zahra El Alami & Hala El Yabouri</p>
     </div>
 </footer>
 <!-- /footer -->

@@ -130,7 +130,7 @@ if (isset($_POST['azure'])){
                     <div class="row">
                         <div class="col-md-2">
                             <button type="button" id="add_button" data-toggle="modal" data-target="#tacheModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Un tache
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Une tache
                             </button>
                         </div>
                     </div>
@@ -153,7 +153,7 @@ if (isset($_POST['azure'])){
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Ajouter un tache</h4>
+                    <h4 class="modal-title">Ajouter une tache</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -165,19 +165,19 @@ if (isset($_POST['azure'])){
                         <textarea type="text" name="description" id="description" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Date_debut</label>
+                        <label>Date Debut</label>
                         <input type="date" name="date_debut" id="date_debut" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Date limite</label>
+                        <label>Date Limite</label>
                         <input type="date" name="date_limite" id="date_limite" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Status</label>
                         <select name="status" id="status" class="form-control">
-                            <option value="à faire">à faire</option>
-                            <option value="en cours">en cours</option>
-                            <option value="terminé">terminé</option>
+                            <option value="à faire">A faire</option>
+                            <option value="en cours">En cours</option>
+                            <option value="terminé">Terminé</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -187,8 +187,8 @@ if (isset($_POST['azure'])){
                     <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
                         <div class="form-group">
                             <label>Projet</label>
-                            <select name="id_projet">
-                                <option value="">selectionner un projet</option>
+                            <select name="id_projet" class="form-control">
+                                <option value="">Selectionner Un Projet</option>
                                 <?php
                                 foreach($all_projet as $projet)
                                 {
@@ -203,8 +203,8 @@ if (isset($_POST['azure'])){
                     <?php if($this->session->userdata['info']['db'] == 'utilisateur'){ ?>
                         <div class="form-group">
                             <label>Projet</label>
-                            <select name="id_projet">
-                                <option value="">selectionner un projet</option>
+                            <select name="id_projet" class="form-control">
+                                <option value="">Selectionner Un Projet</option>
                                 <?php
                                 foreach($utilisateur_projet as $up)
                                 {
@@ -220,7 +220,7 @@ if (isset($_POST['azure'])){
                 <div class="modal-footer">
                     <input type="hidden" name="id_tache" id="id_tache" />
                     <input type="hidden" name="operation" id="operation" value="Add" />
-                    <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />
+                    <input type="submit" name="action" id="action" class="btn btn-success" value="Ajouter" />
                 </div>
             </div>
         </form>
@@ -258,8 +258,8 @@ if (isset($_POST['azure'])){
 
         $('#add_button').click(function(){
             $('#tache_form')[0].reset();
-            $('.modal-title').text("Add tache");
-            $('#action').val("Add");
+            $('.modal-title').text("Ajouter une tache");
+            $('#action').val("Ajouter");
             $('#operation').val("Add");
         });
 
@@ -290,7 +290,7 @@ if (isset($_POST['azure'])){
             }
             else
             {
-                alert("Field is Required");
+                alert("Tout les champs sont requis!");
             }
         });
     });

@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <button type="button" id="add_button" data-toggle="modal" data-target="#equipeModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un Equipe
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter Une Equipe
                                 </button>
                             </div>
                         </div>
@@ -21,7 +21,7 @@
                         <table id="equipe_data" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th data-column-id="nom" data-formatter="nom">Nom d'équpe</th>
+                                <th data-column-id="nom" data-formatter="nom">Nom d'équipe</th>
                                 <th data-column-id="titre_emploi">Titre d'emploi</th>
                                 <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
                                     <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
@@ -38,7 +38,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Nom d'équpe</th>
+                                    <th>Nom d'équipe</th>
                                     <th>Titre d'emploi</th>
                                 </tr>
                                 </thead>
@@ -68,7 +68,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Ajouter un Equipe</h4>
+                    <h4 class="modal-title">Ajouter Une Equipe</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -83,7 +83,7 @@
                 <div class="modal-footer">
                     <input type="hidden" name="id_equipe" id="id_equipe" />
                     <input type="hidden" name="operation" id="operation" value="Add" />
-                    <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />
+                    <input type="submit" name="action" id="action" class="btn btn-success" value="Ajouter" />
                 </div>
             </div>
         </form>
@@ -119,8 +119,8 @@
 
         $('#add_button').click(function(){
             $('#equipe_form')[0].reset();
-            $('.modal-title').text("Add Equipe");
-            $('#action').val("Add");
+            $('.modal-title').text("Ajouter Une Equipe");
+            $('#action').val("Ajouter");
             $('#operation').val("Add");
         });
 
@@ -146,7 +146,7 @@
             }
             else
             {
-                alert("Field is Required");
+                alert("Tout les champs sont requis!");
             }
         });
 
@@ -163,16 +163,16 @@
                         $('#equipeModal').modal('show');
                         $('#nom').val(data.nom);
                         $('#titre_emploi').val(data.titre_emploi);
-                        $('.modal-title').text("Edit Equipe Details");
+                        $('.modal-title').text("Modifier Les détails d'Equipe");
                         $('#id_equipe').val(id_equipe);
-                        $('#action').val('Edit');
+                        $('#action').val('Modifier');
                         $('#operation').val('Edit');
                     }
                 });
             });
 
             equipeTable.find('.delete').on('click', function(event){
-                if(confirm("Are you sure you want to delete this?"))
+                if(confirm("Voulez vous supprimer cette équipe ?"))
                 {
                     var id_equipe = $(this).data('row-id');
                     $.ajax({

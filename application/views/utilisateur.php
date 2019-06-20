@@ -73,7 +73,7 @@
                     </div>
                     <div class="form-group">
                         <label>Genre</label>
-                        <select name="genre" id="genre">
+                        <select name="genre" id="genre" class="form-control">
                             <option value="homme">M</option>
                             <option value="femme">F</option>
                         </select>
@@ -83,7 +83,7 @@
                 <div class="modal-footer">
                     <input type="hidden" name="id" id="id" />
                     <input type="hidden" name="operation" id="operation" value="Add" />
-                    <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />
+                    <input type="submit" name="action" id="action" class="btn btn-success" value="Ajouter" />
                 </div>
             </div>
         </form>
@@ -113,8 +113,8 @@
 
         $('#add_button').click(function(){
             $('#utilisateur_form')[0].reset();
-            $('.modal-title').text("Add Utilisateur");
-            $('#action').val("Add");
+            $('.modal-title').text("Ajouter Un Utilisateur");
+            $('#action').val("Ajouter");
             $('#operation').val("Add");
         });
 
@@ -166,16 +166,16 @@
                         $('#email').val(data.email);
                         $('#password').val(data.password);
                         $('#genre').val(data.genre);
-                        $('.modal-title').text("Edit utilisateur Details");
+                        $('.modal-title').text("Modifier Les Info D'utilisateur");
                         $('#id').val(id);
-                        $('#action').val('Edit');
+                        $('#action').val('Modifier');
                         $('#operation').val('Edit');
                     }
                 });
             });
 
             utilisateurTable.find('.delete').on('click', function(event){
-                if(confirm("Are you sure you want to delete this?"))
+                if(confirm("Voulez vous supprimer cet utilisateur ?"))
                 {
                     var id = $(this).data('row-id');
                     $.ajax({

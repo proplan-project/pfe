@@ -181,7 +181,7 @@
                         <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
                             <div class="col-md-2" align="right">
                                 <button type="button" id="add_equipe_button" data-toggle="modal" data-target="#equipeModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Inviter un équipe
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Inviter une équipe
                                 </button>
                             </div>
                         <?php } ?>
@@ -318,13 +318,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Inviter un équipe</h4>
+                    <h4 class="modal-title">Inviter une équipe</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Equipe</label>
                         <select name="id_equipe">
-                            <option value="">selectionner un équipe</option>
+                            <option value="">Selectionner une équipe</option>
                             <?php
                             foreach($all_equipe as $equipe)
                             {
@@ -353,7 +353,7 @@
         $('#add_equipe_button').click(function(){
 
             $('#equipe_form')[0].reset();
-            $('.modal-title').text("Inviter un équipe");
+            $('.modal-title').text("Inviter une équipe");
             $('#add_equipe').val("Add");
             $('#operation').val("Add");
         });
@@ -380,7 +380,7 @@
             }
             else
             {
-                alert("Field is Required");
+                alert("Tout les champs sont requis!");
             }
         });
 
@@ -478,7 +478,7 @@
             e.preventDefault();
             if($('#image_file').val() == '')
             {
-                alert("Please Select the File");
+                alert("Selectionner un fichier");
             }
             else
             {
@@ -492,7 +492,7 @@
                     success:function(data)
                     {
                         $('#uploaded_image').html(data);
-                        alert("yes");
+                        alert("Le fichier a été envoyé avec succes!");
                     }
                 });
             }

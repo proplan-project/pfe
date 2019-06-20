@@ -153,17 +153,17 @@
                                 <form class="form" action="<?php echo base_url()?>profil/passwordupdate" method="post" id="registrationForm">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="password"><h4>mot de passe actuel</h4></label>
+                                            <label for="password"><h4>Ancien Mot De Passe</h4></label>
                                             <input type="password" class="form-control" name="pass" id="password" placeholder="***" >
                                             <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="newpass"><h4>nouveau mot de passe</h4></label>
+                                            <label for="newpass"><h4>Nouveau Mot De Passe</h4></label>
                                             <input type="password" class="form-control" name="pass1" id="newpass" placeholder="***">
                                             <span toggle="#newpass" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label for="newpassc"><h4>Confirmez le mot de passe</h4></label>
+                                            <label for="newpassc"><h4>Confirmez Le Mot De Passe</h4></label>
                                             <input type="password" class="form-control" name="pass2" id="newpassc" placeholder="***" >
                                             <span toggle="#newpassc" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                         </div>
@@ -188,7 +188,7 @@
             <footer class="footer">
                 <div class="container-fluid">
                     <p class="copyright pull-right">
-                        &copy; 2019 <a href="http://www.proplan.com">ProPlan</a>, made by EL ALAMI FATIMA ZAHRA & HALA EL YABOURI
+                        &copy; 2019 <a href="http://www.proplan.com">ProPlan</a>, Développé par  EL ALAMI FATIMA ZAHRA & HALA EL YABOURI
                     </p>
                 </div>
             </footer> <!--/end of footer-->
@@ -369,7 +369,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">parametre</h4>
+                <h4 class="modal-title">Liens Sociaux</h4>
             </div>
             <div class=" alert alert-success" style="display: none"></div>
             <div class="modal-body">
@@ -378,7 +378,7 @@
                         <div class="alert alert-warning" role="alert" style="opacity: .7">
                             <span class="close close-alert" >&times;</span>
                             <i class="pe-7s-attention"> </i>
-                            entrer le lien de votre compte correct :
+                            Entrer les liens de vos compte sociaux :
                         </div>
                         <div class="col-md-12" style="margin-bottom: 15px">
                             <div class="col-md-6">
@@ -431,8 +431,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: #fff;border: 1px solid #888;color: #000">Close</button>
-                <button type="button" id="btnSave" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: #fff;border: 1px solid #888;color: #000">Fermer</button>
+                <button type="button" id="btnSave" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">Enregister</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -442,7 +442,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Crop & Insert Image</h4>
+                <h4 class="modal-title">Couper et Insérer l'image</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -452,8 +452,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success crop_image">Crop & Insert Image</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-success crop_image">Couper et Insérer l'image</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>
@@ -500,7 +500,7 @@
                 $image_crop.croppie('bind', {
                     url: event.target.result
                 }).then(function(){
-                    console.log('jQuery bind complete');
+
                 });
             }
 
@@ -592,15 +592,15 @@
                     dataType: 'json',
                     success: function(response){
                         if(response.success){
-                            $('#myForm')[0].trigger('reset');//makatkhdemx
-                            $('.alert-success').html('kolxi mzyaan').fadeIn().delay(4000).fadeOut('slow');
+                            $('#myForm')[0].trigger('reset');
+                            $('.alert-success').html('Tout les liens ont été mis à jour!').fadeIn().delay(4000).fadeOut('slow');
                                      }else{
-                            alert('un champs field ou un lien non valid');
+                            alert('Un ou plusieurs champs sont invalident!');
                             console.log(json);
                         }
                     },
                     error: function(){
-                        alert('Could not add data'); // hit tatakhdi les valeur b PHP , hna
+                        alert('Erreur lors de l\'insertion');
                     }
                 });
             }
