@@ -1,9 +1,9 @@
 <div class="sidebar-wrapper">
     <div class="logo">
-        <a href="http://www.proplan.com" class="simple-text">
-            ProPlan
+        <img src="<?php echo base_url(); ?>assets/images/logo_proplan.png" alt="Myself">
         </a>
     </div>
+
 
     <ul class="nav">
 
@@ -38,6 +38,7 @@
 <div class="main-panel">
     <nav class="navbar navbar-default navbar-fixed">
         <div class="container-fluid">
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
                     <span class="sr-only">Toggle navigation</span>
@@ -45,8 +46,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                <a class="navbar-brand" href="#" ><b>ProPlan</b> : Créer une harmonie de travail</a>
+                <div>
+                    <img src="<?php echo base_url(); ?>assets/images/logo_home.png" alt="Myself" style="margin-top: 8px"><h3 style="margin-left: 70px ;margin-top: -43px">Créer une harmonie de travail</h3>
+                </div>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">

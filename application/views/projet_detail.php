@@ -3,7 +3,172 @@
     <div class="sidebar"data-color="<?php echo $color ;?>" data-image="assets/img/sidebar-5.jpg">
 
         <?php require 'includes/nav.php'; ?>
+        <style>
+            .ul {
+                display: flex ;
+                position: absolute;
+                left: 40px;
+                transform: translate(-50%,-50%);
+            }
+            .ul li a{
+                width: 30px;                                /* ??? ????????? */
+                height: 30px;                                /* ??? ????????? */
+                background-color: #f7f7f8;                  /* ??? ???????  */
+                text-align: center;
+                font-size: 15px;                            /* ??????? ?? ?????? ??????? */
+                display: block;
+                border-radius: 50%;                      /* ??? ???????? ???? ????? */
+                position: relative;
+                overflow: hidden;
+                border: solid 3px #ffffff;
+                z-index: 2;
+            }
+            .ul li a .fa {
+                position: relative;
+                color: #262626;                 /*  ??? ???????? ??????? */
+                transition: .5s;
+                z-index: 3;
+            }
+            .ul li a:hover .fa {
+                color: #FFFFFF;                 /* ??? ???????? ??? ?????? */
+                transform: rotateY(360deg);
+            }
+            .ul li a:before {
+                content: '';
+                position: absolute;
+                top: 100% ;
+                left: 0% ;
+                width: 100%;
+                height: 100%;
+                background-color: #FF0000;
+                transition: .5s;
+                z-index:1 ;
+            }
+            .ul li a:hover:before {
+                top: 0 ;
+            }
+            .ul li:nth-child(1) a:before {
+                background-color:#3b5999 ; /* ????? ???*/
+            }
+            .ul li:nth-child(2) a:before {
+                background-color:#55acee ;
+            }
+            .ul li:nth-child(3) a:before {
+                background-color:#cd201f ; /* ???????? */
+            }
+            .ul li:nth-child(4) a:before {
+                background-color:#dd4b39 ; /* ???? ??? */
+            }
+            .ul li:nth-child(5) a:before {
+                background-color:#0077B5 ; /* ????? ?? */
+            }
+            .ul li:nth-child(6) a:before {
+                background-color:#e4405f ; /* ???????? */
+            }
+            .ul li:nth-child(7) a:before {
+                background-color:#25D366 ; /* ???????? */
+            }
+            .ul li:nth-child(8) a:before {
+                background-color:#00AFF0 ; /* ????? */
+            }
+            .ul li:nth-child(9) a:before {
+                background-color:#34465d ; /* ???????? */
+            }
+            .ul li:nth-child(10) a:before {
+                background-color:#FFFC00 ; /* ???? ??? */
+            }
+            .field-icon {
+                float: right;
+                margin-left: -22px;
+                margin-top: -25px;
+                position: relative;
+                z-index: 2;
+            }
+            :root {
+                --modal-duration: 1s;
+                --modal-color: #FFFFFF;
+            }
 
+            .modal-content {
+                background-color: #fefefe;
+                margin: 10% auto; /* 15% from the top and centered */
+                padding: 20px;
+                border: 1px solid #888;
+                width: 40%; /* Could be more or less, depending on screen size */
+            }
+
+
+            .close {
+                color: #ccc;
+                float: right;
+                font-size: 30px;
+                color: #000;
+            }
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            @keyframes modalopen {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            .inner-addon {
+                position: relative;
+            }
+            /* style icon */
+            .inner-addon .glyphicon {
+                position: absolute;
+                padding: 10px;
+                pointer-events: none;
+            }
+            /* align icon */
+            .left-addon .glyphicon  { left:  0px;}
+            .right-addon .glyphicon { right: 0px;}
+
+            /* add padding  */
+            .left-addon input  { padding-left:  30px; }
+            .right-addon input { padding-right: 30px; }
+
+            .alert {
+                min-width: 150px;
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 3px;
+            p{
+                padding: 0;
+                margin: 0;
+            }
+            i{
+                padding-right: 5px;
+                vertical-align: middle;
+                font-size: 24px;
+            }
+            .close-alert{
+                -webkit-appearance: none;
+                position: relative;
+                float: right;
+                padding: 0;
+                border: 0;
+                cursor: pointer;
+                color: inherit;
+                background: 0 0;
+                font-size: 21px;
+                line-height: 1;
+                font-weight: bold;
+                text-shadow: 0 1px 0 rgba(255,255,255,.7);
+                filter: alpha(opacity=40);
+                opacity: .4;
+            }
+            }
+
+        </style>
         <div class="content">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -25,13 +190,8 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#informations">Informations</a></li>
                     <li><a data-toggle="tab" href="#taches">Liste des taches</a></li>
-                    <li><a data-toggle="tab" href="#kanban">Kanban</a></li>
                     <li><a data-toggle="tab" href="#notes">Notes</a></li>
                     <li><a data-toggle="tab" href="#fichiers">Fichiers</a></li>
-                    <li><a data-toggle="tab" href="#commentaires">Commentaires</a></li>
-                    <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
-                        <li><a data-toggle="tab" href="#facture">Facture</a></li>
-                    <?php } ?>
                 </ul>
             </div>
 
@@ -40,33 +200,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="informations">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <div class="content">
-                                        <div class="header">
-                                            <h4 class="title">Email Statistics</h4>
-                                            <p class="category">Last Campaign Performance</p>
-                                        </div>
-                                        <div class="content">
-                                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-
-                                            <div class="footer">
-                                                <div class="legend">
-                                                    <i class="fa fa-circle text-info"></i> Open
-                                                    <i class="fa fa-circle text-danger"></i> Bounce
-                                                    <i class="fa fa-circle text-warning"></i> Unsubscribe
-                                                </div>
-                                                <hr>
-                                                <div class="stats">
-                                                    <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-8">
+                            <div class="col-md-10">
                                 <div class="card">
                                     <div class="header">
                                         <h4 class="title">Description</h4>
@@ -100,9 +234,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane" id="kanban">
-                        <div class="col-xs-6">kanban</div>
                     </div>
                     <div class="tab-pane" id="notes">
                         <div class="panel panel-default">
@@ -147,16 +278,22 @@
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table id="admin_data" class="table table-striped table-bordered">
+                                    <table id="fichier_data" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>Nom</th>
                                             <th>Size</th>
                                             <th>Date_creation</th>
-                                            <th>Createur</th>
                                             <th>type</th>
-                                            <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
                                         </tr>
+                                        <?php foreach ($all_fichier as $f) {?>
+                                            <tr>
+                                                <td><a href="<?php echo base_url()?>uploads/<?php echo $f['nom'];?>" download><?php echo $f['nom'];?></a></td>
+                                                <td><?php echo $f['size'];?></td>
+                                                <td><?php echo $f['date_creation'];?></td>
+                                                <td><?php echo $f['type'];?></td>
+                                            </tr>
+                                        <?php }?>
                                         </thead>
                                     </table>
                                 </div>
@@ -165,29 +302,6 @@
                     </div>
                     <div class="tab-pane" id="commentaires">
                         <div class="col-xs-6">commentaires</div>
-                    </div>
-                    <div class="tab-pane" id="facture">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table id="facture_data" class="table table-striped table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th data-column-id="Numero" data-formatter="num">Numero</th>
-                                            <th data-column-id="date_facture">Date facture</th>
-                                            <th data-column-id="date_echeance">Date échéance</th>
-                                            <th data-column-id="montant">Montant</th>
-                                            <th data-column-id="paiement_recu">Paiement reçu</th>
-                                            <th data-column-id="status">Status</th>
-                                            <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
-                                                <th data-column-id="nom">Client</th>
-                                            <?php }?>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

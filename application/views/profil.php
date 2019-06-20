@@ -15,10 +15,6 @@
                             <input type="file" name="insert_image" id="insert_image" accept="image/*" style="display: none"/>
                             <h3><?php echo $info['prenom']; ?>  <?php echo $info['nom']; ?></h3>
                         </div></hr><br><!--image with name of user or admin -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><i class="fa fa-link fa-1x"></i>Role</div>
-                            <div class="panel-body">hhhhhh</div>
-                        </div><!--panel of role of user or admin-->
                         <ul class="list-group">
                             <li class="list-group-item text-muted"><i class="fa fa-dashboard fa-1x"></i>Activité</li>
                             <li class="list-group-item text-right"><span class="pull-left"><strong>Taches</strong></span> 125</li>

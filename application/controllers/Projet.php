@@ -8,6 +8,7 @@ class Projet extends CI_Controller{
         $this->load->model('Client_model');
         $this->load->model('Equipe_model');
         $this->load->model('Equipe_projet_model');
+        $this->load->model('Fichier_model');
         $this->load->model('profileInfo');
     }
 
@@ -28,6 +29,7 @@ class Projet extends CI_Controller{
         $data['projet'] = $this->projet_model->fetch_single_data($id_projet);
         $data['all_equipe'] = $this->Equipe_model->make_query();
         $data['all_client'] = $this->Client_model->make_query();
+        $data['all_fichier'] = $this->Fichier_model->make_query($id_projet);
         $this->load->view('projet_detail',$data);
     }
 

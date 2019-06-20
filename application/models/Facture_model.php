@@ -55,8 +55,10 @@ class Facture_model extends CI_Model
         return $query->result_array();
     }
 
-    function facture_projet($id_projet)
+    // listes de facture d'un seul projet
+    function list_facture_projet($id_projet='')
     {
+        $id_projet=$_POST["id"];
         if(isset($_POST["rowCount"]))
         {
             $this->records_per_page = $_POST["rowCount"];
@@ -73,7 +75,7 @@ class Facture_model extends CI_Model
         $this->db->select("*");
         $this->db->from('facture');
         //$this->db->join('projet','projet.id_projet = facture.id_projet');
-        $this->db->join('client','client.id_client = facture.id_client');
+        //$this->db->join('client','client.id_client = facture.id_client');
         $this->db->where('id_projet',$id_projet);
         if(!empty($_POST["searchPhrase"]))
         {
@@ -99,9 +101,34 @@ class Facture_model extends CI_Model
             $this->db->limit($this->records_per_page, $this->start_from);
         }
         $query = $this->db->get();
+        //echo $query->result_array();
+
         return $query->result_array();
     }
 
+
+    function check_facture($id_projet)
+    {
+
+        //select if( sum(facture.paiement_recu) = projet.prix , 1,0)   status_payement from facture join projet on facture.id_projet = projet.id_projet where projet.id_projet = 28
+        $this->db->select('if( sum(facture.paiement_recu) = projet.prix , 1,0) as status_payement');
+
+        $this->db->from('facture');
+        $this->db->join('projet','facture.id_projet = projet.id_projet');
+
+        $this->db->where('facture.id_projet',$id_projet);
+        $this->db->where('facture.status != \'brouillon\' AND facture.status != \'impayé\'');
+
+        $query = $this->db->get();
+        $sum = $query->result_array();
+        return  $sum[0]['status_payement'] ;  // retourne 1 ou 0 3la 7ssab total payé  si total payé = montant d projet retourne 1
+    }
+
+    function payment_done($id_projet)
+    {
+        $this->db->where('id_projet', $id_projet);
+        $this->db->update('facture', '$data');
+    }
     function count_all_data()
     {
         $this->db->select("*");
@@ -120,10 +147,24 @@ class Facture_model extends CI_Model
     function fetch_single_data($id_facture)
     {
         //$this->db->from('facture');
+
         $this->db->join('projet','projet.id_projet = facture.id_projet');
         $this->db->join('client','client.id_client = facture.id_client');
         $this->db->where('id_facture', $id_facture);
         $query = $this->db->get('facture');
+        return $query->result_array();
+    }
+
+    // fetch facture d'un seul projet
+    function fetch_single_projet_facture($id_projet)
+    {
+
+        //$this->db->from('facture');
+        //$this->db->join('projet','projet.id_projet = facture.id_projet');
+        //$this->db->join('client','client.id_client = facture.id_client');
+        $this->db->where('id_projet', $this->input->post('id_projet'));
+        $query = $this->db->get('facture');
+        // print_r($query->result_array());
         return $query->result_array();
     }
 

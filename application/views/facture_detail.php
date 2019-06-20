@@ -12,7 +12,8 @@
                             <div class="clearfix">
                                 <?php foreach ($facture as $f){ ?>
                                 <div class="pull-left">
-                                    <h3 class="logo">PROPLAN</h3>
+                                    <img src="<?php echo base_url(); ?>assets/images/logo_home.png"" />
+                                    <h3 class="logo" style="margin-top: -40px;margin-left: 80px;">PROPLAN</h3>
                                 </div>
                                 <div class="pull-right">
                                     <h5>Invoice <?php echo $f['Numero']; ?> <br>
@@ -88,7 +89,7 @@
                             <div class="hidden-print">
                                 <div class="pull-xs-right">
                                     <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i
-                                            class="fa fa-print"></i></a>
+                                                class="fa fa-print"></i></a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

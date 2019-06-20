@@ -25,10 +25,9 @@
                                 <th data-column-id="Numero" data-formatter="num">Numero</th>
                                 <th data-column-id="date_facture">Date facture</th>
                                 <th data-column-id="date_echeance">Date échéance</th>
-                                <th data-column-id="montant">Montant</th>
+                                <th data-column-id="prix">Montant</th>
                                 <th data-column-id="paiement_recu">Paiement reçu</th>
-                                <th data-column-id="status">Status</th>
-                                <th data-column-id="titre_projet">Projet</th>
+                                <th data-column-id="titre_projet" data-formatter="prj">Projet</th>
                                 <th data-column-id="nom">Client</th>
                                 <?php if($this->session->userdata['info']['db'] == 'chef_projet'){ ?>
                                     <th data-column-id="action" data-formatter="action" data-sortable="false">Action</th>
@@ -82,7 +81,7 @@
                     </div>
 
 
-                    <div class="form-group">
+                    <div id = "clt" class="form-group">
                         <label>Client</label>
                         <select name="id_client" class="form-control">
                             <option value="">Selectionner Un Client</option>
@@ -97,7 +96,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div id = "prj"class="form-group">
                         <label>Projet</label>
                         <select name="id_projet" class="form-control">
                             <option value="">Selectionner Un Projet</option>
@@ -145,6 +144,10 @@
                 "num":function(column, row)
                 {
                     return "<a href=\"<?php echo base_url()?>facture/detail/" +row.id_facture+ "\" target=\"_blank\">" + row.Numero + "</a>";
+                },
+                "prj":function(column, row)
+                {
+                    return "<a href=\"<?php echo base_url()?>facture/list_facture_projet/" +row.id_projet+ "\" target=\"_blank\">" + row.titre_projet + "</a>";
                 }
             }
         });
@@ -154,6 +157,7 @@
             $('.modal-title').text("Add facture");
             $('#action').val("Add");
             $('#operation').val("Add");
+
             $('#id_facture input').attr('disabled',false);
             $('#id_facture').show();
         });
@@ -169,7 +173,7 @@
             var id_client = $('#id_client').val();
             var id_projet = $('#id_projet').val();
             var form_data = $(this).serialize();
-            if(	Numero != '' && montant != '' && paiement_recu != '' && status != '' && id_client != '' && id_projet != '')
+            if(	  paiement_recu != '' && status != '' && id_client != '' && id_projet != '')
             {
                 $.ajax({
                     url:"<?php echo base_url(); ?>facture/action",
@@ -202,15 +206,20 @@
                     {
                         $('#id_facture').show();
                         $('#id_facture input').attr('disabled',true);
+                        $('#montant').attr('disabled',true);
                         $('#factureModal').modal('show');
                         $('#Numero').val(data.Numero);
                         $('#date_echeance').val(data.date_echeance);
-                        $('#montant').val(data.montant);
+                        $('#montant').val(data.prix);
                         $('#paiement_recu').val(data.paiement_recu);
                         $('#status').val(data.status);
-                        $('#id_projet').val(data.id_projet);
-                        $('.modal-title').text("Edit facture Details");
+                        $('#id_projet').val( data.id_projet);
+                        $("select option[value='" +data.id_projet  + "']").attr("selected","selected");
+                        $("select option[value='" +data.id_client  + "']").attr("selected","selected");
+                        $('.modal-title').text("Modifier La Facture");
                         $('#id_facture').val(id_facture);
+                        $('#clt').attr('style','display:none;');
+                        $('#prj').attr('style','display:none;');
                         $('#action').val('Edit');
                         $('#operation').val('Edit');
                     }

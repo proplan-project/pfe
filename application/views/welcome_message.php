@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse text-center" id="navigation">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Accueil</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url(); ?>login">S'identifier</a>
@@ -247,34 +247,6 @@
                     <h4 class="text-white">Omar Mbirek</h4>
                     <h6 class="text-light mb-4">DESIGNER & PROGRAMMER</h6>
                 </div>
-                <!-- slider-item -->
-                <div class="text-center testimonial-content">
-                    <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-                    <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-                            ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
-                        voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <img class="img-fluid rounded-circle mb-4 d-inline-block" src="assets/images/testimonial/client-1.png"
-                         alt="client-image">
-                    <h4 class="text-white">Jesica Gomez</h4>
-                    <h6 class="text-light mb-4">CEO, Funder</h6>
-                </div>
-                <!-- slider-item -->
-                <div class="text-center testimonial-content">
-                    <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-                    <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-                            ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
-                        voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <img class="img-fluid rounded-circle mb-4 d-inline-block" src="assets/images/testimonial/client-1.png"
-                         alt="client-image">
-                    <h4 class="text-white">Jesica Gomez</h4>
-                    <h6 class="text-light mb-4">CEO, Funder</h6>
-                </div>
             </div>
         </div>
     </div>
@@ -344,7 +316,7 @@
         <p class="mb-0 text-light">Copyright ©<script>
                 var CurrentYear = new Date().getFullYear()
                 document.write(CurrentYear)
-            </script> Développer par Fatima Zahra El Alami & Hala El Yabouri</p>
+            </script> Développées par Fatima Zahra El Alami & Hala El Yabouri</p>
     </div>
 </footer>
 <!-- /footer -->

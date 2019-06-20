@@ -12,7 +12,7 @@ class upload extends CI_Controller {
         if(isset($_FILES["image_file"]["name"]))
         {
             $config['upload_path'] = './uploads/';
-            $config['allowed_types'] = 'jpg|jpeg|png|gif|psd|ai|pdf|ppt|doc|mp3|mp4';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif|psd|ai|pdf|ppt|doc|mp3|mp4|txt';
             $this->load->library('upload', $config);
             if(!$this->upload->do_upload('image_file'))
             {

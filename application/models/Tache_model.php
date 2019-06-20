@@ -52,6 +52,20 @@ class Tache_model extends CI_Model
         return $query->result_array();
     }
 
+
+    function check_taches($id_projet)
+    {
+
+        $query =     $this->db->query('select count(*) tache from tache where id_projet = 17 union select count(*) from tache where id_projet = 17 and status = \'terminé\' ');
+
+
+
+        $sum = $query->result_array();
+
+        return  $sum[0]['tache'] ==  $sum[1]['tache']  ;
+    }
+
+
     function tache_projet($id_projet)
     {
         if(isset($_POST["rowCount"]))
@@ -121,8 +135,13 @@ class Tache_model extends CI_Model
 
     function update($data, $id_tache)
     {
+        if ( $data['status'] == 'terminé' )  $data['percent_complete']  = 100;
         $this->db->where('id_tache', $id_tache);
         $this->db->update('tache', $data);
+        if ( $this->check_taches($data['id_projet']) == 1 ) {
+            $this->db->update('projet',$data,array('status' => 'terminé'),'id_projet = ' + $data['id_projet'] );
+            //$this->db->query("UPDATE projet SET status = 'terminé' WHERE id_projet = " + $data['id_projet'] );
+        }
     }
 
     function delete($id_tache)

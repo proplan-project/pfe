@@ -1,6 +1,6 @@
 <div class="sidebar-wrapper">
     <div class="logo">
-        <img src="<?php echo base_url(); ?>assets/images/logo_proplan.png" alt="Myself">
+        <img src="<?php echo base_url(); ?>assets/images/logo_proplan.png" alt="Proplan">
         </a>
     </div>
 

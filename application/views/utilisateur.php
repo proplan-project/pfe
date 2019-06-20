@@ -12,6 +12,7 @@
                             <button type="button" id="add_button" data-toggle="modal" data-target="#utilisateurModal" class="btn" style="background-color: #fff;border: 1px solid #888;color: #000">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un utilisateur
                             </button>
+
                         </div>
                     </div>
                 </div>

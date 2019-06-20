@@ -42,7 +42,7 @@ class Utilisateur extends CI_Controller{
                 'prenom' => $this->input->post('prenom'),
                 'type' => $this->input->post('type'),
                 'email' => $this->input->post('email'),
-                'password' => $this->input->post('password'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'genre' => $this->input->post('genre'),
                 'id_createur' =>$this->session->userdata['info']['id'],
             );

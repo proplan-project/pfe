@@ -53,9 +53,48 @@ class Facture extends CI_Controller{
         echo json_encode($output);
     }
 
-    function facture_projet($id_projet='')
+    function fetch_facture_projet($id_projet='')
     {
-        $data = $this->Facture_model->facture_projet($id_projet);
+        $data = $this->Facture_model->make_query();
+        $array = array();
+        foreach($data as $row)
+        {
+
+            $row[]=$row['Numero'];
+            $row[]=$row['date_facture'];
+            $row[]=$row['date_echeance'];
+            $row[]=$row['montant'];
+            $row[]=$row['paiement_recu'];
+            $row[]=$row['status'];
+
+            $array[] = $row;
+        }
+        $output = array(
+            'current'  => intval($_POST["current"]),
+            'rowCount'  => 10,
+            'total'   => intval($this->Facture_model->count_all_data()),
+            'rows'   => $array
+        );
+        echo json_encode($output);
+    }
+
+    // view diyal list_facture_projet
+    function list_facture_projet($id_facture='')
+    {
+        $data['titre']='Factures du projet';
+        $data['id_facture']=$id_facture;
+        $data['nom'] = $this->profileInfo->get_info();
+        $data['facture'] = $this->Facture_model->fetch_single_projet_facture($id_facture);
+        $this->load->view('facture_projet',$data);
+    }
+
+
+
+    function facture_projet()
+    {
+        $data = $this->Facture_model->list_facture_projet($_POST["id"]);
+
+
         $array = array();
         foreach($data as $row)
         {
@@ -65,7 +104,7 @@ class Facture extends CI_Controller{
             $row[]=$row['montant'];
             $row[]=$row['paiement_recu'];
             $row[]=$row['status'];
-            $row[]=$row['nom'];
+
             $array[] = $row;
         }
         $output = array(
@@ -82,7 +121,7 @@ class Facture extends CI_Controller{
         if($this->input->post('operation'))
         {
             $data = array(
-                'Numero' => $this->input->post('Numero'),
+                'Numero' => substr(time() * rand(2, 9), 0 , 7 ),//$this->input->post('Numero'),
                 'date_echeance' => $this->input->post('date_echeance'),
                 'montant' => $this->input->post("montant"),
                 'paiement_recu' => $this->input->post("paiement_recu"),
@@ -93,15 +132,25 @@ class Facture extends CI_Controller{
             if($this->input->post('operation') == 'Add')
             {
                 $this->Facture_model->insert($data);
-                echo 'Data Inserted';
+                if ( 1 ){
+                    $sum = $this->Facture_model->check_facture($this->input->post("id_projet"));
+
+                    echo  $sum[0];
+                }
+                // echo 'Data Inserted';
             }
             if($this->input->post('operation') == 'Edit')
             {
                 $this->Facture_model->update($data, $this->input->post('id_facture'));
+
+                if (  $this->Facture_model->check_facture($this->input->post("id_projet"))  ){
+
+                }
                 echo 'Data Updated';
             }
         }
     }
+
 
     function action_facture($id_projet='')
     {
@@ -139,9 +188,10 @@ class Facture extends CI_Controller{
             {
                 $output['Numero'] = $row['Numero'];
                 $output['date_echeance'] = $row['date_echeance'];
-                $output['montant'] = $row['montant'];
+                $output['prix'] = $row['prix'];
                 $output['paiement_recu'] = $row['paiement_recu'];
-                $output['status'] = $row['status'];
+                $output['id_client'] = $row['id_client'];
+                $output['id_projet'] = $row['id_projet'];
             }
             echo json_encode($output);
         }
